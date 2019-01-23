@@ -19,6 +19,8 @@ module Problem0003
   private :: Problem0003_01_INT64 ! function
   private :: Problem0003_02_INT32 ! function
   private :: Problem0003_02_INT64 ! function
+  private :: Problem0003_03_INT32 ! function
+  private :: Problem0003_03_INT64 ! function
 
   ! <interface>s for this <program>
   interface Problem0003_01
