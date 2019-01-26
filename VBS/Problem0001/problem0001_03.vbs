@@ -17,8 +17,28 @@ Const str_Title_MsgBox = "Problem Euler 0001"
 REM #==========================================================================#
 REM # <Function>s and <Subroutine>s in this VBScript                           #
 REM #==========================================================================#
+REM | Contained Processes
+Private Function Calc_SumOfMultiples( ByVal divisor, ByVal max )
 
-Function Problem0001_01( ByVal max )
+	REM | [argument of this function]
+	REM | divisor : find the sum of all the multiples of `divisor` below `max`
+
+	REM | [local variables for this function]
+	Dim num_terms
+
+	REM | STEP.01
+	num_terms = Int( max / divisor )
+	If max Mod divisor = 0 Then num_terms = num_terms - 1
+
+	REM | STEP.02
+	Calc_SumOfMultiples = divisor * num_terms * ( num_terms+1 ) / 2
+
+	REM | STEP.TRUE_END
+	Exit function
+
+End Function ' Calc_SumOfMultiples
+
+Function Problem0001_03( ByVal max )
 	
 	REM | [argument of this function]
 	REM | max : find the sum of all the multiples of 3 and 5 below `max`
@@ -30,25 +50,20 @@ Function Problem0001_01( ByVal max )
 	REM | initialize the variable to store the sum
 	If Not IsNumeric( max ) Then
 		MsgBox _
-			"Argument of Problem0001_01 is not numeric !" ,_
+			"Argument of Problem0001_03 is not numeric !" ,_
 			vbOKOnly + vbCritical                         ,_
 			str_Title_MsgBox
 	End If
 
 	REM | STEP.02
-	Problem0001_01 = 0
-
-	REM | STEP.03
-	REM calculate the sum of all the multiples of 3 and 5
-	For itr = 1 To max-1 Step 1
-		If itr Mod 3 = 0 Then Problem0001_01 = Problem0001_01 + itr
-		If itr Mod 5 = 0 Then Problem0001_01 = Problem0001_01 + itr
-	Next
+	Problem0001_03 =                  Calc_SumOfMultiples(  3, max )
+	Problem0001_03 = Problem0001_03 + Calc_SumOfMultiples(  5, max )
+	Problem0001_03 = Problem0001_03 - Calc_SumOfMultiples( 15, max )
 
 	REM | STEP.TRUE_END
 	Exit Function
 	
-End Function ' Problem0001_01
+End Function ' Problem0001_03
 
 
 
@@ -57,12 +72,12 @@ REM # Main Process is below                                                    #
 REM #==========================================================================#
 
 	MsgBox _
-		Problem0001_01( 1e1 ) & vbCrLf ,_
+		Problem0001_03( 1e1 ) & vbCrLf ,_
 		vbOKOnly + vbInformation       ,_
 		str_Title_MsgBox
 
 	MsgBox _
-		Problem0001_01( 1e3 ) & vbCrLf ,_
+		Problem0001_03( 1e3 ) & vbCrLf ,_
 		vbOKOnly + vbInformation       ,_
 		str_Title_MsgBox
 
