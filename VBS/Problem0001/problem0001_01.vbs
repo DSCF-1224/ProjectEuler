@@ -8,6 +8,13 @@ Option Explicit
 
 
 REM #==========================================================================#
+REM # Defer error handling                                                     #
+REM #==========================================================================#
+On Error Resume Next
+
+
+
+REM #==========================================================================#
 REM # constantsin this VBScript                                                #
 REM #==========================================================================#
 Const str_Title_MsgBox = "Problem Euler 0001"
@@ -30,22 +37,38 @@ Function Problem0001_01( ByVal max )
 	REM | STEP.01
 	REM | error check of the argument of this <Function>
 	If Not IsNumeric( max ) Then
-		MsgBox _
-			"Argument of " & str_Name_Func & " is not numeric !" ,_
-			vbOKOnly + vbCritical ,_
-			str_Title_MsgBox
+
+		Err.Raise _
+			vbObjectError + 1, _
+			MsgBox (_
+				"Argument of " & str_Name_Func & " is not numeric !" & vbCrLf &_
+				"The detected type is " & TypeName( max ) & "." ,_
+				vbOKOnly + vbCritical ,_
+				str_Title_MsgBox _
+			)
+
 	ElseIf ( Not VarType( max ) = vbInteger ) And ( Not VarType( max ) = vbLong ) Then
-		MsgBox _
-			"Type of argument of" & str_Name_Func & " is not integer/long integer !" & vbCrLf &_
-			"The argument must be an integer/long integer !" ,_
-			vbOKOnly + vbCritical ,_
-			str_Title_MsgBox
+		
+		Err.Raise _
+			vbObjectError + 2, _
+			MsgBox (_
+				"The detected type of argument of " & str_Name_Func & " is " & TypeName( max ) & "." & vbCrLf &_
+				"The argument must be an integer/long integer !" ,_
+				vbOKOnly + vbCritical ,_
+				str_Title_MsgBox _
+			)
+
 	ElseIf max < 1 Then
-		MsgBox _
-			"Argument of " & str_Name_Func & " is less than 1 !" & vbCrLf &_
-			"The argument must be an integer which is bigger than or equal to 1 !" ,_
-			vbOKOnly + vbCritical ,_
-			str_Title_MsgBox
+
+		Err.Raise _
+			vbObjectError + 3, _
+			MsgBox (_
+				"Argument of " & str_Name_Func & " is less than 1 !" & vbCrLf &_
+				"The argument must be an integer which is bigger than or equal to 1 !" ,_
+				vbOKOnly + vbCritical ,_
+				str_Title_MsgBox _
+			)
+
 	End If
 
 	REM | STEP.02
@@ -74,7 +97,17 @@ REM # Main Process is below                                                    #
 REM #==========================================================================#
 
 	MsgBox _
-		Problem0001_01( 1.2 ) & vbCrLf ,_
+		Problem0001_01( "hoge" ) & vbCrLf ,_
+		vbOKOnly + vbInformation          ,_
+		str_Title_MsgBox
+
+	MsgBox _
+		Problem0001_01( 1.0 ) & vbCrLf ,_
+		vbOKOnly + vbInformation       ,_
+		str_Title_MsgBox
+
+	MsgBox _
+		Problem0001_01( -1 ) & vbCrLf ,_
 		vbOKOnly + vbInformation      ,_
 		str_Title_MsgBox
 

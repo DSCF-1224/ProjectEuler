@@ -8,6 +8,13 @@ Option Explicit
 
 
 REM #==========================================================================#
+REM # Defer error handling                                                     #
+REM #==========================================================================#
+On Error Resume Next
+
+
+
+REM #==========================================================================#
 REM # constantsin this VBScript                                                #
 REM #==========================================================================#
 Const str_Title_MsgBox = "Problem Euler 0001"
@@ -32,14 +39,36 @@ Sub Problem0001_05( ByVal max )
 	REM | error check
 	If Not IsNumeric( max ) Then
 
-		REM | output the error message by dialogue box
-		MsgBox _
-			"Argument of " & str_Name_Sub & " is not numeric !" ,_
-			vbOKOnly + vbCritical                               ,_
-			str_Title_MsgBox
+		Err.Raise _
+			vbObjectError + 1, _
+			MsgBox (_
+				"Argument of " & str_Name_Sub & " is not numeric !" & vbCrLf &_
+				"The detected type is " & TypeName( max ) & "." ,_
+				vbOKOnly + vbCritical ,_
+				str_Title_MsgBox _
+			)
 
-		REM | STEP.BAD_END
-		Exit Sub
+	ElseIf ( Not VarType( max ) = vbInteger ) And ( Not VarType( max ) = vbLong ) Then
+		
+		Err.Raise _
+			vbObjectError + 2, _
+			MsgBox (_
+				"The detected type of argument of " & str_Name_Sub & " is " & TypeName( max ) & "." & vbCrLf &_
+				"The argument must be an integer/long integer !" ,_
+				vbOKOnly + vbCritical ,_
+				str_Title_MsgBox _
+			)
+
+	ElseIf max < 1 Then
+
+		Err.Raise _
+			vbObjectError + 3, _
+			MsgBox (_
+				"Argument of " & str_Name_Sub & " is less than 1 !" & vbCrLf &_
+				"The argument must be an integer which is bigger than or equal to 1 !" ,_
+				vbOKOnly + vbCritical ,_
+				str_Title_MsgBox _
+			)
 
 	End If
 
@@ -71,9 +100,11 @@ REM #==========================================================================#
 REM # Main Process is below                                                    #
 REM #==========================================================================#
 
-	Call Problem0001_05( 1e1 )
-	Call Problem0001_05( 1e3 )
-	Call Problem0001_05( "hoge" )
+	Call Problem0001_05( "hoge"  )
+	Call Problem0001_05(  1.0e+1 )
+	Call Problem0001_05( -1      )
+	Call Problem0001_05(  10     )
+	Call Problem0001_05(  1000   )
 
 	MsgBox _
 		"All Processes of this VBScript have finished." ,_
