@@ -27,19 +27,20 @@ Function Problem0001_02( ByVal max )
 	Dim itr
 
 	REM | STEP.01
-	REM | initialize the variable to store the sum
+	REM | error check
 	If Not IsNumeric( max ) Then
 		MsgBox _
-			"Argument of Problem0001_02 is not numeric !" ,_
+			"Argument of Problem0001_01 is not numeric !" ,_
 			vbOKOnly + vbCritical                         ,_
 			str_Title_MsgBox
 	End If
 
 	REM | STEP.02
+	REM | initialize the variable to store the sum
 	Problem0001_02 = 0
 
 	REM | STEP.03
-	REM calculate the sum of all the multiples of 3 and 5
+	REM | calculate the sum of all the multiples of 3 and 5
 	For itr = 1 To max-1 Step 1
 		If ( itr Mod 3 = 0 ) Or ( itr Mod 5 = 0 ) Then Problem0001_02 = Problem0001_02 + itr
 	Next
