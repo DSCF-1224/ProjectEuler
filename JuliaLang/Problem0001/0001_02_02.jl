@@ -1,15 +1,14 @@
-# file created : 2018.10.28
+# file created : 2019.01.28
 # file updated : 2019.01.28
 # 
 # [tested version]
 # Version 1.0.2 (2018-11-08)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0001/0001_03.jl" )
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0001/0001_02_02.jl" )
 
-# Project Euler
+# Project Euler Problem 0001 [Multiples of 3 and 5]
 # https://projecteuler.net/problem=1
-# Problem 0001 [Multiples of 3 and 5]
 # If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
@@ -17,30 +16,38 @@
 # own defined functions are below                                                                                              #
 #==============================================================================================================================#
 
-# calculate the sum of all the multiples of `divisor` below `max`
-function sum_multiples(; max::Core.Integer, divisor::Core.Integer )
-
-	# STEP.01
-	# calculate the number of terms for summation
-	num_terms = Base.div( max - Base.one( max ), divisor )
-	
-	# STEP.END
-	return div( divisor * num_terms * ( num_terms + Base.one( num_terms ) ), 2 )
-
-end
-
 # main function for this problem
 function problem0001( max::Core.Integer )
 
+	# argument of this function
+	# [1] max::Core.Integer
+	# Find the sum of all the multiples of 3 or 5 below `max`.
+
 	# STEP.01
-	# calculate the sum of all the multiples of 3 or 5 or 15 below `max`
-	sum03 = sum_multiples( max= max, divisor=  3 )
-	sum05 = sum_multiples( max= max, divisor=  5 )
-	sum15 = sum_multiples( max= max, divisor= 15 )
+	# initialize the buffer of sum and iterator
+	buf_zero = Base.zero( max )
+	sum      = buf_zero
+	itr      = Base.one( max )
+	
+	# STEP.02
+	# calculate the target sum
+	while Base.isless( itr , max )
+		
+		# STEP.02.01
+		# update the sum
+		if Base.isequal( rem(itr, 3) , buf_zero) ||  Base.isequal( rem(itr, 5) , buf_zero)
+			sum += itr
+		end
+
+		# STEP.02.02
+		# update the iterator
+		itr += 1
+
+	end
 
 	# STEP.END
-	return sum03 + sum05 - sum15
-	
+	return sum
+
 end
 
 # show the result of main function
