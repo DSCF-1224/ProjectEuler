@@ -18,53 +18,6 @@ Const str_Name_Sub     = "Problem0001"
 REM #==========================================================================#
 REM # <Function>s and <Subroutine>s in this VBScript                           #
 REM #==========================================================================#
-Function CheckError_Max( ByVal max )
-	
-	REM | [argument of this subroutine]
-	REM | max : find the sum of all the multiples of 3 and 5 below `max`
-
-	REM | STEP.01
-	REM | error check
-	If Not IsNumeric( max ) Then
-
-		CheckError_Max = MsgBox (_
-			"Argument of " & str_Name_Sub & " is not numeric !" & vbCrLf &_
-			"The detected type is " & TypeName( max ) & "." ,_
-			vbRetryCancel + vbCritical ,_
-			str_Title_MsgBox _
-		)
-
-		Exit Function ' BAD_END
-
-	ElseIf ( Not VarType( max ) = vbInteger ) And ( Not VarType( max ) = vbLong ) Then
-		
-		CheckError_Max = MsgBox (_
-			"The detected type of argument of " & str_Name_Sub & " is " & TypeName( max ) & "." & vbCrLf &_
-			"The argument must be an integer/long integer !" ,_
-			vbRetryCancel + vbCritical ,_
-			str_Title_MsgBox _
-		)
-
-		Exit Function ' BAD_END
-
-	ElseIf max < 1 Then
-
-		CheckError_Max = MsgBox (_
-			"Argument of " & str_Name_Sub & " is less than 1 !" & vbCrLf &_
-			"The argument must be an integer which is bigger than or equal to 1 !" ,_
-			vbRetryCancel + vbCritical ,_
-			str_Title_MsgBox _
-		)
-
-		Exit Function ' BAD_END
-
-	End If
-
-	REM | STEP.TRUE_END
-	CheckError_Max = vbOK
-	Exit Function
-
-End Function
 
 Sub Problem0001_07
 	
@@ -76,6 +29,7 @@ Sub Problem0001_07
 	Dim max             ' find the sum of all the multiples of 3 and 5 below `max`
 	Dim sum	            ' store the target sum
 	Dim rtvl_ErrorCheck '
+	Dim rtvl_MsgBox     '
 
 	REM | STEP.01
 	max = InputBox( _
@@ -84,23 +38,58 @@ Sub Problem0001_07
 	)
 
 	REM | STEP.02
-	REM | error check
-	rtvl_ErrorCheck = CheckError_Max( max )
+	REM | error check of `max`
+	If max = "" Then
 
-	REM | STEP.02
-	REM | retry or cancel the process
-	If rtvl_ErrorCheck = vbRetry Then
-		Call Problem0001_07
-	ElseIf rtvl_ErrorCheck = vbCancel Then
+		rtvl_MsgBox = vbCancel
+
+	ElseIf VarType( max ) = vbEmpty Then
+
+		rtvl_MsgBox = MsgBox (_
+			"Argument of " & str_Name_Sub & " is empty !" ,_
+			vbRetryCancel + vbInformation ,_
+			str_Title_MsgBox _
+		)
+
+	ElseIf Not IsNumeric( max ) Then
+
+		REM | STEP.01.01
+		REM | check whether `max` is numeric
+		rtvl_MsgBox = MsgBox (_
+			"Argument of " & str_Name_Sub & " is not numeric !" & vbCrLf &_
+			"The detected type is " & TypeName( max ) & "." ,_
+			vbRetryCancel + vbCritical ,_
+			str_Title_MsgBox _
+		)
+
+	ElseIf VarType( max ) = vbString Then
+
+		max = CInt( max )
+
+		If max < 1 Then
+
+			rtvl_MsgBox = MsgBox (_
+				"Argument of " & str_Name_Sub & " is less than 1 !" & vbCrLf &_
+				"The argument must be an integer which is bigger than or equal to 1 !" ,_
+				vbRetryCancel + vbCritical ,_
+				str_Title_MsgBox _
+			)
+
+		Else
+			rtvl_MsgBox = vbOK
+		End If
+
+	End If
+
+	REM | STEP.03
+	REM | calculate the `sum` of retry or cancel the process
+	If rtvl_MsgBox = vbRetry Then
+		Call Problem0001_07' TRUE_END
+	ElseIf rtvl_MsgBox = vbCancel Then
 		
-		MsgBox _
-			"The process is canceled." ,_
-			vbOKOnly + vbInformation   ,_
-			str_Title_MsgBox
+		rtvl_MsgBox = MsgBox( "The process is canceled." , vbRetryCancel + vbInformation, str_Title_MsgBox )' TRUE_END
 
-		Exit Sub ' BAD_END
-
-	ElseIf rtvl_ErrorCheck = vbOK Then
+	ElseIf rtvl_MsgBox = vbOK Then
 
 		REM | STEP.03
 		REM | initialize the variable to store the sum
@@ -118,15 +107,22 @@ Sub Problem0001_07
 	
 		REM | STEP.05
 		REM | output the result
-		MsgBox _
+		rtvl_MsgBox = MsgBox( _
 			str_Name_Sub & "(" & max & ") = " & sum & vbCrLf & vbCrLf &_
 			"All Processes of this VBScript have finished." ,_
-			vbOKOnly + vbInformation               ,_
-			str_Title_MsgBox
-	
-		REM | STEP.TRUE_END
-		Exit Sub
+			vbRetryCancel + vbInformation ,_
+			str_Title_MsgBox _
+		)
 
+	End If
+
+	If rtvl_MsgBox = vbRetry Then
+		Call Problem0001_07 ' TRUE_END
+	ElseIf rtvl_MsgBox = vbCancel Then
+		rtvl_MsgBox = MsgBox( "The process is canceled." , vbOKOnly + vbInformation, str_Title_MsgBox )
+		Exit Sub ' TRUE_END
+	ElseIf rtvl_MsgBox = vbOK Then
+		Exit Sub ' TRUE_END
 	End If
 	
 End Sub ' Problem0001_07
