@@ -52,14 +52,29 @@ function show_result( max::Core.Integer )
 	# Find the sum of all the multiples of 3 or 5 below `max`.
 
 	# STEP.01
-	Base.println( Base.stdout , "[Data from Base.@timev]" )
-	Base.@timev result_value = problem0001( max )
+	Base.println( Base.stdout , "[Data from Base.@timed]" )
+	retval, t, bytes, gctime, memallocs = Base.@timed problem0001( max )
 
 	# STEP.02
+	Base.println(
+		Base.stdout,
+		"t          = ", t,                    "\n",#
+		"bytes      = ", bytes,                "\n",#
+		"gctime     = ", gctime,               "\n",#
+		"allocd     = ", memallocs.allocd,     "\n",#
+		"malloc     = ", memallocs.malloc,     "\n",#
+		"realloc    = ", memallocs.realloc,    "\n",#
+		"poolalloc  = ", memallocs.poolalloc,  "\n",#
+		"bigalloc   = ", memallocs.bigalloc,   "\n",#
+		"freecall   = ", memallocs.freecall,   "\n",#
+		"total_time = ", memallocs.total_time, "\n",#
+		"pause      = ", memallocs.pause,      "\n" #
+	)
+	
+	# STEP.03
 	Base.println( Base.stdout , "[returned value]" )
 	Base.println( Base.stdout , "argument : ",max )
-	Base.println( Base.stdout , "result   : ", result_value )
-	Base.println( Base.stdout , "" )
+	Base.println( Base.stdout , "result   : ", retval, "\n" )
 	
 end
 
