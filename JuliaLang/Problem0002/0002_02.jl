@@ -1,8 +1,8 @@
-# file created : 2018.10.28
-# file updated : 2018.10.29
+# [tested version]
+# Version 1.1.0 (2019-01-21)
 # 
-# Version 1.0.0 (2018-08-08)
-# Base.MainInclude.include( "ProjectEuler/Problem0002/0002_02.jl" )
+# [how to use]
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_01.jl" )
 # 
 
 # Project Euler
@@ -14,69 +14,104 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
-function FibonacciNum( term::Core.Integer )
+# <module>s to use
+Base.MainInclude.include( "..\\support\\support_projecteuler.jl" )
 
-	if Base.isequal( term , Base.one( term ) )
-		return Base.one( term )
-	elseif Base.isequal( term , Base.one( term )*2 )
-		return Base.one( term )*2
-	else
+module Problem0002
+
+	# <function>s can be called
+	export show_result
+
+	# calculate the value of Fibonacci sequence's `term`-th using memo
+	function calc_FibonacciNum( term::Core.Integer )
+
+		buf_one = Base.one( term )
+		buf_two = buf_one * 2
+
+		if Base.isequal( term , buf_one )
+			return buf_one
+		elseif Base.isequal( term , buf_two )
+			return buf_two
+		else
+
+			# STEP.01
+			# make buffer to memorize the Fibonacci sequence
+			buff = Base.Vector{ Core.typeof( term ) }( Core.undef, term )
+
+			# STEP.02
+			# store initial condition
+			buff[1] = calc_FibonacciNum( buf_one )
+			buff[2] = calc_FibonacciNum( buf_two )
+
+			# STEP.03
+			# calculate the target term
+			for itr ∈ 3:term
+				buff[itr] = buff[itr-1] + buff[itr-2]
+			end
+
+			# STEP.END
+			return buff[term]
+
+		end
+	end
+
+	# calculate the target sum of the even-valued terms whose values do not exceed `max`
+	function calc_TheSum( max::Core.Integer )
+
+		# argument of this function
+		# [1] max::Core.Integer
+		# calculate the target sum of the even-valued terms whose values do not exceed `max`
 
 		# STEP.01
-		# make buffer
-		buff = Base.Vector{ Core.typeof( term ) }( Core.undef, term )
+		# initialize the variable to store the target sum and an iterator
+		sum = Base.zero( max )
+		itr = Base.one( max )
 
 		# STEP.02
-		# store initial condition
-		buff[1] = FibonacciNum( Base.one( term )   )
-		buff[2] = FibonacciNum( Base.one( term )*2 )
+		# calculate the target sum
+		while Base.isless( sum, max )
 
-		# STEP.03
-		# calculate the target term
-		for itr ∈ 3:term
-			buff[itr] = Base.Checked.checked_add( buff[itr-1] , buff[itr-2] )
+			# STEP.02.01
+			# update the Fibonacci sequence
+			buf_Fibonacci = calc_FibonacciNum( itr )
+
+			# STEP.02.02
+			# update the target sum
+			if Base.isequal( Base.rem( buf_Fibonacci, 2 ), Base.zero( max ) )
+				sum += buf_Fibonacci
+			end
+
+			# STEP.02.03
+			# update the iterator
+			itr += Base.one( max )
+
 		end
 
-		# STEP.END
-		return buff[term]
+		# STEP.TRUE_END
+		return sum
 
 	end
-end
 
-function test( num_terms::Core.Integer )
+	# show the result of main function `calc_TheSum`
+	function show_result( max::Core.Integer )
 
-	for itr ∈ Base.one( num_terms ) : num_terms
-		Base.Printf.@printf( Base.stdout , "%4d %110d\n" , itr, FibonacciNum( Base.GMP.BigInt( itr ) ) )
+		# argument of this function
+		# [1] max::Core.Integer
+		# calculate the value of Fibonacci sequence's `max`-th max recursively
+
+		# STEP.01
+		retval, t, bytes, gctime, memallocs = Base.@timed calc_TheSum( max )
+
+		# STEP.02
+		Main.SupportProjectEuler.println_timed( t, bytes, gctime, memallocs )
+		
+		# STEP.03
+		Base.println( Base.stdout , "[returned value]" )
+		Base.println( Base.stdout , "max    : ", max )
+		Base.println( Base.stdout , "result : ", retval, "\n" )
+		
 	end
 
-	return Core.nothing
-
 end
 
-# Base.@timev test( 20 )
-# 0.053040 seconds (83.98 k allocations: 4.345 MiB)
-# elapsed time (ns): 53040215
-# bytes allocated:   4556158
-# pool allocs:       83974
-# non-pool GC allocs:9
-
-# Base.@timev test( 30 )
-# 0.072979 seconds (84.41 k allocations: 4.358 MiB)
-# elapsed time (ns): 72978838
-# bytes allocated:   4569630
-# pool allocs:       84400
-# non-pool GC allocs:9
-
-# Base.@timev test( 40 )
-# 0.087400 seconds (84.79 k allocations: 4.370 MiB)
-# elapsed time (ns): 87399548
-# bytes allocated:   4582174
-# pool allocs:       84780
-# non-pool GC allocs:9
-
-Base.@timev test( 500 )
-# 0.102984 seconds (85.13 k allocations: 4.382 MiB)
-# elapsed time (ns): 102984007
-# bytes allocated:   4594766
-# pool allocs:       85119
-# non-pool GC allocs:9
+Main.Problem0002.show_result( Base.convert( Base.GMP.BigInt, 4*10^6 ) )

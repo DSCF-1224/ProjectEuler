@@ -1,8 +1,8 @@
-# file created : 2018.10.28
-# file updated : 2018.10.29
+# [tested version]
+# Version 1.1.0 (2019-01-21)
 # 
-# Version 1.0.0 (2018-08-08)
-# Base.MainInclude.include( "ProjectEuler/Problem0002/0002_01.jl" )
+# [how to use]
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_01.jl" )
 # 
 
 # Project Euler
@@ -14,51 +14,83 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
-function FibonacciNum( term::Core.Integer )
-	
-	if Base.isequal( term , Base.one( term ) )
-		return Base.one( term )
-	elseif Base.isequal( term , Base.one( term )*2 )
-		return Base.one( term )*2
-	else
-		return Base.Checked.checked_add( FibonacciNum( term-1 ), FibonacciNum( term-2 ) )
+# <module>s to use
+Base.MainInclude.include( "..\\support\\support_projecteuler.jl" )
+
+module Problem0002
+
+	# <function>s can be called
+	export show_result
+
+	# calculate the value of Fibonacci sequence's `term`-th term recursively
+	function calc_FibonacciNum( term::Core.Integer )
+		
+		if Base.isequal( term , Base.one( term ) )
+			return Base.one( term )
+		elseif Base.isequal( term , Base.one( term )*2 )
+			return Base.one( term )*2
+		else
+			return calc_FibonacciNum( term-1 ) + calc_FibonacciNum( term-2 )
+		end
 	end
+
+	# calculate the target sum of the even-valued terms whose values do not exceed `max`
+	function calc_TheSum( max::Core.Integer )
+
+		# argument of this function
+		# [1] max::Core.Integer
+		# calculate the target sum of the even-valued terms whose values do not exceed `max`
+
+		# STEP.01
+		# initialize the variable to store the target sum and an iterator
+		sum = Base.zero( max )
+		itr = Base.one( max )
+
+		# STEP.02
+		# calculate the target sum
+		while Base.isless( sum, max )
+
+			# STEP.02.01
+			# update the Fibonacci sequence
+			buf_Fibonacci = calc_FibonacciNum( itr )
+
+			# STEP.02.02
+			# update the target sum
+			if Base.isequal( Base.rem( buf_Fibonacci, 2 ), Base.zero( max ) )
+				sum += buf_Fibonacci
+			end
+
+			# STEP.02.03
+			# update the iterator
+			itr += Base.one( max )
+
+		end
+
+		# STEP.TRUE_END
+		return sum
+
+	end
+
+	# show the result of main function `calc_TheSum`
+	function show_result( max::Core.Integer )
+
+		# argument of this function
+		# [1] max::Core.Integer
+		# calculate the value of Fibonacci sequence's `max`-th max recursively
+
+		# STEP.01
+		retval, t, bytes, gctime, memallocs = Base.@timed calc_TheSum( max )
+
+		# STEP.02
+		Main.SupportProjectEuler.println_timed( t, bytes, gctime, memallocs )
+		
+		# STEP.03
+		Base.println( Base.stdout , "[returned value]" )
+		Base.println( Base.stdout , "max    : ", max )
+		Base.println( Base.stdout , "result : ", retval, "\n" )
+		
+	end
+
 end
 
-function test( num_terms::Core.Integer )
-
-	for itr ∈ Base.one( num_terms ) : num_terms
-		Base.Printf.@printf( Base.stdout , "%4d %20d\n" , itr, FibonacciNum( itr ) )
-	end
-
-	return Core.nothing
-
-end
-
-# Base.@timev test( 20 )
-# 0.067292 seconds (70.60 k allocations: 3.647 MiB)
-# elapsed time (ns): 67291701
-# bytes allocated:   3824054
-# pool allocs:       70590
-# non-pool GC allocs:10
-
-# Base.@timev test( 30 )
-# 0.088059 seconds (71.01 k allocations: 3.656 MiB)
-# elapsed time (ns): 88058581
-# bytes allocated:   3833190
-# pool allocs:       71002
-# non-pool GC allocs:10
-
-# Base.@timev test( 40 )
-# 1.342948 seconds (71.38 k allocations: 3.664 MiB)
-# elapsed time (ns): 1342947847
-# bytes allocated:   3842262
-# pool allocs:       71374
-# non-pool GC allocs:10
-
-Base.@timev test( 50 )
-# 154.681747 seconds (71.71 k allocations: 3.672 MiB)
-# elapsed time (ns): 154681747141
-# bytes allocated:   3850166
-# pool allocs:       71703
-# non-pool GC allocs:10
+Main.Problem0002.show_result( Base.convert( Core.UInt32, 4*10^6 ) )
