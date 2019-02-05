@@ -1,8 +1,5 @@
-# file created : 2018.10.28
-# file updated : 2019.01.28
-# 
 # [tested version]
-# Version 1.0.2 (2018-11-08)
+# Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
 # Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0001/0001_01_01.jl" )
@@ -15,6 +12,10 @@
 #==============================================================================================================================#
 # own defined functions are below                                                                                              #
 #==============================================================================================================================#
+
+# <module>s and <function>s to use
+Base.MainInclude.include( "../support/support_projecteuler.jl" )
+Base.MainInclude.include( "0001_support.jl" )
 
 # main function for this problem
 function problem0001( max::Core.Integer )
@@ -46,44 +47,10 @@ function problem0001( max::Core.Integer )
 
 end
 
-# show the result of main function
-function show_result( max::Core.Integer )
-
-	# argument of this function
-	# [1] max::Core.Integer
-	# Find the sum of all the multiples of 3 or 5 below `max`.
-
-	# STEP.01
-	Base.println( Base.stdout , "[Data from Base.@timed]" )
-	retval, t, bytes, gctime, memallocs = Base.@timed problem0001( max )
-
-	# STEP.02
-	Base.println(
-		Base.stdout,
-		"t          = ", t,                    "\n",#
-		"bytes      = ", bytes,                "\n",#
-		"gctime     = ", gctime,               "\n",#
-		"allocd     = ", memallocs.allocd,     "\n",#
-		"malloc     = ", memallocs.malloc,     "\n",#
-		"realloc    = ", memallocs.realloc,    "\n",#
-		"poolalloc  = ", memallocs.poolalloc,  "\n",#
-		"bigalloc   = ", memallocs.bigalloc,   "\n",#
-		"freecall   = ", memallocs.freecall,   "\n",#
-		"total_time = ", memallocs.total_time, "\n",#
-		"pause      = ", memallocs.pause,      "\n" #
-	)
-	
-	# STEP.03
-	Base.println( Base.stdout , "[returned value]" )
-	Base.println( Base.stdout , "argument : ",max )
-	Base.println( Base.stdout , "result   : ", retval, "\n" )
-	
-end
-
 #==============================================================================================================================#
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-show_result(     10 )
-show_result(   1000 )
-show_result( 100000 )
+Main.show_result( 10^1 )
+Main.show_result( 10^3 )
+Main.show_result( 10^9 )

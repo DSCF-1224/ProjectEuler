@@ -1,23 +1,23 @@
 module SupportProjectEuler
 
+	# <module>s to import
+	import Printf
+
 	function println_timed( t::Core.Float64, bytes::Core.Int64, gctime::Core.Float64, memallocs::Base.GC_Diff )
 
 		# STEP.01/01
-		Base.println(
-			Base.stdout,
-			"[Data from Base.@timed]\n",#
-			"t          = ", t,                    "\n",#
-			"bytes      = ", bytes,                "\n",#
-			"gctime     = ", gctime,               "\n",#
-			"allocd     = ", memallocs.allocd,     "\n",#
-			"malloc     = ", memallocs.malloc,     "\n",#
-			"realloc    = ", memallocs.realloc,    "\n",#
-			"poolalloc  = ", memallocs.poolalloc,  "\n",#
-			"bigalloc   = ", memallocs.bigalloc,   "\n",#
-			"freecall   = ", memallocs.freecall,   "\n",#
-			"total_time = ", memallocs.total_time, "\n",#
-			"pause      = ", memallocs.pause,      "\n" #
-		)
+		Printf.@printf( Base.stdout, "%s\n",             "[Data from Base.@timed]"           )#
+		Printf.@printf( Base.stdout, "%10s = %23.15E\n", "t"          , t                    )#
+		Printf.@printf( Base.stdout, "%10s = %23.00d\n", "bytes"      , bytes                )#
+		Printf.@printf( Base.stdout, "%10s = %23.15E\n", "gctime"     , gctime               )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "allocd"     , memallocs.allocd     )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "malloc"     , memallocs.malloc     )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "realloc"    , memallocs.realloc    )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "poolalloc"  , memallocs.poolalloc  )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "bigalloc"   , memallocs.bigalloc   )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "freecall"   , memallocs.freecall   )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "total_time" , memallocs.total_time )#
+		Printf.@printf( Base.stdout, "%10s = %23.00D\n", "pause"      , memallocs.pause      )#
 
 		# STEP.TRUE_END
 		return Core.nothing
