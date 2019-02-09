@@ -20,7 +20,7 @@ function show_result( max::Core.Integer )
 	# calculate the target sum of the even-valued terms whose values do not exceed `max`
 
 	# STEP.01
-	retval, t, bytes, gctime, memallocs = Base.@timed Problem0002( max )
+	retval, t, bytes, gctime, memallocs = Base.@timed problem0002( max )
 
 	# STEP.02
 	Main.SupportProjectEuler.println_timed( t, bytes, gctime, memallocs )

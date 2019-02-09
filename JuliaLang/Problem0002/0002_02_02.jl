@@ -20,42 +20,10 @@
 # <module>s to use
 Base.MainInclude.include( "../support/support_projecteuler.jl" )
 Base.MainInclude.include( "0002_support.jl" )
-
-# calculate the value of Fibonacci sequence's `term`-th using memo
-function calc_FibonacciNum( term::Core.Integer )
-
-	buf_one = Base.one( term )
-	buf_two = buf_one * 2
-
-	if Base.isequal( term , buf_one )
-		return buf_one
-	elseif Base.isequal( term , buf_two )
-		return buf_two
-	else
-
-		# STEP.01
-		# make buffer to memorize the Fibonacci sequence
-		buff = Base.Vector{ Core.typeof( term ) }( Core.undef, term )
-
-		# STEP.02
-		# store initial condition
-		buff[1] = calc_FibonacciNum( buf_one )
-		buff[2] = calc_FibonacciNum( buf_two )
-
-		# STEP.03
-		# calculate the target term
-		for itr ∈ 3:term
-			buff[itr] = buff[itr-1] + buff[itr-2]
-		end
-
-		# STEP.END
-		return buff[term]
-
-	end
-end
+Base.MainInclude.include( "0002_02_common.jl" )
 
 # calculate the target sum of the even-valued terms whose values do not exceed `max`
-function Problem0002( max::Core.Integer )
+function problem0002( max::Core.Integer )
 
 	# argument of this function
 	# [1] max::Core.Integer
@@ -76,7 +44,7 @@ function Problem0002( max::Core.Integer )
 
 		# STEP.02.02
 		# update the target sum
-		if Base.isequal( Base.rem( buf_Fibonacci, 2 ), Base.zero( max ) )
+		if Base.iseven( buf_Fibonacci )
 			sum += buf_Fibonacci
 		end
 

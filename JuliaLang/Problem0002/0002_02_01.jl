@@ -2,7 +2,7 @@
 # Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_01_01.jl" )
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_01.jl" )
 # 
 
 # Project Euler Problem 0002 [Even Fibonacci numbers]
@@ -17,10 +17,10 @@
 # own defined functions are below                                                                                              #
 #==============================================================================================================================#
 
-# <module>s and <function>s to use
+# <module>s to use
 Base.MainInclude.include( "../support/support_projecteuler.jl" )
 Base.MainInclude.include( "0002_support.jl" )
-Base.MainInclude.include( "0002_01_common.jl" )
+Base.MainInclude.include( "0002_02_common.jl" )
 
 # calculate the target sum of the even-valued terms whose values do not exceed `max`
 function problem0002( max::Core.Integer )
@@ -58,7 +58,6 @@ function problem0002( max::Core.Integer )
 	return sum
 
 end
-
 
 #==============================================================================================================================#
 # Main process is below                                                                                                        #

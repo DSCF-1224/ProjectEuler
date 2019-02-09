@@ -27,8 +27,9 @@ function problem0001( max::Core.Integer )
 	# STEP.01
 	# initialize the buffer of sum and iterator
 	buf_zero = Base.zero( max )
+	buf_one  = Base.one( max )
 	sum      = buf_zero
-	itr      = Base.one( max )
+	itr      = buf_one
 	
 	# STEP.02
 	# calculate the target sum
@@ -44,7 +45,7 @@ function problem0001( max::Core.Integer )
 
 		# STEP.02.02
 		# update the iterator
-		itr += 1
+		itr += buf_one
 
 	end
 
