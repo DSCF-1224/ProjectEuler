@@ -45,13 +45,10 @@ function problem0002( max::Core.Integer )
 	    # calculate the target sum
         while Base.isless( sum, max )
 
-    		if Base.isequal( Base.rem( buf_Fibonacci3, 2 ), Base.zero( max ) )
-                sum += buf_Fibonacci3
-            end
-
-            buf_Fibonacci1 = buf_Fibonacci2
-            buf_Fibonacci2 = buf_Fibonacci3
-            buf_Fibonacci3 = buf_Fibonacci1 + buf_Fibonacci2
+            buf_Fibonacci1 =  buf_Fibonacci2
+            buf_Fibonacci2 =  buf_Fibonacci3
+            buf_Fibonacci3 =  buf_Fibonacci1 + buf_Fibonacci2
+            sum            += buf_Fibonacci3
 
         end
 
