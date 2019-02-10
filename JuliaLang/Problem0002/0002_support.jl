@@ -2,7 +2,7 @@
 # Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
-# Base.MainInclude.include( "0001_support.jl" )
+# Base.MainInclude.include( "0002_support.jl" )
 
 # Project Euler Problem 0002 [Even Fibonacci numbers]
 # https://projecteuler.net/problem=2
@@ -12,6 +12,10 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
+#==============================================================================================================================#
+# own defined functions are below                                                                                              #
+#==============================================================================================================================#
+
 # show the result of main function
 function show_result( max::Core.Integer )
 
@@ -20,7 +24,7 @@ function show_result( max::Core.Integer )
 	# calculate the target sum of the even-valued terms whose values do not exceed `max`
 
 	# STEP.01
-	retval, t, bytes, gctime, memallocs = Base.@timed problem0002( max )
+	retval, t, bytes, gctime, memallocs = Base.@timed Main.problem0002( max )
 
 	# STEP.02
 	Main.SupportProjectEuler.println_timed( t, bytes, gctime, memallocs )
