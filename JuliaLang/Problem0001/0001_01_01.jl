@@ -26,17 +26,16 @@ function problem0001( max::Core.Integer )
 
 	# STEP.01
 	# initialize the buffer of sum
-	buf_zero = Base.zero( max )
-	sum      = buf_zero
-	min      = Base.one( max )
+	sum = Base.zero( max )
+	min = Base.one( max )
 	
 	# STEP.02
 	# calculate the target sum
 	for itr in min : min : max-min
 		
-		if Base.isequal( Base.rem(itr, 3) ,buf_zero )
+		if Main.SupportProjectEuler.ismultiple( target=itr, base=3 )
 			sum += itr
-		elseif Base.isequal( Base.rem(itr, 5) ,buf_zero )
+		elseif Main.SupportProjectEuler.ismultiple( target=itr, base=5 )
 			sum += itr
 		end
 

@@ -32,10 +32,3 @@ function show_result( target::Core.Integer )
 	Base.println( Base.stdout , "result   : ", retval, "\n" )
 	
 end
-
-# judge whether the `target` is a multiple of `base`
-function ismultiple(; target::Core.Integer, base::Core.Integer )
-
-    return Base.isequal( Base.rem( target, base ), Base.zero( target ) )
-
-end

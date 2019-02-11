@@ -26,15 +26,14 @@ function problem0001( max::Core.Integer )
 
 	# STEP.01
 	# initialize the buffer of sum
-	buf_zero = Base.zero( max )
-	sum      = buf_zero
-	min      = Base.one( max )
+	sum = Base.zero( max )
+	min = Base.one( max )
 	
 	# STEP.02
 	# calculate the target sum
 	for itr in min : min : max-min
 		
-		if Base.isequal( rem(itr, 3) , buf_zero ) || Base.isequal( rem(itr, 5) , buf_zero )
+		if Main.SupportProjectEuler.ismultiple( target=itr, base=3 ) || Main.SupportProjectEuler.ismultiple( target=itr, base=5 )
 			sum += itr
 		end
 
@@ -49,6 +48,6 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-Main.show_result(     10 )
-Main.show_result(   1000 )
-Main.show_result( 100000 )
+Main.show_result( 10^1 )
+Main.show_result( 10^3 )
+Main.show_result( 10^9 )

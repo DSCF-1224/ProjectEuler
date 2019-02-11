@@ -35,8 +35,8 @@ function problem0003( target::Core.Integer )
 
     # STEP.02
     # check whether `2` is the largest prime number of `target`
-    if Main.ismultiple( target=buf_trgt, base=buf_two )
-        while Main.ismultiple( target=buf_trgt, base=buf_two )
+    if Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=buf_two )
+        while Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=buf_two )
             buf_trgt = Base.div( buf_trgt, buf_two )
         end
     else
@@ -48,11 +48,11 @@ function problem0003( target::Core.Integer )
 
     while Base.isless( buf_one, buf_trgt )
 
-        if Main.ismultiple( target=buf_trgt, base=factor_crnt )
+        if Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=factor_crnt )
 
             factor_last = factor_crnt
 
-            while Main.ismultiple( target=buf_trgt, base=factor_crnt )
+            while Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=factor_crnt )
                 buf_trgt = Base.div( buf_trgt, factor_crnt )
             end
 
