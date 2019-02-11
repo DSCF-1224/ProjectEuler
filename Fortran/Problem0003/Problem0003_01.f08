@@ -12,17 +12,25 @@ module Problem0003
   implicit none
 
   ! accessibility of <subroutine>s and <function>s in this <module>
-  public  :: Problem0003_01       ! interface
-  public  :: Problem0003_02       ! interface
-  public  :: Problem0003_03       ! interface
-  private :: Problem0003_01_INT32 ! function
-  private :: Problem0003_01_INT64 ! function
-  private :: Problem0003_02_INT32 ! function
-  private :: Problem0003_02_INT64 ! function
-  private :: Problem0003_03_INT32 ! function
-  private :: Problem0003_03_INT64 ! function
+  public  :: Problem0003_01         ! interface
+  public  :: Problem0003_02         ! interface
+  public  :: Problem0003_03         ! interface
+  private :: judge_ismultiple       ! interface
+  private :: judge_ismultiple_INT32 ! function
+  private :: judge_ismultiple_INT64 ! function
+  private :: Problem0003_01_INT32   ! function
+  private :: Problem0003_01_INT64   ! function
+  private :: Problem0003_02_INT32   ! function
+  private :: Problem0003_02_INT64   ! function
+  private :: Problem0003_03_INT32   ! function
+  private :: Problem0003_03_INT64   ! function
 
   ! <interface>s for this <program>
+  interface judge_ismultiple
+    module procedure judge_ismultiple_INT32
+    module procedure judge_ismultiple_INT64
+  end interface
+
   interface Problem0003_01
     module procedure Problem0003_01_INT32
     module procedure Problem0003_01_INT64
@@ -42,36 +50,67 @@ module Problem0003
   ! <subroutine>s and <function>s in this <module> is below
   contains
 
-  pure function Problem0003_01_INT32( target ) result( last_factor )
+
+  pure function judge_ismultiple_INT32( target, base ) result( stat )
+
+    ! arguments for this <function>
+    integer( kind= INT32 ), intent(in) :: target
+    integer( kind= INT32 ), intent(in) :: base
+
+    ! return value of this <function>
+    logical :: stat
+
+    ! STEP.TRUE_END
+    stat = mod( target, base ) .eq. 0_INT32
+    return
+
+  end
+
+  pure function judge_ismultiple_INT64( target, base ) result( stat )
+
+    ! arguments for this <function>
+    integer( kind= INT64 ), intent(in) :: target
+    integer( kind= INT64 ), intent(in) :: base
+
+    ! return value of this <function>
+    logical :: stat
+
+    ! STEP.TRUE_END
+    stat = mod( target, base ) .eq. 0_INT64
+    return
+
+  end
+
+
+  pure function Problem0003_01_INT32( target ) result( factor_last )
 
     ! argument of this <function>
     integer( kind=INT32 ), intent(in) :: target
 
     ! return value of this <function>
-    integer( kind=INT32 ) :: last_factor
+    integer( kind=INT32 ) :: factor_last
 
     ! support variables for this <function>
-    integer( kind=INT32 ) :: buffer
-    integer( kind=INT32 ) :: factor
+    integer( kind=INT32 ) :: buffer_trgt
+    integer( kind=INT32 ) :: factor_crnt
 
 
     ! STEP.01 !
-    buffer      = target
-    factor      = 2_INT32
-    last_factor = 1_INT32
+    buffer_trgt = target
+    factor_crnt = 2_INT32
+    factor_last = 1_INT32
 
     ! STEP.02 !
-    do while( buffer .gt. 1_INT32 )
+    do while( buffer_trgt .gt. 1_INT32 )
 
-      if( mod( buffer, factor ) .eq. 0_INT32 ) then
-        last_factor = factor
-        buffer      = buffer / factor
-        do while( mod( buffer, factor ) .eq. 0_INT32 )
-          buffer = buffer / factor
+      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+        factor_last = factor_crnt
+        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+          buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
 
-      factor = factor + 1_INT32
+      factor_crnt = factor_crnt + 1_INT32
 
     end do
 
@@ -80,36 +119,35 @@ module Problem0003
 
   end function Problem0003_01_INT32
 
-  pure function Problem0003_01_INT64( target ) result( last_factor )
+  pure function Problem0003_01_INT64( target ) result( factor_last )
 
     ! argument of this <function>
     integer( kind=INT64 ), intent(in) :: target
 
     ! return value of this <function>
-    integer( kind=INT64 ) :: last_factor
+    integer( kind=INT64 ) :: factor_last
 
     ! support variables for this <function>
-    integer( kind=INT64 ) :: buffer
-    integer( kind=INT64 ) :: factor
+    integer( kind=INT64 ) :: buffer_trgt
+    integer( kind=INT64 ) :: factor_crnt
 
 
     ! STEP.01 !
-    buffer      = target
-    factor      = 2_INT64
-    last_factor = 1_INT64
+    buffer_trgt = target
+    factor_crnt = 2_INT64
+    factor_last = 1_INT64
 
     ! STEP.02 !
-    do while( buffer .gt. 1_INT64 )
+    do while( buffer_trgt .gt. 1_INT64 )
 
-      if( mod( buffer, factor ) .eq. 0_INT64 ) then
-        last_factor = factor
-        buffer      = buffer / factor
-        do while( mod( buffer, factor ) .eq. 0_INT64 )
-          buffer = buffer / factor
+      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+        factor_last = factor_crnt
+        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+          buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
 
-      factor = factor + 1_INT64
+      factor_crnt = factor_crnt + 1_INT64
 
     end do
 
@@ -120,49 +158,47 @@ module Problem0003
 
 
 
-  pure function Problem0003_02_INT32( target ) result( last_factor )
+  pure function Problem0003_02_INT32( target ) result( factor_last )
 
     ! argument of this <function>
     integer( kind=INT32 ), intent(in) :: target
 
     ! return value of this <function>
-    integer( kind=INT32 ) :: last_factor
+    integer( kind=INT32 ) :: factor_last
 
     ! support variables for this <function>
-    integer( kind=INT32 ) :: buffer
-    integer( kind=INT32 ) :: factor
+    integer( kind=INT32 ) :: buffer_trgt
+    integer( kind=INT32 ) :: factor_crnt
 
 
     ! STEP.01 !
-    buffer = target
-    factor = 2_INT32
+    buffer_trgt = target
+    factor_crnt = 2_INT32
 
     ! STEP.02 !
-    if( mod( buffer, factor ) .eq. 0_INT32 ) then
-      buffer      = buffer / factor
-      last_factor = factor
-      do while( mod( buffer, factor ) .eq. 0_INT32 )
-        buffer = buffer / factor
+    if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      factor_last = factor_crnt
+      do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+        buffer_trgt = buffer_trgt / factor_crnt
       end do
     else
-      last_factor = 1_INT32
+      factor_last = 1_INT32
     end if
 
     ! STEP.03 !
-    factor = 3_INT32
+    factor_crnt = 3_INT32
 
     ! STEP.04 !
-    do while( buffer .gt. 1_INT32 )
+    do while( buffer_trgt .gt. 1_INT32 )
 
-      if( mod( buffer, factor ) .eq. 0_INT32 ) then
-        last_factor = factor
-        buffer      = buffer / factor
-        do while( mod( buffer, factor ) .eq. 0_INT32 )
-          buffer = buffer / factor
+      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+        factor_last = factor_crnt
+        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+          buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
 
-      factor = factor + 2_INT32
+      factor_crnt = factor_crnt + 2_INT32
 
     end do
 
@@ -171,49 +207,47 @@ module Problem0003
 
   end function Problem0003_02_INT32
 
-  pure function Problem0003_02_INT64( target ) result( last_factor )
+  pure function Problem0003_02_INT64( target ) result( factor_last )
 
     ! argument of this <function>
     integer( kind=INT64 ), intent(in) :: target
 
     ! return value of this <function>
-    integer( kind=INT64 ) :: last_factor
+    integer( kind=INT64 ) :: factor_last
 
     ! support variables for this <function>
-    integer( kind=INT64 ) :: buffer
-    integer( kind=INT64 ) :: factor
+    integer( kind=INT64 ) :: buffer_trgt
+    integer( kind=INT64 ) :: factor_crnt
 
 
     ! STEP.01 !
-    buffer = target
-    factor = 2_INT64
+    buffer_trgt = target
+    factor_crnt = 2_INT64
 
     ! STEP.02 !
-    if( mod( buffer, factor ) .eq. 0_INT64 ) then
-      buffer      = buffer / factor
-      last_factor = factor
-      do while( mod( buffer, factor ) .eq. 0_INT64 )
-        buffer = buffer / factor
+    if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      factor_last = factor_crnt
+      do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+        buffer_trgt = buffer_trgt / factor_crnt
       end do
     else
-      last_factor = 1_INT64
+      factor_last = 1_INT64
     end if
 
     ! STEP.03 !
-    factor = 3_INT64
+    factor_crnt = 3_INT64
 
     ! STEP.04 !
-    do while( buffer .gt. 1_INT64 )
+    do while( buffer_trgt .gt. 1_INT64 )
 
-      if( mod( buffer, factor ) .eq. 0_INT64 ) then
-        last_factor = factor
-        buffer      = buffer / factor
-        do while( mod( buffer, factor ) .eq. 0_INT64 )
-          buffer = buffer / factor
+      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+        factor_last = factor_crnt
+        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+          buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
 
-      factor = factor + 2_INT64
+      factor_crnt = factor_crnt + 2_INT64
 
     end do
 
@@ -224,57 +258,55 @@ module Problem0003
 
 
 
-  pure function Problem0003_03_INT32( target ) result( last_factor )
+  pure function Problem0003_03_INT32( target ) result( factor_last )
 
     ! argument of this <function>
     integer( kind=INT32 ), intent(in) :: target
 
     ! return value of this <function>
-    integer( kind=INT32 ) :: last_factor
-    integer( kind=INT32 ) :: max_factor
+    integer( kind=INT32 ) :: factor_last
+    integer( kind=INT32 ) :: factor_max
 
     ! support variables for this <function>
-    integer( kind=INT32 ) :: buffer
-    integer( kind=INT32 ) :: factor
+    integer( kind=INT32 ) :: buffer_trgt
+    integer( kind=INT32 ) :: factor_crnt
 
 
     ! STEP.01 !
-    buffer = target
+    buffer_trgt = target
 
     ! STEP.02 !
-    if( mod( buffer, 2_INT32 ) .eq. 0_INT32 ) then
-      buffer      = buffer / 2_INT32
-      last_factor = 2_INT32
-      do while( mod( buffer, 2_INT32 ) .eq. 0_INT32 )
-        buffer = buffer / 2_INT32
+    if( judge_ismultiple( target= buffer_trgt, base= 2_INT32 ) ) then
+      factor_last = 2_INT32
+      do while( judge_ismultiple( target= buffer_trgt, base= 2_INT32 ) )
+        buffer_trgt = buffer_trgt / 2_INT32
       end do
     else
-      last_factor = 1_INT32
+      factor_last = 1_INT32
     end if
 
     ! STEP.03 !
-    factor     = 3_INT32
-    max_factor = nint( sqrt( real( buffer, kind=REAL64 ) ), kind=INT32 )
+    factor_crnt = 3_INT32
+    factor_max  = nint( sqrt( real( buffer_trgt, kind=REAL64 ) ), kind=INT32 )
 
     ! STEP.04 !
-    do while( buffer .gt. 1_INT32 .and. factor .le. max_factor )
+    do while( buffer_trgt .gt. 1_INT32 .and. factor_crnt .le. factor_max )
 
-      if( mod( buffer, factor ) .eq. 0_INT32 ) then
-        buffer      = buffer / factor
-        last_factor = factor
-        do while( mod( buffer, factor ) .eq. 0_INT32 )
-          buffer = buffer / factor
+      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+        factor_last = factor_crnt
+        do while( judge_ismultiple( target=buffer_trgt, base=factor_crnt ) )
+          buffer_trgt = buffer_trgt / factor_crnt
         end do
-        max_factor = nint( sqrt( real( buffer, kind=REAL64 ) ), kind=INT32 )
+        factor_max = nint( sqrt( real( buffer_trgt, kind=REAL64 ) ), kind=INT32 )
       end if
 
-      factor = factor + 2_INT32
+      factor_crnt = factor_crnt + 2_INT32
 
     end do
 
     ! STEP.05 !
-    if( buffer .ne. 1_INT32 ) then
-      last_factor = buffer
+    if( buffer_trgt .ne. 1_INT32 ) then
+      factor_last = buffer_trgt
     end if
 
     ! STEP.END !
@@ -282,57 +314,55 @@ module Problem0003
 
   end function Problem0003_03_INT32
 
-  pure function Problem0003_03_INT64( target ) result( last_factor )
+  pure function Problem0003_03_INT64( target ) result( factor_last )
 
     ! argument of this <function>
     integer( kind=INT64 ), intent(in) :: target
 
     ! return value of this <function>
-    integer( kind=INT64 ) :: last_factor
-    integer( kind=INT64 ) :: max_factor
+    integer( kind=INT64 ) :: factor_last
+    integer( kind=INT64 ) :: factor_max
 
     ! support variables for this <function>
-    integer( kind=INT64 ) :: buffer
-    integer( kind=INT64 ) :: factor
+    integer( kind=INT64 ) :: buffer_trgt
+    integer( kind=INT64 ) :: factor_crnt
 
 
     ! STEP.01 !
-    buffer = target
+    buffer_trgt = target
 
     ! STEP.02 !
-    if( mod( buffer, 2_INT64 ) .eq. 0_INT64 ) then
-      buffer      = buffer / 2_INT64
-      last_factor = 2_INT64
-      do while( mod( buffer, 2_INT64 ) .eq. 0_INT64 )
-        buffer = buffer / 2_INT64
+    if( judge_ismultiple( target= buffer_trgt, base= 2_INT64 ) ) then
+      factor_last = 2_INT64
+      do while( judge_ismultiple( target= buffer_trgt, base= 2_INT64 ) )
+        buffer_trgt = buffer_trgt / 2_INT64
       end do
     else
-      last_factor = 1_INT64
+      factor_last = 1_INT64
     end if
 
     ! STEP.03 !
-    factor     = 3_INT64
-    max_factor = nint( sqrt( real( buffer, kind=REAL64 ) ), kind=INT64 )
+    factor_crnt = 3_INT64
+    factor_max  = nint( sqrt( real( buffer_trgt, kind=REAL64 ) ), kind=INT64 )
 
     ! STEP.04 !
-    do while( buffer .gt. 1_INT64 .and. factor .le. max_factor )
+    do while( buffer_trgt .gt. 1_INT64 .and. factor_crnt .le. factor_max )
 
-      if( mod( buffer, factor ) .eq. 0_INT64 ) then
-        buffer      = buffer / factor
-        last_factor = factor
-        do while( mod( buffer, factor ) .eq. 0_INT64 )
-          buffer = buffer / factor
+      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+        factor_last = factor_crnt
+        do while( judge_ismultiple( target=buffer_trgt, base=factor_crnt ) )
+          buffer_trgt = buffer_trgt / factor_crnt
         end do
-        max_factor = nint( sqrt( real( buffer, kind=REAL64 ) ), kind=INT64 )
+        factor_max = nint( sqrt( real( buffer_trgt, kind=REAL64 ) ), kind=INT64 )
       end if
 
-      factor = factor + 2_INT64
+      factor_crnt = factor_crnt + 2_INT64
 
     end do
 
     ! STEP.05 !
-    if( buffer .ne. 1_INT64 ) then
-      last_factor = buffer
+    if( buffer_trgt .ne. 1_INT64 ) then
+      factor_last = buffer_trgt
     end if
 
     ! STEP.END !

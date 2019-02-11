@@ -27,13 +27,25 @@ function problem0003( target::Core.Integer )
     # STEP.01
     # initialize the local variables for this <function>
     buf_trgt    = target
-    buf_one     = Base.one( target )
     buf_zero    = Base.zero( target )
-    factor_crnt = buf_one + buf_one
-    factor_last = buf_one
+    buf_one     = Base.one( target )
+    buf_two     = buf_one + buf_one
+    factor_crnt = buf_two
+    factor_last = Core.undef
 
     # STEP.02
-    # find the largest prime factor of the `target`
+    # check whether `2` is the largest prime number of `target`
+    if Main.ismultiple( target=buf_trgt, base=buf_two )
+        while Main.ismultiple( target=buf_trgt, base=buf_two )
+            buf_trgt = Base.div( buf_trgt, buf_two )
+        end
+    else
+        factor_last = buf_one
+    end
+
+    # STEP.03
+    factor_crnt = buf_one + buf_two
+
     while Base.isless( buf_one, buf_trgt )
 
         if Main.ismultiple( target=buf_trgt, base=factor_crnt )
@@ -46,7 +58,7 @@ function problem0003( target::Core.Integer )
 
         end
 
-        factor_crnt += buf_one
+        factor_crnt += buf_two
 
     end
 
