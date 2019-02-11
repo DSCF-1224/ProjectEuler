@@ -48,7 +48,8 @@ What is the largest prime factor of the number 600851475143 ?
 - [`function Problem0003_02_INT32`](#function-problem0003_02_int32) の引数，内部処理ならびに戻し値を64bit整数型変数に変更したもの
 
 #### `function Problem0003_03_INT32` ####
-- 工事中
+- `private` 属性
 
 #### `function Problem0003_03_INT64` ####
+- `private` 属性
 - [`function Problem0003_03_INT32`](#function-problem0003_03_int32) の引数，内部処理ならびに戻し値を64bit整数型変数に変更したもの

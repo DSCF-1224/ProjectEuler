@@ -8,39 +8,39 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 
 ## 依存関係 ##
-* `0002_support.jl` 中の自作 [`function`](https://docs.julialang.org/en/v1/base/base/#function) の `show_result` を使用
-	* `../support/support_projecteuler.jl` の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`](https://docs.julialang.org/en/v1/base/base/#function) `SupportProjectEuler.println_timed` を使用
+* `0002_support.jl` 中の自作 [`function`][julialang.doc.v1.function] の `show_result` を使用
+	* `../support/support_projecteuler.jl` の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `SupportProjectEuler.println_timed` を使用
 
 
 ## 解答例 ##
 
 ### 0002_01_01.jl ###
 * `problem0002( max::Core.Integer )`
-	* [`0002_01_common.jl`](#0002_01_commonjl) で定義した [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` を用いる
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function)  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`](https://docs.julialang.org/en/v1/base/base/#function)
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.rem`](https://docs.julialang.org/en/v1/base/math/index.html#Base.rem) と [`Base.isequal`](https://docs.julialang.org/en/v1/base/base/#Base.isequal) を用いて判断している
-	* 当該 [`function`](https://docs.julialang.org/en/v1/base/base/#function) の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`](https://docs.julialang.org/en/v1/base/io-network/#Base.stdout) に出力される
+	* [`0002_01_common.jl`](#0002_01_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
+	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
+	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.rem`][julialang.doc.v1.Base.rem] と [`Base.isequal`][julialang.doc.v1.Base.isequal] を用いて判断している
+	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
 ### 0002_01_02.jl ###
 * `problem0002( max::Core.Integer )`
-	* [`0002_01_common.jl`](#0002_01_commonjl) で定義した [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` を用いる
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function)  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`](https://docs.julialang.org/en/v1/base/base/#function)
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.iseven`](https://docs.julialang.org/en/v1/base/numbers/#Base.iseven) を用いて判断している
-	* 当該 [`function`](https://docs.julialang.org/en/v1/base/base/#function) の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`](https://docs.julialang.org/en/v1/base/io-network/#Base.stdout) に出力される
+	* [`0002_01_common.jl`](#0002_01_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
+	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
+	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.iseven`][julialang.doc.v1.Base.iseven] を用いて判断している
+	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
 ### 0002_02_01.jl ###
 * `problem0002( max::Core.Integer )`
-	* [`0002_02_common.jl`](#0002_02_commonjl) で定義した [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` を用いる
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function)  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`](https://docs.julialang.org/en/v1/base/base/#function)
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.rem`](https://docs.julialang.org/en/v1/base/math/index.html#Base.rem) と [`Base.isequal`](https://docs.julialang.org/en/v1/base/base/#Base.isequal) を用いて判断している
-	* 当該 [`function`](https://docs.julialang.org/en/v1/base/base/#function) の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`](https://docs.julialang.org/en/v1/base/io-network/#Base.stdout) に出力される
+	* [`0002_02_common.jl`](#0002_02_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
+	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
+	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.rem`][julialang.doc.v1.Base.rem] と [`Base.isequal`][julialang.doc.v1.Base.isequal] を用いて判断している
+	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
 ### 0002_02_02.jl ###
 * `problem0002( max::Core.Integer )`
-	* [`0002_02_common.jl`](#0002_02_commonjl) で定義した [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` を用いる
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function)  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`](https://docs.julialang.org/en/v1/base/base/#function)
-	* [`function`](https://docs.julialang.org/en/v1/base/base/#function) `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.iseven`](https://docs.julialang.org/en/v1/base/numbers/#Base.iseven) を用いて判断している
-	* 当該 [`function`](https://docs.julialang.org/en/v1/base/base/#function) の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`](https://docs.julialang.org/en/v1/base/io-network/#Base.stdout) に出力される
+	* [`0002_02_common.jl`](#0002_02_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
+	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
+	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.iseven`][julialang.doc.v1.Base.iseven] を用いて判断している
+	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
 ### 0002_03_01.jl ###
 * `problem0002( max::Core.Integer )`
@@ -52,14 +52,21 @@ find the sum of the even-valued terms.
 
 ### 0002_01_common.jl ###
 * `function calc_FibonacciNum( term::Core.Integer )`
-	* 1 を第1項, 2 を第2項とする Fibonacci 数列の第 `term` 項を返す [`function`](https://docs.julialang.org/en/v1/base/base/#function)
+	* 1 を第1項, 2 を第2項とする Fibonacci 数列の第 `term` 項を返す [`function`][julialang.doc.v1.function]
 	* `term` が 3 以上の場合は，自身を用いる再帰処理を行う
 	* [`0002_01_01.jl`](#0002_01_01jl) で利用
 	* [`0002_01_02.jl`](#0002_01_02jl) で利用
 
 ### 0002_02_common.jl ###
 * `function calc_FibonacciNum( term::Core.Integer )`
-	* 1 を第1項, 2 を第2項とする Fibonacci 数列の第 `term` 項を返す [`function`](https://docs.julialang.org/en/v1/base/base/#function)
+	* 1 を第1項, 2 を第2項とする Fibonacci 数列の第 `term` 項を返す [`function`][julialang.doc.v1.function]
 	* `term` が 3 以上の場合は，`term` 個の要素をもつ [`Base.Vector`](https://docs.julialang.org/en/v1/base/arrays/#Base.Vector-Tuple{UndefInitializer,Any}) を宣言し，第 `term` 項までの Fibonacci 数列をメモしながら同項を求める
 	* [`0002_02_01.jl`](#0002_02_01jl) で利用
 	* [`0002_02_02.jl`](#0002_02_02jl) で利用
+
+<!-- links -->
+[julialang.doc.v1.function]: https://docs.julialang.org/en/v1/base/base/#function
+[julialang.doc.v1.Base.isequal]: https://docs.julialang.org/en/v1/base/base/#Base.isequal
+[julialang.doc.v1.Base.iseven]: https://docs.julialang.org/en/v1/base/numbers/#Base.iseven
+[julialang.doc.v1.Base.rem]: https://docs.julialang.org/en/v1/base/math/index.html#Base.rem
+[julialang.doc.v1.Base.stdout]: https://docs.julialang.org/en/v1/base/io-network/#Base.stdout
