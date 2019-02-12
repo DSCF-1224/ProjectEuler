@@ -6,7 +6,7 @@ What is the largest prime factor of the number 600851475143 ?
 
 ## 依存関係 ##
 * [`0003_support.jl`](#0003_supportjl) 中の自作 [`function`][julialang.doc.v1.function] `show_result` を使用
-	* `../support/support_projecteuler.jl` の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `Main.SupportProjectEuler.println_timed` を使用
+	* [`../support/support_projecteuler.jl`][support_projecteuler.jl] の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `Main.SupportProjectEuler.println_timed` を使用
 
 
 ## 解答例 ##

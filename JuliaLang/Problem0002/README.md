@@ -9,7 +9,7 @@ find the sum of the even-valued terms.
 
 ## 依存関係 ##
 * `0002_support.jl` 中の自作 [`function`][julialang.doc.v1.function] の `show_result` を使用
-	* `../support/support_projecteuler.jl` の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `SupportProjectEuler.println_timed` を使用
+	* [`../support/support_projecteuler.jl`][support_projecteuler.jl] の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `SupportProjectEuler.println_timed` を使用
 
 
 ## 解答例 ##
@@ -70,3 +70,4 @@ find the sum of the even-valued terms.
 [julialang.doc.v1.Base.iseven]: https://docs.julialang.org/en/v1/base/numbers/#Base.iseven
 [julialang.doc.v1.Base.rem]: https://docs.julialang.org/en/v1/base/math/index.html#Base.rem
 [julialang.doc.v1.Base.stdout]: https://docs.julialang.org/en/v1/base/io-network/#Base.stdout
+[support_projecteuler.jl]: ../support/support_projecteuler.jl

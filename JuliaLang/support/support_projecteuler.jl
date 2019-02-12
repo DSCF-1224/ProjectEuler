@@ -3,6 +3,7 @@ module SupportProjectEuler
 	# <module>s to import
 	import Printf
 
+	# print the return value of the Base.@timed
 	function println_timed( t::Core.Float64, bytes::Core.Int64, gctime::Core.Float64, memallocs::Base.GC_Diff )
 
 		# STEP.01/01
