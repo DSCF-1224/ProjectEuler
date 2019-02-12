@@ -6,7 +6,8 @@
 module Problem0002
 
   ! <module>s to import
-  use, intrinsic :: iso_fortran_env
+  use,     intrinsic :: iso_fortran_env
+  use, non_intrinsic :: support_projecteuler
 
   ! require all variables to be explicitly declared
   implicit none
@@ -61,7 +62,7 @@ module Problem0002
 
     ! STEP.02 !
     do while( buf_Fibonacci .lt. limit )
-      if( mod( buf_Fibonacci, 2_INT64 ) .eq. 0_INT64  ) sum = sum + buf_Fibonacci
+      if( determine_isEven( buf_Fibonacci ) ) sum = sum + buf_Fibonacci
       itr           = itr + 1_INT32
       buf_Fibonacci = Calc_FibonacciNum( itr )
     end do
@@ -70,6 +71,7 @@ module Problem0002
     return
 
   end function Problem0002_01
+
 
   pure function Problem0002_02( limit ) result( sum )
 
@@ -93,7 +95,7 @@ module Problem0002
 
     ! STEP.02 !
     do while( Fibonacci_buf3 .lt. limit )
-      if( mod( Fibonacci_buf3, 2_INT64 ) .eq. 0_INT64  ) sum = sum + Fibonacci_buf3
+      if( determine_isEven( Fibonacci_buf3 ) ) sum = sum + Fibonacci_buf3
       Fibonacci_buf1 = Fibonacci_buf2
       Fibonacci_buf2 = Fibonacci_buf3
       Fibonacci_buf3 = Fibonacci_buf1 + Fibonacci_buf2
@@ -105,18 +107,20 @@ module Problem0002
   end function Problem0002_02
 
 end module Problem0002
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\GitHub\Fortran\support\support_system_clock.f08 ^                                                                            !
-! D:\GitHub\Fortran\ProjectEuler\Problem0002\Problem0002_01.f08 ^                                                                 !
-! D:\GitHub\Fortran\ProjectEuler\Problem0002\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0002_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! support_system_clock.o ^                                                                                                        !
-! D:\gfortran\Problem0002_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! gfortran ^                                                                                                                       !
+! -c ^                                                                                                                             !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^    
+! Fortran\support\support_system_clock.f08 ^                                                                                       !
+! ProjectEuler\Fortran\support\support_projecteuler.f08 ^                                                                          !
+! ProjectEuler\Fortran\Problem0002\Problem0002_01.f08 ^                                                                            !
+! ProjectEuler\Fortran\Problem0002\main.f08                                                                                        !
+!                                                                                                                                  !
+! gfortran ^                                                                                                                       !
+! -o Problem0002_01.exe ^                                                                                                          !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! support_system_clock.o ^                                                                                                         !
+! support_projecteuler.o ^                                                                                                         !
+! Problem0002_01.o ^                                                                                                               !
+! main.o                                                                                                                           !
+! -------------------------------------------------------------------------------------------------------------------------------- !

@@ -6,7 +6,8 @@
 module Problem0001
 
   ! <module>s to import
-  use, intrinsic :: iso_fortran_env
+  use,     intrinsic :: iso_fortran_env
+  use, non_intrinsic :: support_projecteuler
 
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: Problem0001_01
@@ -16,6 +17,7 @@ module Problem0001
   
   ! <subroutine>s and <function>s in this <module> is below
   contains
+
 
   pure function Problem0001_01( limit ) result( sum )
 
@@ -35,7 +37,10 @@ module Problem0001
 
     ! STEP.02 !
     do while( itr .lt. limit )
-      if( mod( itr, 3_INT64 ) .eq. 0_INT64 .or. mod( itr, 5_INT64 ) .eq. 0_INT64 ) sum = sum + itr
+      if(&!
+        determine_ismultiple( target= itr, base= 3_INT64 ) .or. &!
+        determine_ismultiple( target= itr, base= 5_INT64 )      &!
+      ) sum = sum + itr
       itr = itr + 1_INT64
     end do
 
@@ -43,6 +48,7 @@ module Problem0001
     return
 
   end function Problem0001_01
+
 
   pure function Problem0001_02( limit ) result( sum )
 
@@ -62,8 +68,8 @@ module Problem0001
     ! STEP.02 !
     do itr = 1, limit-1, 1
       if( &!
-        mod( itr, 3_INT64 ) .eq. 0_INT64 .or. &!
-        mod( itr, 5_INT64 ) .eq. 0_INT64      &!
+        determine_ismultiple( target= itr, base= 3_INT64 ) .or. &!
+        determine_ismultiple( target= itr, base= 5_INT64 )      &!
       ) sum = sum + itr
     end do
 
@@ -71,6 +77,7 @@ module Problem0001
     return
 
   end function Problem0001_02
+
 
   pure function Problem0001_03_sub( divisor, limit ) result( sum )
 
@@ -96,6 +103,7 @@ module Problem0001
 
   end function Problem0001_03_sub
 
+
   pure function Problem0001_03( limit ) result( sum )
 
     ! argument of this <function>
@@ -116,16 +124,18 @@ module Problem0001
   end function Problem0001_03
 
 end module Problem0001
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\GitHub\Fortran\ProjectEuler\Problem0001\Problem0001_01.f08 ^                                                                 !
-! D:\GitHub\Fortran\ProjectEuler\Problem0001\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0001_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\gfortran\Problem0001_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! gfortran ^                                                                                                                       !
+! -c ^                                                                                                                             !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! ProjectEuler\Fortran\support\support_projecteuler.f08 ^                                                                          !
+! ProjectEuler\Fortran\Problem0001\Problem0001_01.f08 ^                                                                            !
+! ProjectEuler\Fortran\Problem0001\main.f08                                                                                        !
+!                                                                                                                                  !
+! gfortran ^                                                                                                                       !
+! -o Problem0001_01.exe ^                                                                                                          !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! gfortran\support_projecteuler.o ^                                                                                                !
+! Problem0001_01.o ^                                                                                                               !
+! main.o                                                                                                                           !
+! -------------------------------------------------------------------------------------------------------------------------------- !

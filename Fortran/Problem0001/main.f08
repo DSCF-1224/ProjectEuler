@@ -12,24 +12,24 @@ program main
   ! Require all variables to be explicitly declared
   implicit none
 
-  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_03(     10_INT64 )
-  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_03(    100_INT64 )
-  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_03(   1000_INT64 )
-  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_03(  10000_INT64 )
-  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_03( 100000_INT64 )
+  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_02( 10_INT64 ** 1 )
+  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_02( 10_INT64 ** 3 )
+  write( unit=output_unit, fmt='(I20)', advance='yes' ) Problem0001_02( 10_INT64 ** 9 )
   read *
   
 end program main
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\GitHub\Fortran\ProjectEuler\Problem0001\Problem0001_01.f08 ^                                                                 !
-! D:\GitHub\Fortran\ProjectEuler\Problem0001\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0001_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\gfortran\Problem0001_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! gfortran ^                                                                                                                       !
+! -c ^                                                                                                                             !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! ProjectEuler\Fortran\support\support_projecteuler.f08 ^                                                                          !
+! ProjectEuler\Fortran\Problem0001\Problem0001_01.f08 ^                                                                            !
+! ProjectEuler\Fortran\Problem0001\main.f08                                                                                        !
+!                                                                                                                                  !
+! gfortran ^                                                                                                                       !
+! -o Problem0001_01.exe ^                                                                                                          !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! gfortran\support_projecteuler.o ^                                                                                                !
+! Problem0001_01.o ^                                                                                                               !
+! main.o                                                                                                                           !
+! -------------------------------------------------------------------------------------------------------------------------------- !

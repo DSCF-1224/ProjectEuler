@@ -15,9 +15,9 @@ module Problem0003
   public  :: Problem0003_01         ! interface
   public  :: Problem0003_02         ! interface
   public  :: Problem0003_03         ! interface
-  private :: judge_ismultiple       ! interface
-  private :: judge_ismultiple_INT32 ! function
-  private :: judge_ismultiple_INT64 ! function
+  private :: determine_ismultiple       ! interface
+  private :: determine_ismultiple_INT32 ! function
+  private :: determine_ismultiple_INT64 ! function
   private :: Problem0003_01_INT32   ! function
   private :: Problem0003_01_INT64   ! function
   private :: Problem0003_02_INT32   ! function
@@ -26,9 +26,9 @@ module Problem0003
   private :: Problem0003_03_INT64   ! function
 
   ! <interface>s for this <program>
-  interface judge_ismultiple
-    module procedure judge_ismultiple_INT32
-    module procedure judge_ismultiple_INT64
+  interface determine_ismultiple
+    module procedure determine_ismultiple_INT32
+    module procedure determine_ismultiple_INT64
   end interface
 
   interface Problem0003_01
@@ -51,7 +51,7 @@ module Problem0003
   contains
 
 
-  pure function judge_ismultiple_INT32( target, base ) result( stat )
+  pure function determine_ismultiple_INT32( target, base ) result( stat )
 
     ! arguments for this <function>
     integer( kind= INT32 ), intent(in) :: target
@@ -66,7 +66,7 @@ module Problem0003
 
   end
 
-  pure function judge_ismultiple_INT64( target, base ) result( stat )
+  pure function determine_ismultiple_INT64( target, base ) result( stat )
 
     ! arguments for this <function>
     integer( kind= INT64 ), intent(in) :: target
@@ -103,9 +103,9 @@ module Problem0003
     ! STEP.02 !
     do while( buffer_trgt .gt. 1_INT32 )
 
-      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
         factor_last = factor_crnt
-        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+        do while( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) )
           buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
@@ -140,9 +140,9 @@ module Problem0003
     ! STEP.02 !
     do while( buffer_trgt .gt. 1_INT64 )
 
-      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
         factor_last = factor_crnt
-        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+        do while( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) )
           buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
@@ -176,9 +176,9 @@ module Problem0003
     factor_crnt = 2_INT32
 
     ! STEP.02 !
-    if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+    if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
       factor_last = factor_crnt
-      do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+      do while( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) )
         buffer_trgt = buffer_trgt / factor_crnt
       end do
     else
@@ -191,9 +191,9 @@ module Problem0003
     ! STEP.04 !
     do while( buffer_trgt .gt. 1_INT32 )
 
-      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
         factor_last = factor_crnt
-        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+        do while( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) )
           buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
@@ -225,9 +225,9 @@ module Problem0003
     factor_crnt = 2_INT64
 
     ! STEP.02 !
-    if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+    if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
       factor_last = factor_crnt
-      do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+      do while( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) )
         buffer_trgt = buffer_trgt / factor_crnt
       end do
     else
@@ -240,9 +240,9 @@ module Problem0003
     ! STEP.04 !
     do while( buffer_trgt .gt. 1_INT64 )
 
-      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
         factor_last = factor_crnt
-        do while( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) )
+        do while( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) )
           buffer_trgt = buffer_trgt / factor_crnt
         end do
       end if
@@ -276,9 +276,9 @@ module Problem0003
     buffer_trgt = target
 
     ! STEP.02 !
-    if( judge_ismultiple( target= buffer_trgt, base= 2_INT32 ) ) then
+    if( determine_ismultiple( target= buffer_trgt, base= 2_INT32 ) ) then
       factor_last = 2_INT32
-      do while( judge_ismultiple( target= buffer_trgt, base= 2_INT32 ) )
+      do while( determine_ismultiple( target= buffer_trgt, base= 2_INT32 ) )
         buffer_trgt = buffer_trgt / 2_INT32
       end do
     else
@@ -292,9 +292,9 @@ module Problem0003
     ! STEP.04 !
     do while( buffer_trgt .gt. 1_INT32 .and. factor_crnt .le. factor_max )
 
-      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
         factor_last = factor_crnt
-        do while( judge_ismultiple( target=buffer_trgt, base=factor_crnt ) )
+        do while( determine_ismultiple( target=buffer_trgt, base=factor_crnt ) )
           buffer_trgt = buffer_trgt / factor_crnt
         end do
         factor_max = nint( sqrt( real( buffer_trgt, kind=REAL64 ) ), kind=INT32 )
@@ -332,9 +332,9 @@ module Problem0003
     buffer_trgt = target
 
     ! STEP.02 !
-    if( judge_ismultiple( target= buffer_trgt, base= 2_INT64 ) ) then
+    if( determine_ismultiple( target= buffer_trgt, base= 2_INT64 ) ) then
       factor_last = 2_INT64
-      do while( judge_ismultiple( target= buffer_trgt, base= 2_INT64 ) )
+      do while( determine_ismultiple( target= buffer_trgt, base= 2_INT64 ) )
         buffer_trgt = buffer_trgt / 2_INT64
       end do
     else
@@ -348,9 +348,9 @@ module Problem0003
     ! STEP.04 !
     do while( buffer_trgt .gt. 1_INT64 .and. factor_crnt .le. factor_max )
 
-      if( judge_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
+      if( determine_ismultiple( target= buffer_trgt, base= factor_crnt ) ) then
         factor_last = factor_crnt
-        do while( judge_ismultiple( target=buffer_trgt, base=factor_crnt ) )
+        do while( determine_ismultiple( target=buffer_trgt, base=factor_crnt ) )
           buffer_trgt = buffer_trgt / factor_crnt
         end do
         factor_max = nint( sqrt( real( buffer_trgt, kind=REAL64 ) ), kind=INT64 )

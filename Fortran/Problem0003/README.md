@@ -20,11 +20,11 @@ What is the largest prime factor of the number 600851475143 ?
     - [`function Problem0003_02_INT32`](#function-problem0003_02_int32)
     - [`function Problem0003_02_INT64`](#function-problem0003_02_int64)
 
-#### `interface judge_ismultiple` ###
+#### `interface determine_ismultiple` ###
 - `private` 属性
 - 手続の総称名を宣言するために使用．対象外部手続きは以下の2個の `function`
-    - [`function judge_ismultiple_INT32`](#function-judge_ismultiple_INT32)
-    - [`function judge_ismultiple_INT64`](#function-judge_ismultiple_INT64)
+    - [`function determine_ismultiple_INT32`](#function-determine_ismultiple_INT32)
+    - [`function determine_ismultiple_INT64`](#function-determine_ismultiple_INT64)
 
 #### `function Problem0003_01_INT32` ####
 - `private` 属性
