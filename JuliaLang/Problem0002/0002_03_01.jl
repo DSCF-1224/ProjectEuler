@@ -30,25 +30,28 @@ function problem0002( max::Core.Integer )
 
 	# STEP.01
     # initialize the variable to store the target sum
+    sum = Base.zero( max )
+
+    # STEP.02
+    # calculate the target sum
     if Base.isless( max, 2 ) || Base.isequal( max, 2 )
-        return Base.zero( max )
+        return sum
     else
 
-        # STEP.02
+        # STEP.02.01
         # initialize the variable to store the target sum
         buf_Fibonacci1 = Base.one( max )
-        buf_Fibonacci2 = buf_Fibonacci1 + buf_Fibonacci1
+        buf_Fibonacci2 = buf_Fibonacci1
         buf_Fibonacci3 = buf_Fibonacci1 + buf_Fibonacci2
-        sum            = buf_Fibonacci2
 
-        # STEP.03
+        # STEP.02.02
 	    # calculate the target sum
-        while Base.isless( sum, max )
+        while Base.isless( buf_Fibonacci3, max )
 
-            buf_Fibonacci1 =  buf_Fibonacci2
-            buf_Fibonacci2 =  buf_Fibonacci3
-            buf_Fibonacci3 =  buf_Fibonacci1 + buf_Fibonacci2
             sum            += buf_Fibonacci3
+            buf_Fibonacci1 =  buf_Fibonacci2 + buf_Fibonacci3
+            buf_Fibonacci2 =  buf_Fibonacci3 + buf_Fibonacci1
+            buf_Fibonacci3 =  buf_Fibonacci1 + buf_Fibonacci2
 
         end
 

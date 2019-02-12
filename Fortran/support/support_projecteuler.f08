@@ -1,7 +1,6 @@
 ! ------------------------------------------------------------------------------------------------------------------------------- !
-! [Project Euler] 0003                                                                                                            !
-! https://projecteuler.net/problem=3                                                                                              !
-! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%203                                                        !
+! [Project Euler]                                                                                                                 !
+! support subrutines and functions                                                                                                !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
 module support_projecteuler
 

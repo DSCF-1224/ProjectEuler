@@ -24,6 +24,7 @@ module Problem0002
   ! <subroutine>s and <function>s in this <module> is below
   contains
 
+
   recursive pure function Calc_FibonacciNum( term ) result( retval )
 
     ! argument of this <function>
@@ -41,6 +42,7 @@ module Problem0002
     return
 
   end function Calc_FibonacciNum
+
 
   pure function Problem0002_01( limit ) result( sum )
 
@@ -82,23 +84,21 @@ module Problem0002
     integer( kind=INT64 ) :: sum
 
     ! support variables for this <function>
-    integer( kind=INT64 ) :: Fibonacci_buf1
-    integer( kind=INT64 ) :: Fibonacci_buf2
-    integer( kind=INT64 ) :: Fibonacci_buf3
+    integer( kind=INT64 ) :: buf_Fibonacci(1:3)
 
 
     ! STEP.01 !
-    Fibonacci_buf1 = Fibonacci_1st
-    Fibonacci_buf2 = Fibonacci_2nd
-    Fibonacci_buf3 = Fibonacci_1st + Fibonacci_2nd
-    sum            = Fibonacci_2nd
+    buf_Fibonacci(1) = Fibonacci_1st
+    buf_Fibonacci(2) = Fibonacci_1st
+    buf_Fibonacci(3) = buf_Fibonacci(1) + buf_Fibonacci(2)
+    sum              = 0_INT64
 
     ! STEP.02 !
-    do while( Fibonacci_buf3 .lt. limit )
-      if( determine_isEven( Fibonacci_buf3 ) ) sum = sum + Fibonacci_buf3
-      Fibonacci_buf1 = Fibonacci_buf2
-      Fibonacci_buf2 = Fibonacci_buf3
-      Fibonacci_buf3 = Fibonacci_buf1 + Fibonacci_buf2
+    do while( buf_Fibonacci(3) .lt. limit )
+      sum              = buf_Fibonacci(3) + sum
+      buf_Fibonacci(1) = buf_Fibonacci(2) + buf_Fibonacci(3)
+      buf_Fibonacci(2) = buf_Fibonacci(3) + buf_Fibonacci(1)
+      buf_Fibonacci(3) = buf_Fibonacci(1) + buf_Fibonacci(2)
     end do
 
     ! STEP.END !
