@@ -44,7 +44,7 @@ function problem0002( max::Core.Integer )
 
 		# STEP.02.02
 		# update the target sum
-		if Base.isequal( Base.rem( buf_Fibonacci, 2 ), Base.zero( max ) )
+		if Main.SupportProjectEuler.ismultiple( target=buf_Fibonacci, base=2 )
 			sum += buf_Fibonacci
 		end
 

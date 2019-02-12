@@ -37,9 +37,9 @@ function problem0001( max::Core.Integer )
 		
 		# STEP.02.01
 		# update the sum
-		if Base.isequal( rem(itr, 3) , buf_zero)
+		if Main.SupportProjectEuler.ismultiple( target=itr, base=3 )
 			sum += itr
-		elseif Base.isequal( rem(itr, 5) , buf_zero)
+		elseif Main.SupportProjectEuler.ismultiple( target=itr, base=5 )
 			sum += itr
 		end
 
