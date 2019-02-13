@@ -1,0 +1,122 @@
+% --- 添字 --- %
+\newcommand{\sffxi}{i}
+\newcommand{\sffxj}{j}
+\newcommand{\sffxk}{k}
+\newcommand{\sffxm}{m}
+\newcommand{\sffxn}{n}
+\newcommand{\IndxSym}[1]{\symtt{#1}}
+
+% --- 座標 --- %
+
+	% --- 直交座標系 --- %
+	\newcommand{\RCDX}{x}
+	\newcommand{\RCDY}{y}
+	\newcommand{\RCDZ}{z}
+	\newcommand{\RectCD}[1]{{\RCDX}_{#1}}
+
+	% --- 2次元 極座標系 --- %
+	\newcommand{\PCDR}{r}
+	\newcommand{\PCDA}{\theta}
+	\newcommand{\PolarCD}[1]{%
+		\ifnum#1=1 \PCDR\fi%
+		\ifnum#1=2 \PCDA\fi%
+	}
+
+	% --- 円筒座標系 --- %
+	\newcommand{\CylndrCD}[1]{%
+		\ifnum#1=1 \PolarCD{1}\fi%
+		\ifnum#1=2 \PolarCD{2}\fi%
+		\ifnum#1=3 \RCDZ\fi%
+	}
+
+	% --- 曲線座標系 --- %
+	\newcommand{\ArcCD}{s}
+		\newcommand{\ElemArc}[1]{\DinOdiff #1}
+
+	% --- 波数 --- %
+	\newcommand{\Frequency}{f}
+	\newcommand{\ArgFreq}{\omega}
+
+	% --- その他 --- %
+	\newcommand{\KrnkDlt}[2]{{\mitdelta}_{#1#2}}
+	\newcommand{\LvCvtSym}[3]{{\mitvarepsilon}_{#1,#2,#3}}
+
+% --- 数学定数 --- %
+
+	% setting math font
+	% https://org-technology.com/posts/lualatex-unicode-math.html
+	\newcommand{\MathConstantComment}{\text{const.}}
+	\newcommand{\CircCnst}{\symup{\pi}}
+	\newcommand{\IMGUI}{\symbb{i}}
+	\newcommand{\IMGUJ}{\symbb{j}}
+	\newcommand{\Napier}{\symbb{e}}
+	\newcommand{\UnknownCnst}{C}
+
+% --- 二項演算子 --- %
+	\newcommand{\InnrProd}{\bullet}%	Inner product
+	\newcommand{\Convolution}{\ast}
+
+% --- 集合 --- %
+	\newcommand{\IntegersSet}{\MathematicalFieldSym{Z}}
+	\newcommand{\NaturalNumSet}{\MathematicalFieldSym{N}}
+	\newcommand{\ReallNumSet}{\MathematicalFieldSym{R}}
+		\newcommand{\ReallNumSetPositive}{{\ReallNumSet}_{\greater 0}}
+		\newcommand{\ReallNumSetNonNegative}{{\ReallNumSet}_{\geq 0}}
+	\newcommand{\CmplxNumSet}{\MathematicalFieldSym{C}}
+	\newcommand{\SampleNumset}{\MathematicalFieldSym{K}}
+	\newcommand{\ClmnVctrSet}[2]{#1^{#2}}%
+
+% --- 特殊関数 --- %
+\newcommand{\LandauSymBig}{\mitOmicron}
+\newcommand{\LandauSymSml}{\mscro}
+\newcommand{\BetaFunction}{\mitBeta}%
+\newcommand{\DiracDelta}{\delta}
+\newcommand{\GammaFunction}{\mitGamma}%
+\newcommand{\LegendrePoly}[1]{P_{#1}}%
+
+% --- Differentiability class --- %
+\newcommand{\DifferentiabilityClass}[1]{{C}^{#1}}%
+
+% --- 数学関数 --- %
+\newcommand\Sqrt[1]{\sqrt{ {#1}\ }}
+\DeclareMathOperator{\sech}{\symup{sech}}
+\DeclareMathOperator{\ArcCos}{\symup{Cos}^{{\minus 1}}}
+\DeclareMathOperator{\ArcSin}{\symup{Sin}^{{\minus 1}}}
+\DeclareMathOperator{\ArcTan}{\symup{Tan}^{{\minus 1}}}
+\DeclareMathOperator{\ArcCosh}{\symup{Cosh}^{{\minus 1}}}
+\DeclareMathOperator{\ArcSinh}{\symup{Sinh}^{{\minus 1}}}
+\DeclareMathOperator{\LogNapier}{{\log}_{\Napier}}
+\DeclareMathOperator{\LogTen}{{\log}_{10}}
+\DeclareMathOperator{\rank}{\symup{rank}}
+\DeclareMathOperator{\divergence}{\symup{div}}
+\DeclareMathOperator{\gradient}{\symup{grad}}
+\DeclareMathOperator{\lcm}{lcm}
+
+% --- 複素数 --- %
+\DeclareMathOperator{\RealPart}{\symup{Re}}
+\DeclareMathOperator{\ImagPart}{\symup{Im}}
+\newcommand*{\ConjAst}[1]{{#1}^{\ast}}
+\newcommand*{\ConjBar}[1]{\overbar{#1}}
+\newcommand*{\LongConj}[1]{\overline{#1}}
+
+% --- 行列 --- %
+\newcommand{\HesseMtrx}{\MtrxSym{H}}
+
+% Jacobian
+\newcommand{\Jacobian}{J}
+
+% 幾何学系
+\newcommand{\BaseVctrBf}[1]{\Vctrbf{e}_{#1}}
+\newcommand{\Neighbourhood}[4][0]{{B}_{#2}\parens[#1]{#3\mathsemicolon#4}}
+\newcommand{\DirectionCosineMtrx}[2]{\MtrxSym{Q}_{#1#2}}
+\newcommand{\DirectionCosine}[2]{{Q}_{#1#2}}
+\newcommand{\DistanceFunc}{d}
+	\newcommand{\DistanceFuncEuclid}[1]{{\DistanceFunc}_{#1}}
+\newcommand{\DistancePoints}[1]{\overline{#1}}
+\newcommand{\IdentityMapping}[1]{{id}_{#1}}
+\newcommand{\PntSym}[1]{\symup{#1}}
+	\newcommand{\PntSymOrigin}{\PntSym{O}}
+\newcommand{\PlaneSym}{\Pi}%
+\newcommand{\SymCircle}{C}%
+\newcommand{\SymPath}{C}%
+\newcommand{\ZeroVctrBf}{\Vctrbf{0}}

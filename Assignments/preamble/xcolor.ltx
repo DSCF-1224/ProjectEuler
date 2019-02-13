@@ -1,0 +1,39 @@
+% http://pst-ic.hatenadiary.jp/entry/2017/12/12/000038
+% http://jfly.iam.u-tokyo.ac.jp/colorset/CUD_color_set_GuideBook_2018.pdf
+
+\definecolor{cudred}{cmyk}{0.00,0.75,0.90,0.00}
+\definecolor{cudyellow}{cmyk}{0.00,0.00,1.00,0.00}
+\definecolor{cudgreen}{cmyk}{0.75,0.0,0.65,0.00}
+\definecolor{cudblue}{cmyk}{1.00,0.45,0.00,0.00}
+\definecolor{cudskyblue}{cmyk}{0.55,0.00,0.00,0.00}
+\definecolor{cudpink}{cmyk}{0.00,0.55,0.35,0.00}
+\definecolor{cudorange}{cmyk}{0.00,0.45,1.00,0.00}
+\definecolor{cudpurple}{cmyk}{0.30,0.95,0.00,0.00}
+\definecolor{cudbrown}{cmyk}{0.55,0.90,1.00,0.00}
+\definecolor{cudlightskyblue}{cmyk}{0.30,0.00,0.00,0.00}
+\definecolor{cudbeige}{cmyk}{0.00,0.25,0.45,0.00}
+\definecolor{cudlightgray}{cmyk}{0.15,0.10,0.10,0.00}
+\definecolor{cudgray}{cmyk}{0.18,0.10,0.00,0.55}
+\definecolor{cudblack}{cmyk}{0.00,0.00,0.00,1.00}
+
+\colorlet{MainColor}{cudblue}
+\colorlet{MainColorLight}{cudskyblue}
+\colorlet{AccentColor}{cudred}
+\definecolor{AccentColorLight}{RGB}{255,202,128}
+\colorlet{CommentColor}{cudgreen}
+\definecolor{YellowInText}{cmyk}{0.00,0.11,1.00,0.00}
+\colorlet{DimensionColor}{cudgreen}
+\colorlet{ForceColor}{AccentColor}
+
+
+% \textcolor
+\newcommand{\AccentTextColor}[1]{\textcolor{AccentColor}{#1}}
+\newcommand{\CommentTextColor}[1]{\textcolor{CommentColor}{#1}}
+\newcommand{\MainTextColor}[1]{\textcolor{MainColor}{#1}}
+\newcommand{\DimensionTextColor}[1]{\textcolor{DimensionColor}{#1}}
+
+% \colorbox
+\newcommand{\MainColorBox}[1]{\colorbox{MainColor}{#1}}
+\newcommand{\AccentColorBox}[1]{\colorbox{AccentColor}{#1}}
+\newcommand{\AnswerColorBoxText}[1]{\colorbox{YellowInText}{#1}}
+	\newcommand{\AnswerColorBoxMath}[1]{\AnswerColorBoxText{\(#1\)}}

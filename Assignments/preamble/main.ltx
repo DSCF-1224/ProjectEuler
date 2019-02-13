@@ -1,0 +1,83 @@
+% --- documentclass --- %
+\documentclass[article,head_space=25mm,foot_space=30mm,line_length=160mm]{jlreq}
+
+% --- title --- %
+\title{RANSを用いた高レイノルズ数流れの解析}%
+\author{岡本\ 赳治}%
+\date{\today}%
+
+% --- 日本語フォントの設定 --- %
+\usepackage{luatexja}% 日本語したい
+\usepackage[noto-otf]{luatexja-preset}% 源ノ明朝/ゴシックしたい
+\usepackage{luatexja-otf}
+
+% --- 数式環境の設定 --- %
+\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+	\setmainfont{XITS}%
+	\setmonofont[Ligatures=TeX]{Inconsolatazi4}
+	\unimathsetup{math-style=ISO,bold-style=ISO}
+	\setmathfont{XITS Math} 
+	% \setmathfont{STIX Two Math}%
+\usepackage{siunitx}
+	\sisetup{binary-units=true}
+	\sisetup{group-separator={,}}
+	\sisetup{inter-unit-product=\ensuremath{\cdot}}
+	\sisetup{per-mode=symbol}%
+	\sisetup{space-before-unit=true}%
+	\DeclareSIUnit{\rpm}{\symup{rpm}}
+
+% --- 相互参照の設定 --- %
+\usepackage[pdfencoding=auto]{hyperref}
+	\hypersetup{%
+		hidelinks,%
+		setpagesize=false,%
+		pdftitle={Memo of Project Euler},%
+		pdfauthor={undefined},%
+	}
+\newcommand*{\FigrefJpn}[1]{{\gtfamily \figurename}{\bfseries \ref{#1}}}
+\newcommand*{\TblrefJpn}[1]{{\gtfamily \tablename}{\bfseries \ref{#1}}}
+
+% --- 図の設定 --- %
+\usepackage{xcolor}
+	\input{preamble/xcolor.ltx}
+\usepackage{tikz}
+	\usetikzlibrary{arrows.meta}%
+	\usetikzlibrary{calc}%
+	\usetikzlibrary{decorations}%
+	\usetikzlibrary{decorations.pathmorphing}%
+	\usetikzlibrary{patterns}%
+	\usetikzlibrary{shapes.arrows}%
+	\usetikzlibrary{shapes.geometric}%
+	\usetikzlibrary{trees}%
+	\usetikzlibrary{positioning}%
+	\usetikzlibrary{circuits.logic.US}%
+	\usetikzlibrary{shapes.gates.logic.US}%
+\usepackage{tikz-3dplot}
+
+% --- その他のパッケージ --- %
+\usepackage{arydshln}
+	\hdashlinewidth=1.5pt
+	\hdashlinegap=1.0pt
+\usepackage{booktabs}
+\usepackage{cancel}
+	\input{preamble/cancel.ltx}
+\usepackage{capt-of}
+\usepackage{enumitem}
+\usepackage{expl3}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{lipsum}
+\usepackage{bxjalipsum}
+% \usepackage{makeidx} \makeindex%
+
+% --- 自作 commands --- %
+\input{preamble/GlobalMathStyles.ltx}
+\input{preamble/GlobalMathSymbols.ltx}
+\input{preamble/GlobalTextSymbols.ltx}
+
+% --- jlreq --- %

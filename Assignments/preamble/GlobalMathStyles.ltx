@@ -1,0 +1,294 @@
+% --- 書式 --- %
+\newcommand{\MathSetSym}[1]{\symbfit{#1}}
+\newcommand{\MathematicalFieldSym}[1]{\symbb{#1}}
+\newcommand{\ComponentSym}[1]{\symup{#1}}
+\newcommand{\MtrxSym}[1]{\symbfit{#1}}
+\newcommand{\Vctrbf}[1]{\symbfit{#1}}
+\newcommand{\VctrSpcSym}[1]{\symbfit{#1}}
+\newcommand{\VctrArw}[1]{\Vec{#1}}
+\newcommand{\VctrArwLong}[1]{\overrightarrow{#1}}
+
+% --- 括弧 --- %
+	\makeatletter
+
+		% 括弧の大きさ
+		\newcommand{\SetBracketsSize}[4]{%
+			% #1   : size of brakets
+			% #1<0 : \left and \right
+			% #2   : brakets of left side
+			\ifnum#1<0%
+				\left#2 {#3} \right#4\fi\relax% Auto
+			\ifnum#1=0%
+				#2 {#3} #4\fi\relax% not change size
+			\ifnum#1=1%
+				\bigl#2 {#3} \bigr#4\fi\relax%
+			\ifnum#1=2%
+				\Bigl#2 {#3} \Bigr#4\fi\relax%
+			\ifnum#1=3%
+				\biggl#2 {#3} \biggr#4\fi\relax%
+			\ifnum#1=4%
+				\Biggl#2 {#3} \Biggr#4\fi\relax%
+		}%
+
+		\newcommand{\angleBracks}[2][0]{\SetBracketsSize{#1}\langle{#2}\rangle}%
+		\newcommand{\AngleBracks}[2][0]{\SetBracketsSize{#1}\lAngle{#2}\rAngle}%
+		\newcommand{\braces}[2][0]{\SetBracketsSize{#1}{\lbrace}{#2}{\rbrace}}%
+		\newcommand{\bracks}[2][0]{\SetBracketsSize{#1}{\lbrack}{#2}{\rbrack}}%
+		\newcommand{\brbraks}[2][0]{\SetBracketsSize{#1}{\lbrbrak}{#2}{\rbrbrak}}%
+		\newcommand{\groups}[2][0]{\SetBracketsSize{#1}{\lgroup}{#2}{\rgroup}}%
+		\newcommand{\parens}[2][0]{\SetBracketsSize{#1}{\lparen}{#2}{\rparen}}%
+		\newcommand{\verts}[2][0]{\SetBracketsSize{#1}{\vert}{#2}{\vert}}%
+		\newcommand{\Verts}[2][0]{\SetBracketsSize{#1}{\Vert}{#2}{\Vert}}%
+		\newcommand{\Openvert}[2][0]{\SetBracketsSize{#1}{.}{#2}{\vert}}%
+		\newcommand{\Openbrace}[2][0]{\SetBracketsSize{#1}{.}{#2}{\rbrace}}%
+		\newcommand{\braceOpen}[2][0]{\SetBracketsSize{#1}{\lbrace}{#2}{.}}%
+
+		\newcommand{\SetSepByVert}[3][0]{%
+			\ifnum#1<0%
+				\left\lbrace{#2}\middle|{#3}\right\rbrace\fi\relax%
+			\ifnum#1=0%
+				\braces[#1]{\ {#2}\vert{#3}\ }\fi\relax%
+			\ifnum#1=1%
+				\braces[#1]{\ {#2}\bigm\vert{#3}\ }\fi\relax%
+			\ifnum#1=2%
+				\braces[#1]{\ {#2}\Bigm\vert{#3}\ }\fi\relax%
+		}
+
+		\newcommand{\MtrxParen}[2][0]{\SetBracketsSize{#1}{\lbrack}{#2}{\rbrack}}%
+		\newcommand{\VctrParen}[2][0]{\SetBracketsSize{#1}{\lparen}{#2}{\rparen}}%
+		\newcommand{\UnitParen}[2][0]{\SetBracketsSize{#1}{\lbrack}{#2}{\rbrack}}%
+	\makeatother
+
+	% --- with <xcolor> package --- %
+	\newcommand{\AccentOverBrace}[3]{\textcolor{AccentColor}{\overbrace{\textcolor{#1}{#2}}^{#3}}}
+	\newcommand{\MainOverBrace}[3]{\textcolor{MainColor}{\overbrace{\textcolor{#1}{#2}}^{#3}}}
+	\newcommand{\AccentOverBracket}[3]{\textcolor{AccentColor}{\overbracket{\textcolor{#1}{#2}}^{#3}}}
+	\newcommand{\MainOverBracket}[3]{\textcolor{MainColor}{\overbracket{\textcolor{#1}{#2}}^{#3}}}
+	\newcommand{\AccentUnderBrace}[3]{\textcolor{AccentColor}{\underbrace{\textcolor{#1}{#2}}_{#3}}}
+	\newcommand{\MainUnderBrace}[3]{\textcolor{MainColor}{\underbrace{\textcolor{#1}{#2}}_{#3}}}
+	\newcommand{\AccentUnderBracket}[3]{\textcolor{AccentColor}{\underbracket{\textcolor{#1}{#2}}_{#3}}}
+	\newcommand{\MainUnderBracket}[3]{\textcolor{MainColor}{\underbracket{\textcolor{#1}{#2}}_{#3}}}
+		
+% --- 区間 --- %
+	\makeatletter
+		\ExplSyntaxOn%
+			\tl_new:N \l_Interval_CloseOrderSym
+			\tl_new:N \l_Interval_OpenOrderSym
+				\tl_set:Nn \l_Interval_CloseOrderSym {c}
+				\tl_set:Nn \l_Interval_OpenOrderSym  {o}
+			\tl_new:N \l_Interval_OutputOfParenthesisLeft
+			\tl_new:N \l_Interval_OutputOfParenthesisRight
+			\bool_new:N \l_Interval_ParenthesisBoolLeft
+			\bool_new:N \l_Interval_ParenthesisBoolRight
+
+			\cs_new:Npn \Interval:nnnnn #1#2#3#4#5%
+			{
+				% error check and evaluation of left parenthesis status
+				\tl_if_empty:nTF {#2}
+				{% if judgement was true
+					{\text{\#2~of~\texttt{\textbackslash{}Interval}~is~empty!~}}%
+				}{
+					\bool_if:nTF
+					{% judgement
+						\str_if_eq_p:nV {#2} \l_Interval_CloseOrderSym
+					}{% if judgement was true
+						%  \text{left~prenthesis~is~closed.~}
+						\tl_set:Nx       \l_Interval_OutputOfParenthesisLeft {\lbrack}
+						\bool_set_true:N \l_Interval_ParenthesisBoolLeft
+					}{% if judgement was false
+						\bool_if:nTF
+						{% judgement
+							\str_if_eq_p:nV {#2} \l_Interval_OpenOrderSym
+						}{% if judgement was true
+							% \text{left~prenthesis~is~open.~}
+							\tl_set:Nx       \l_Interval_OutputOfParenthesisLeft {\lparen}
+							\bool_set_true:N \l_Interval_ParenthesisBoolLeft
+						}{% if judgement was false
+							{\text{\#2~of~\texttt{\textbackslash{}Interval}~is~illegal!~}}%
+							\bool_set_false:N \l_Interval_ParenthesisBoolLeft
+						}
+					}
+				}
+
+				% error check and evaluation of right parenthesis status
+				\tl_if_empty:nTF {#3}
+				{% if judgement was true
+					{\text{\#3~of~\texttt{\textbackslash{}Interval}~is~empty!~}}%
+				}{
+					\bool_if:nTF
+					{% judgement
+						\str_if_eq_p:nV {#3} \l_Interval_CloseOrderSym
+					}{% if judgement was true
+						%  \text{right~prenthesis~is~closed.~}
+						\tl_set:Nx       \l_Interval_OutputOfParenthesisRight {\rbrack}
+						\bool_set_true:N \l_Interval_ParenthesisBoolRight
+					}{% if judgement was false
+						\bool_if:nTF
+						{% judgement
+							\str_if_eq_p:nV {#3} \l_Interval_OpenOrderSym
+						}{% if judgement was true
+							% \text{right~prenthesis~is~open.~}
+							\tl_set:Nx       \l_Interval_OutputOfParenthesisRight {\rparen}
+							\bool_set_true:N \l_Interval_ParenthesisBoolRight
+						}{% if judgement was false
+							{\text{\#3~of~\texttt{\textbackslash{}Interval}~is~illegal!~}}%
+							\bool_set_false:N \l_Interval_ParenthesisBoolRight
+						}
+					}
+				}
+
+				\bool_if:NT \l_Interval_ParenthesisBoolLeft
+				{
+					\bool_if:NT \l_Interval_ParenthesisBoolRight
+					{
+						\SetBracketsSize{#1}{\l_Interval_OutputOfParenthesisLeft}{#4,#5}{\l_Interval_OutputOfParenthesisRight}
+					}
+				}
+			}
+			\cs_new_eq:NN \Interval \Interval:nnnnn%
+		\ExplSyntaxOff%
+
+	\makeatother
+
+% 極限
+	\makeatletter
+
+		\newcommand{\LimitArrow}[2]{ {#1} \to {#2} }
+		\newcommand{\OneSidedLimitArrowL}[2]{ {#1} \nearrow {#2} }
+		\newcommand{\OneSidedLimitArrowR}[2]{ {#1} \searrow {#2} }
+		\newcommand{\OneSidedLimitSignP}[1]{ #1 \mathplus 0 }
+		\newcommand{\OneSidedLimitSignM}[1]{ #1 \minus    0 }
+		\newcommand{\Limit}[3]{ \lim_{ \LimitArrow{#1}{#2} } {#3} }
+		\newcommand{\OneSidedLimitL}[3]{ \lim_{ \OneSidedLimitArrowL{#1}{#2} } {#3} }
+		\newcommand{\OneSidedLimitR}[3]{ \lim_{ \OneSidedLimitArrowR{#1}{#2} } {#3} }
+
+		\ExplSyntaxOn%
+			\tl_new:N \l_OneSidedLimitDirectionSym%
+			\tl_new:N \l_OneSidedLimitDirectionSymAbove%
+			\tl_new:N \l_OneSidedLimitDirectionSymBelow%
+			\tl_new:N \l_OneSidedLimitDirectionSymLeft%
+			\tl_new:N \l_OneSidedLimitDirectionSymRight%
+				\tl_set:Nn \l_OneSidedLimitDirectionSymAbove {a}%
+				\tl_set:Nn \l_OneSidedLimitDirectionSymBelow {b}%
+				\tl_set:Nn \l_OneSidedLimitDirectionSymLeft  {l}%
+				\tl_set:Nn \l_OneSidedLimitDirectionSymRight {r}%
+			\bool_new:N \l_Bool_OneSidedLimitArgumentBlank
+				\bool_set_true:N \l_OneSidedLimitArgumentEmplyBool
+
+			\cs_new:Npn \OneSidedLimit:nnnn #1#2#3#4%
+			{%
+				\tl_if_empty:nT {#1}
+				{% if judgement of #1 was false
+					\text{\#1~is~empty!~}%
+					\bool_set_false:N \l_OneSidedLimitArgumentEmplyBool%
+				}%
+
+				\tl_if_empty:nT {#2}
+				{% if judgement of #2 was false
+					\text{\#2~is~empty!~}%
+					\bool_set_false:N \l_OneSidedLimitArgumentEmplyBool%
+				}%
+
+				\tl_if_empty:nT {#3}
+				{% if judgement of #3 was false
+					\text{\#3~is~empty!~}%
+					\bool_set_false:N \l_OneSidedLimitArgumentEmplyBool%
+				}%
+
+				\tl_if_empty:nT {#4}
+				{% if judgement of #4 was false
+					\text{\#4~is~empty!~}%
+					\bool_set_false:N \l_OneSidedLimitArgumentEmplyBool%
+				}%
+
+				\bool_if:NT \l_OneSidedLimitArgumentEmplyBool%
+				{% if judgement of #1
+					\bool_if:nTF%
+					{ \str_if_eq_p:nV {#1} \l_OneSidedLimitDirectionSymAbove }%
+					{\OneSidedLimitL{#2}{#3}{#4}}
+					{% if target variable did not approached from `above'
+						\bool_if:nTF%
+						{ \str_if_eq_p:nV {#1} \l_OneSidedLimitDirectionSymBelow }
+						{\OneSidedLimitR{#2}{#3}{#4}}
+						{% if target variable did not approached from `above' and `below'
+							\bool_if:nTF%
+							{ \str_if_eq_p:nV {#1} \l_OneSidedLimitDirectionSymLeft }%
+							{\OneSidedLimitL{#2}{#3}{#4}}
+							{% if target variable did not approached from `above', `below' and `left'
+								\bool_if:nTF%
+								{ \str_if_eq_p:nV {#1} \l_OneSidedLimitDirectionSymRight }%
+								{\OneSidedLimitR{#2}{#3}{#4}}
+								{% if target variable did not approached from `above', `below', `left' and `right'
+									\text{argument~of~\textbackslash{}OneSidedLimit~is~illegal!}%%
+								}
+							}
+						}
+					}
+				}
+			}
+			\cs_new_eq:NN \OneSidedLimit \OneSidedLimit:nnnn%
+		\ExplSyntaxOff%
+
+	\makeatother
+
+% --- 常微分 --- %
+\newcommand{\DinOdiff}{\symbb{d}}
+\newcommand{\odiff}[3][1]{%
+	\ifnum#1<1\relax\text{\bfseries \#1 of \textbackslash{}pdiff is negative.}\fi\relax%
+	\ifnum#1=1\relax\frac{\DinOdiff#2}{\DinOdiff#3}\fi\relax%
+	\ifnum#1>1\relax\frac{\DinOdiff^{#1}#2}{\DinOdiff#3^{#1}}\fi\relax%
+}
+\newcommand{\odiffsym}[3]{%
+	\frac{{\DinOdiff}^{#1}#2}{{\DinOdiff}#3^{#1}}
+}
+
+% --- 物質微分 --- %
+\newcommand{\matdiff}[2]{%
+	\frac{ \symbbit{D} #1 }{ \symbbit{D} #2 }
+}
+
+% --- 偏微分 --- %
+\newcommand{\pdiff}[3][1]{%
+	\ifnum#1<1\relax\text{\bfseries \#1 of \textbackslash{}pdiff is negative.}\fi\relax%
+	\ifnum#1=1\relax\frac{\partial{}#2}{\partial{}#3}\fi\relax%
+	\ifnum#1>1\relax\frac{\partial^{#1}#2}{\partial{}#3^{#1}}\fi\relax%
+}
+\newcommand{\PdiffSmall}[2]{{#1}_{\ComponentSym{,#2}}}
+
+% --- 全微分 --- %
+\newcommand\TotalDiff[2][1]{
+	\ifnum #1=1 \DinOdiff #2 \fi%
+	\ifnum #1=2 \DinOdiff^{2} #2 \fi%
+}
+
+% --- アクセントによる微分表示 --- %
+\newcommand\DotDiff[2][1]{%
+	\ifnum #1=1 \dot{#2}\fi\relax%
+	\ifnum #1=2 \ddot{#2}\fi\relax%
+	\ifnum #1=3 \dddot{#2}\fi\relax%
+	\ifnum #1=4 \ddddot{#2}\fi\relax%
+}
+\newcommand\TimeDiff[2][1]{\DotDiff[#1]{#2}}
+
+\newcommand\Laplacian\increment%
+
+% --- 行列の操作 --- %
+	\DeclareMathOperator{\Trace}{\symup{Tr}}
+	\newcommand{\TrnspsdMtrx}[1]{#1^{\top}}
+	\newcommand{\AdjointMtrx}[1]{#1^{\ast}}
+	\newcommand{\InverseMtrx}[1]{#1^{{\minus 1}}}
+	\newcommand{\ZeroMtrx}{{\MtrxSym O}}    % zero matrix
+	\newcommand{\Cofactor}[2]{\upDelta_{#1,#2}}%
+
+	% \newcommand{\IdentityMapping}{I}%
+	% 	\newcommand{\IdentityMappingWithSet}[1]{\IdentityMapping_{#1}}%
+	\newcommand{\InverseMapping}[1]{#1^{{\minus 1}}}
+
+% --- 積分 --- %
+\newcommand{\DinInt}[2][\,]{#1\relax\DinOdiff#2}
+\newcommand{\Integration}[5]{#1_{#2}^{#3} #5\,\DinOdiff#4}
+\newcommand{\DblIntegration}[6]{#1_{#2}^{#3} #6\,\DinOdiff#4\,\DinOdiff#5}
+\newcommand{\Integrated}[5][0]{\bracks[#1]{#5}_{#2 \equal #3}^{#2 \equal #4}}
+\DeclareMathOperator{\LPTFsym}{\symscr{L}}
+\DeclareMathOperator{\FRTFsym}{\symscr{F}}
+\newcommand{\LPTFVL}{s}%
