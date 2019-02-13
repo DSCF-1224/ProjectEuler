@@ -29,7 +29,7 @@ gfortran 8.1.0
 - `Fibonacci_2nd`
   - Fibonacci 数列の第2項（本問題での定義値）を格納する `parameter` 属性の整数型変数
 
-#### `function Calc_FibonacciNum` ####
+#### `function Calc_FibonacciNum_RCR` ####
 
 - 当該 `function` の引数は `term` の1個．Fibonacci 数列の第 `term` 項を求める
 - 当該 `function` には `recursive` 属性を付与することで，Fibonacci 数列の第 `term` 項を再帰的に求めている
@@ -38,7 +38,7 @@ gfortran 8.1.0
 
 - 当該 `function` の引数は `limit` の1個．Fibonacci 数列の項の値の上限を与える．本問題なら `4*10**6` を与えればよい．
 - Fibonacci 数列の各項の値は [`function Calc_FibonacciNum`](#function-calc_fibonaccinum) を用いて求めている
-- Fibonacci 数列の各項の値の偶奇の判定には，自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) の `function` [`determine_isEven`] を用いている
+- Fibonacci 数列の各項の値の偶奇の判定には，自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) の `function` `determine_isEven` を用いている
 
 #### `function Problem0002_02` ####
 

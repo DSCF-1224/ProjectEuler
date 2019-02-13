@@ -15,7 +15,7 @@ module Problem0002
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: Problem0002_01
   public  :: Problem0002_02
-  private :: Calc_FibonacciNum
+  private :: Calc_FibonacciNum_RCR
 
   ! constants for this <module>
   integer( kind=INT64 ), private, parameter :: Fibonacci_1st = 1_INT64
@@ -25,7 +25,7 @@ module Problem0002
   contains
 
 
-  recursive pure function Calc_FibonacciNum( term ) result( retval )
+  recursive pure function Calc_FibonacciNum_RCR( term ) result( retval )
 
     ! argument of this <function>
     integer( kind=INT32 ), intent(in) :: term
@@ -36,14 +36,32 @@ module Problem0002
     select case (term)
       case( 1_INT32 ); retval = Fibonacci_1st
       case( 2_INT32 ); retval = Fibonacci_2nd
-      case default;    retval = Calc_FibonacciNum( term-1_INT32 ) + Calc_FibonacciNum( term-2_INT32 )
+      case default;    retval = Calc_FibonacciNum_RCR( term-1_INT32 ) + Calc_FibonacciNum_RCR( term-2_INT32 )
     end select
 
     return
 
+  end function Calc_FibonacciNum_RCR
+
+
+  pure function Calc_FibonacciNum( term ) result( retval )
+
+    ! arguments for this <function>
+    integer( kind= INT32 ), intent(in) :: term
+
+    ! return value of this <function>
+    integer( kind=INT64 ) :: retval
+
+    ! local variables for this <function>
+    integer( kind= INT64 ), allocatable :: buf(:)
+
+    select case( term )
+      case( 1_INT32 ); retval 
+    end select
+ 
   end function Calc_FibonacciNum
-
-
+  
+  
   pure function Problem0002_01( limit ) result( sum )
 
     ! argument of this <function>
