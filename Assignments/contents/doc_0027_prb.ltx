@@ -1,0 +1,25 @@
+% --- Project Euler Problem 27 --- %
+\begin{tcbProblem}[label={problem:0027:question:Eng}]
+	Euler discovered the remarkable quadratic formula:
+	\begin{equation*}
+		{n}^{2} \mathplus n \mathplus 41
+	\end{equation*}
+	It turns out that the formula will produce 40 primes for the consecutive integer values \( 0 \leq n \leq 39 \).
+	However, when \( n \equal 40 \), \( {40}^{2} \mathplus 40 \mathplus 41 \equal 40 \lparen 40 \mathplus 1 \rparen \mathplus 41 \) is divisible by 41,
+	and certainly when \( n \equal 41 \), \( {41}^{2} \mathplus 41 \mathplus 41 \) is clearly divisible by 41.
+
+	The incredible formula \( {n}^{2} \minus 79n \mathplus 1601 \) was discovered,
+	which produces 80 primes for the consecutive values \( 0 \leq n \leq 79 \).
+	The product of the coefficients, \( \minus 79 \) and \( 1601 \), is \( \minus 126479 \).
+
+	Considering quadratics of the form:
+	\medskip%
+	\begin{center}
+		\( {n}^{2} \mathplus an \mathplus b \), where \( \vert a \vert \less 1000 \) and \( \vert b \vert \less 1000 \)
+	\end{center}
+	\medskip%
+	where \( \vert n \vert \) is the modulus/absolute value of \( n \)\par%
+	e.g. \(  \vert 11 \vert \equal 11 \) and \( \vert \minus 4 \vert \equal 4 \)
+
+	Find the product of the coefficients, \( a \) and \( b \), for the quadratic expression that produces the maximum number of primes for consecutive values of \( n \), starting with \( n \equal 0 \).
+\end{tcbProblem}
