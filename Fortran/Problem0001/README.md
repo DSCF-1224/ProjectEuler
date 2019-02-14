@@ -59,4 +59,8 @@ gfortran 8.1.0
 - `function` [`Problem0001_01`](#function-problem0001_01), [`Problem0001_02`](#function-problem0001_02), [`Problem0001_03`](#function-problem0001_03) を運用するための `program` 文
 
 #### `subroutine show_result` ####
-- 当該 `subroutine` の引数は `limit`, `sum`, `start`, `stop` の合計4個
+
+- 当該 `subroutine` の引数は `limit`, `retval`, `start`, `stop` の合計4個
+- 引数 `limit` は3か5の倍数であるかを判定する自然数の上限を与える．
+- 引数 `retval` には当該問題の返し値を渡す
+- 引数 `start` には組み込み `subroutine` `SYSTEM_CLOCK` の返し値を渡す

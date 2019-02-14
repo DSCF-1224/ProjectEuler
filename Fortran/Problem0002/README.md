@@ -8,14 +8,17 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 ## テスト環境 ##
+
 gfortran 8.1.0
 
 ## 構成 ##
 
 - [Problem0002_01.f08](#problem0002_01f08)
   - [`module Problem0002`](#module-problem0002)
-    - [`function Calc_FibonacciNum`](#function-calc_fibonaccinum)
-    - [`function Problem0002_01`](#function-problem0002_01)
+    - [`function Calc_FibonacciNum_RCR`](#function-calc_fibonaccinum_rcr)
+    - [`function Calc_FibonacciNum_WithMemo`](#function-calc_fibonaccinum_withmemo)
+    - [`function Problem0002_01_RCR`](#function-problem0002_01_rcr)
+    - [`function Problem0002_01_WithMemo`](#function-problem0002_01_withmemo)
     - [`function Problem0002_02`](#function-problem0002_02)
 - [main.f08](#mainf08)
 
@@ -32,18 +35,31 @@ gfortran 8.1.0
 
 #### `function Calc_FibonacciNum_RCR` ####
 
-- 当該 `function` の引数は `term` の1個．Fibonacci 数列の第 `term` 項を求める
+- Fibonacci 数列の第 `term` 項を求める
+- 当該 `function` の引数は `term` の1個
 - 当該 `function` には `recursive` 属性を付与することで，Fibonacci 数列の第 `term` 項を再帰的に求めている
 
-#### `function Problem0002_01` ####
+#### `function Calc_FibonacciNum_WithMemo` ####
 
-- 当該 `function` の引数は `limit` の1個．Fibonacci 数列の項の値の上限を与える．本問題なら `4*10**6` を与えればよい．
-- Fibonacci 数列の各項の値は [`function Calc_FibonacciNum`](#function-calc_fibonaccinum) を用いて求めている
+- Fibonacci 数列の第 `term` 項を求める
+- 当該 `function` の引数は `term` の1個
+- `term` が `3` 以上の場合には，第 `term` 項に至る Fibonacci 数列の計算過程を保存するための動的配列を用いている
+
+#### `function Problem0002_01_RCR` ####
+
+- 当該 `function` の引数は `limit` の1個．総和を求める Fibonacci 数列の項の値の上限を与える．本問題なら `4*10**6` を与えればよい．
+- Fibonacci 数列の各項の値は [`function Calc_FibonacciNum_RCR`](#function-calc_fibonaccinum_rcr) を用いて求めている
+- Fibonacci 数列の各項の値の偶奇の判定には，自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) の `function` `determine_isEven` を用いている
+
+#### `function Problem0002_01_WithMemo` ####
+
+- 当該 `function` の引数は `limit` の1個．総和を求める Fibonacci 数列の項の値の上限を与える．本問題なら `4*10**6` を与えればよい．
+- Fibonacci 数列の各項の値は [`function Calc_FibonacciNum_WithMemo`](#function-calc_fibonaccinum_withmemo) を用いて求めている
 - Fibonacci 数列の各項の値の偶奇の判定には，自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) の `function` `determine_isEven` を用いている
 
 #### `function Problem0002_02` ####
 
-- 当該 `function` の引数は `limit` の1個．Fibonacci 数列の項の値の上限を与える．本問題なら `4*10**6` を与えればよい．
+- 当該 `function` の引数は `limit` の1個．総和を求める Fibonacci 数列の項の値の上限を与える．本問題なら `4*10**6` を与えればよい．
 - 再帰処理を用いる [`function Calc_FibonacciNum`](#function-calc_fibonaccinum) では，Fibonacci 数列の各項の値を求めるのに時間を要するため，その演算過程をメモ化している
 
 ## main.f08 ##
