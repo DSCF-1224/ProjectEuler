@@ -13,13 +13,32 @@ module Problem0001
   public  :: Problem0001_01
   public  :: Problem0001_02
   public  :: Problem0001_03
+  private :: determine_istargetmultiple
   private :: Problem0001_03_sub
   
   ! <subroutine>s and <function>s in this <module> is below
   contains
 
 
-  pure function Problem0001_01( limit ) result( sum )
+  pure function determine_istargetmultiple ( target ) result ( stat )
+
+    ! argument of this <function>
+    integer( kind=INT64 ), intent(in) :: target
+
+    ! return value of this <function>
+    logical :: stat
+
+    ! STEP.01/01
+    stat = determine_ismultiple( target= target, base= 3_INT64 )
+    stat = determine_ismultiple( target= target, base= 5_INT64 ) .or. stat
+
+    ! STEP.TRUE_END
+    return
+
+  end function determine_istargetmultiple
+
+
+  pure function Problem0001_01( limit ) result ( sum )
 
     ! argument of this <function>
     integer( kind=INT64 ), intent(in) :: limit
@@ -37,10 +56,7 @@ module Problem0001
 
     ! STEP.02 !
     do while( itr .lt. limit )
-      if(&!
-        determine_ismultiple( target= itr, base= 3_INT64 ) .or. &!
-        determine_ismultiple( target= itr, base= 5_INT64 )      &!
-      ) sum = sum + itr
+      if( determine_istargetmultiple ( itr ) ) sum = sum + itr
       itr = itr + 1_INT64
     end do
 
@@ -67,10 +83,7 @@ module Problem0001
 
     ! STEP.02 !
     do itr = 1, limit-1, 1
-      if( &!
-        determine_ismultiple( target= itr, base= 3_INT64 ) .or. &!
-        determine_ismultiple( target= itr, base= 5_INT64 )      &!
-      ) sum = sum + itr
+      if( determine_istargetmultiple ( itr ) ) sum = sum + itr
     end do
 
     ! STEP.END !

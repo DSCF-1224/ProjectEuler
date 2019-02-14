@@ -56,8 +56,8 @@ program main
     type( Type_System_Clock ), intent(in) :: stop
 
     ! STEP.01
-    write( unit=output_unit, fmt='(A12,1X,":",1X,2(I23))',      advance='yes' ) 'LIMIT',        limit
-    write( unit=output_unit, fmt='(A12,1X,":",1X,2(I23))',      advance='yes' ) 'RETURN VALUE', sum
+    write( unit=output_unit, fmt='(A12,1X,":",1X,I23)',         advance='yes' ) 'LIMIT',        limit
+    write( unit=output_unit, fmt='(A12,1X,":",1X,I23)',         advance='yes' ) 'RETURN VALUE', sum
     write( unit=output_unit, fmt='(A12,1X,":",1X,ES23.15e3,/)', advance='yes' ) &!
       'CPU TIME', &!
       SYSTEM_CLOCK_ElapsedTime( start= start, stop= stop )

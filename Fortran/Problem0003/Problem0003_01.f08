@@ -6,31 +6,24 @@
 module Problem0003
 
   ! <module>s to import
-  use, intrinsic :: iso_fortran_env
+  use,     intrinsic :: iso_fortran_env
+  use, non_intrinsic :: support_projecteuler
 
   ! require all variables to be explicitly declared
   implicit none
 
   ! accessibility of <subroutine>s and <function>s in this <module>
-  public  :: Problem0003_01         ! interface
-  public  :: Problem0003_02         ! interface
-  public  :: Problem0003_03         ! interface
-  private :: determine_ismultiple       ! interface
-  private :: determine_ismultiple_INT32 ! function
-  private :: determine_ismultiple_INT64 ! function
-  private :: Problem0003_01_INT32   ! function
-  private :: Problem0003_01_INT64   ! function
-  private :: Problem0003_02_INT32   ! function
-  private :: Problem0003_02_INT64   ! function
-  private :: Problem0003_03_INT32   ! function
-  private :: Problem0003_03_INT64   ! function
+  public  :: Problem0003_01       ! interface
+  public  :: Problem0003_02       ! interface
+  public  :: Problem0003_03       ! interface
+  private :: Problem0003_01_INT32 ! function
+  private :: Problem0003_01_INT64 ! function
+  private :: Problem0003_02_INT32 ! function
+  private :: Problem0003_02_INT64 ! function
+  private :: Problem0003_03_INT32 ! function
+  private :: Problem0003_03_INT64 ! function
 
   ! <interface>s for this <program>
-  interface determine_ismultiple
-    module procedure determine_ismultiple_INT32
-    module procedure determine_ismultiple_INT64
-  end interface
-
   interface Problem0003_01
     module procedure Problem0003_01_INT32
     module procedure Problem0003_01_INT64
@@ -49,37 +42,6 @@ module Problem0003
   
   ! <subroutine>s and <function>s in this <module> is below
   contains
-
-
-  pure function determine_ismultiple_INT32( target, base ) result( stat )
-
-    ! arguments for this <function>
-    integer( kind= INT32 ), intent(in) :: target
-    integer( kind= INT32 ), intent(in) :: base
-
-    ! return value of this <function>
-    logical :: stat
-
-    ! STEP.TRUE_END
-    stat = mod( target, base ) .eq. 0_INT32
-    return
-
-  end
-
-  pure function determine_ismultiple_INT64( target, base ) result( stat )
-
-    ! arguments for this <function>
-    integer( kind= INT64 ), intent(in) :: target
-    integer( kind= INT64 ), intent(in) :: base
-
-    ! return value of this <function>
-    logical :: stat
-
-    ! STEP.TRUE_END
-    stat = mod( target, base ) .eq. 0_INT64
-    return
-
-  end
 
 
   pure function Problem0003_01_INT32( target ) result( factor_last )

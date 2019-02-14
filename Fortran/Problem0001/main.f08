@@ -17,26 +17,26 @@ program main
   integer( kind=INT64 )     :: limit, sum
   type( Type_System_Clock ) :: System_Clock_Start, System_Clock_End
 
-  limit = 10_INT64 ** 3
+  limit = 10_INT64 ** 8
 
 
   ! STEP.02.01
   call SYSTEM_CLOCK_UsingType ( System_Clock_Start )
   sum = Problem0001_01 ( limit )
   call SYSTEM_CLOCK_UsingType ( System_Clock_End )
-  call show_result ( limit= limit, sum= sum, start= System_Clock_Start, stop= System_Clock_End )
+  call show_result ( limit= limit, retval= sum, start= System_Clock_Start, stop= System_Clock_End )
 
   ! STEP.02.02
   call SYSTEM_CLOCK_UsingType ( System_Clock_Start )
   sum = Problem0001_02 ( limit )
   call SYSTEM_CLOCK_UsingType ( System_Clock_End )
-  call show_result ( limit= limit, sum= sum, start= System_Clock_Start, stop= System_Clock_End )
+  call show_result ( limit= limit, retval= sum, start= System_Clock_Start, stop= System_Clock_End )
 
   ! STEP.02.02
   call SYSTEM_CLOCK_UsingType ( System_Clock_Start )
   sum = Problem0001_03 ( limit )
   call SYSTEM_CLOCK_UsingType ( System_Clock_End )
-  call show_result ( limit= limit, sum= sum, start= System_Clock_Start, stop= System_Clock_End )
+  call show_result ( limit= limit, retval= sum, start= System_Clock_Start, stop= System_Clock_End )
 
   read *
 

@@ -13,10 +13,10 @@ gfortran 8.1.0
 
 - [Problem0001_01.f08](#problem0001_01f08)
   - [`module Problem0001`](#module-problem0001)
-    - [`function Problem0001_01`](#function-problem0001_01)
-    - [`function Problem0001_02`](#function-problem0001_02)
-    - [`function Problem0001_03_sub`](#function-problem0001_03_sub)
-    - [`function Problem0001_03`](#function-problem0001_03)
+    - `function` [`Problem0001_01`](#function-problem0001_01)
+    - `function` [`Problem0001_02`](#function-problem0001_02)
+    - `function` [`Problem0001_03_sub`](#function-problem0001_03_sub)
+    - `function` [`Problem0001_03`](#function-problem0001_03)
 - [main.f08](#mainf08)
 
 ## Problem0001_01.f08 ##
@@ -56,11 +56,14 @@ gfortran 8.1.0
 - 組み込み `module` [`iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必須とする
 - 自作 `module` [`Problem0001`](#module-problem0001) を必須とする
 - 自作 `module` [`support_system_clock`](https://github.com/DSCF-1224/Fortran/blob/master/support/support_system_clock.f08) を必須とする
-- `function` [`Problem0001_01`](#function-problem0001_01), [`Problem0001_02`](#function-problem0001_02), [`Problem0001_03`](#function-problem0001_03) を運用するための `program` 文
+- 自作 `module` [`Problem0001`](#module-problem0001) 中の以下の `function` の実行結果を標準出力 `OUTPUT_UNIT` へ出力する
+  - `function` [`Problem0001_01`](#function-problem0001_01)
+  - `function` [`Problem0001_02`](#function-problem0001_02)
+  - `function` [`Problem0001_03`](#function-problem0001_03)
 
 #### `subroutine show_result` ####
 
 - 当該 `subroutine` の引数は `limit`, `retval`, `start`, `stop` の合計4個
 - 引数 `limit` は3か5の倍数であるかを判定する自然数の上限を与える．
 - 引数 `retval` には当該問題の返し値を渡す
-- 引数 `start` には組み込み `subroutine` `SYSTEM_CLOCK` の返し値を渡す
+- 引数 `start`, `stop` には組み込み `subroutine` `SYSTEM_CLOCK` の返し値を渡す
