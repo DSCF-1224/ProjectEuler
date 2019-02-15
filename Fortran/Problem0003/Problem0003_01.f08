@@ -333,16 +333,18 @@ module Problem0003
   end function Problem0003_03_INT64
 
 end module Problem0003
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\GitHub\Fortran\ProjectEuler\Problem0003\Problem0003_01.f08 ^                                                                 !
-! D:\GitHub\Fortran\ProjectEuler\Problem0003\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0003_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\gfortran\Problem0003_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! gfortran ^                                                                                                                       !
+! -c ^                                                                                                                             !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! ProjectEuler\Fortran\support\support_projecteuler.f08 ^                                                                          !
+! ProjectEuler\Fortran\Problem0001\Problem0001_01.f08 ^                                                                            !
+! ProjectEuler\Fortran\Problem0001\main.f08                                                                                        !
+!                                                                                                                                  !
+! gfortran ^                                                                                                                       !
+! -o Problem0001_01.exe ^                                                                                                          !
+! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
+! gfortran\support_projecteuler.o ^                                                                                                !
+! Problem0001_01.o ^                                                                                                               !
+! main.o                                                                                                                           !
+! -------------------------------------------------------------------------------------------------------------------------------- !

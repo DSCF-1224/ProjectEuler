@@ -17,8 +17,9 @@ program main
   integer( kind=INT64 )     :: limit, sum
   type( Type_System_Clock ) :: System_Clock_Start, System_Clock_End
 
-  limit = 10_INT64 ** 8
-
+  ! STEP.01
+  ! set the target limit
+  limit = 10_INT64 ** 6
 
   ! STEP.02.01
   call SYSTEM_CLOCK_UsingType ( System_Clock_Start )
