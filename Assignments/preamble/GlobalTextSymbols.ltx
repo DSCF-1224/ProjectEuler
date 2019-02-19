@@ -17,8 +17,6 @@
 \newcommand{\parenTheorem}[1]{『#1』}
 
 % link
-\newcommand{\hrefOriginalPage}[1]{\hfill\href{https://projecteuler.net/problem=#1}{\ExternalLink\StrNameProbEng{#1}}}
-
 \newcommand{\ExternalLink}{%
 \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
 	\begin{scope}[x=1ex, y=1ex]
@@ -39,3 +37,6 @@
 		-- (1, 1) -- (1, 0.6);
 	}
 }
+
+\newcommand{\hrefOriginalPage}[1]{\hfill\href{https://projecteuler.net/problem=#1}{\sffamily \ExternalLink\StrNameProbEng{#1}}}
+\newcommand{\hrefTransitionPageJpn}[1]{\hfill\href{http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem #1}{\sffamily \ExternalLink\StrNameProbJpn{#1}}}
