@@ -1,0 +1,52 @@
+% --- Project Euler Problem 64 --- %
+\begin{tcbProblem}[label={problem:0064:question:Eng}]
+	All square roots are periodic when written as continued fractions and can be written in the form:
+	\begin{equation*}
+		\relax \sqrt{ N }%
+		\equal { a }_{ 0 } \mathplus \dfrac{ 1 }{ { a }_{ 1 } \mathplus \dfrac{ 1 }{ { a }_{ 2 } \mathplus \dfrac{ 1 }{ { a }_{ 3 } \mathplus \unicodecdots } } }
+	\end{equation*}
+	For example, let us consider \( \sqrt{ 23 } \),
+	\begin{equation*}
+		\relax \sqrt{ 23 }
+		\equal 4 \mathplus \sqrt{ 23 } \minus 4
+		\equal 4 \mathplus \dfrac{ 1 }{ \dfrac{ 1 }{ \sqrt{ 23 } \minus 4 } }
+		\equal 4 \mathplus \dfrac{ 1 }{ 1 \mathplus \dfrac{ \sqrt{ 23 } \minus 3 }{ 7 } }
+	\end{equation*}
+	If we continue we would get the following expasion:
+	\begin{equation*}
+		\relax \sqrt{ 23 }
+		\equal 4 \mathplus \dfrac{ 4 }{ 1 \mathplus \dfrac{ 1 }{ 3 \mathplus \dfrac{ 1 }{ 1 \mathplus \dfrac{ 1 }{ 8 \mathplus \unicodecdots } } } }
+	\end{equation*}
+	The process can be summarised as follows:
+	\begin{align*}
+		{ a }_{ 0 } &\equal 4 \mathcomma & \dfrac{ 1 }{ \sqrt{ 23 } \minus 4 } &\equal \dfrac{           \sqrt{ 23 } \mathplus 4         }{  7 } \equal 1 \mathplus \dfrac{ \sqrt{ 23 } \minus 3 }{ 7 } \\%
+		{ a }_{ 1 } &\equal 1 \mathcomma & \dfrac{ 7 }{ \sqrt{ 23 } \minus 3 } &\equal \dfrac{ 7 \lparen \sqrt{ 23 } \mathplus 3 \rparen }{ 14 } \equal 3 \mathplus \dfrac{ \sqrt{ 23 } \minus 3 }{ 2 } \\%
+		{ a }_{ 2 } &\equal 3 \mathcomma & \dfrac{ 2 }{ \sqrt{ 23 } \minus 3 } &\equal \dfrac{ 2 \lparen \sqrt{ 23 } \mathplus 3 \rparen }{ 14 } \equal 1 \mathplus \dfrac{ \sqrt{ 23 } \minus 4 }{ 7 } \\%
+		{ a }_{ 3 } &\equal 1 \mathcomma & \dfrac{ 7 }{ \sqrt{ 23 } \minus 4 } &\equal \dfrac{ 7 \lparen \sqrt{ 23 } \mathplus 4 \rparen }{  7 } \equal 8 \mathplus         \sqrt{ 23 } \minus 4        \\%
+		{ a }_{ 4 } &\equal 8 \mathcomma & \dfrac{ 1 }{ \sqrt{ 23 } \minus 4 } &\equal \dfrac{           \sqrt{ 23 } \mathplus 4         }{  7 } \equal 1 \mathplus \dfrac{ \sqrt{ 23 } \minus 3 }{ 7 } \\%
+		{ a }_{ 5 } &\equal 1 \mathcomma & \dfrac{ 7 }{ \sqrt{ 23 } \minus 3 } &\equal \dfrac{ 7 \lparen \sqrt{ 23 } \mathplus 3 \rparen }{ 14 } \equal 3 \mathplus \dfrac{ \sqrt{ 23 } \minus 3 }{ 7 } \\%
+		{ a }_{ 6 } &\equal 1 \mathcomma & \dfrac{ 7 }{ \sqrt{ 23 } \minus 3 } &\equal \dfrac{ 2 \lparen \sqrt{ 23 } \mathplus 3 \rparen }{ 14 } \equal 1 \mathplus \dfrac{ \sqrt{ 23 } \minus 4 }{ 7 } \\%
+		{ a }_{ 7 } &\equal 1 \mathcomma & \dfrac{ 7 }{ \sqrt{ 23 } \minus 4 } &\equal \dfrac{ 7 \lparen \sqrt{ 23 } \mathplus 4 \rparen }{  7 } \equal 8 \mathplus         \sqrt{ 23 } \minus 4        %
+	\end{align*}
+	It can be seen that the sequence is repeating.
+	For conciseness, we use the notation \( \sqrt{ 23 } \equal \lbrack 4 \mathsemicolon \lparen 1 \mathcomma 3 \mathcomma 1 \mathcomma 8 \rparen \rbrack \), to indicate that the block \( \lparen 1 \mathcomma 3 \mathcomma 1 \mathcomma 8 \rparen \) repeats indefinitely.
+
+	The first ten continued fraction representations of (irrational) square roots are:
+	\begin{align*}
+		\sqrt{  2 } &\equal \lbrack 1 \mathsemicolon \lparen 2                                                  \rparen \rbrace \mathcomma &\text{period} &\equal 1 \\%
+		\sqrt{  3 } &\equal \lbrack 1 \mathsemicolon \lparen 1 \mathcomma 2                                     \rparen \rbrack \mathcomma &\text{period} &\equal 2 \\%
+		\sqrt{  5 } &\equal \lbrack 2 \mathsemicolon \lparen 4                                                  \rparen \rbrack \mathcomma &\text{period} &\equal 1 \\%
+		\sqrt{  6 } &\equal \lbrack 2 \mathsemicolon \lparen 2 \mathcomma 4                                     \rparen \rbrack \mathcomma &\text{period} &\equal 2 \\%
+		\sqrt{  7 } &\equal \lbrack 2 \mathsemicolon \lparen 1 \mathcomma 1\mathcomma 1\mathcomma 4             \rparen \rbrack \mathcomma &\text{period} &\equal 4 \\%
+		\sqrt{  8 } &\equal \lbrack 2 \mathsemicolon \lparen 1 \mathcomma 4                                     \rparen \rbrack \mathcomma &\text{period} &\equal 2 \\%
+		\sqrt{ 10 } &\equal \lbrack 3 \mathsemicolon \lparen 6                                                  \rparen \rbrack \mathcomma &\text{period} &\equal 1 \\%
+		\sqrt{ 11 } &\equal \lbrack 3 \mathsemicolon \lparen 3 \mathcomma 6                                     \rparen \rbrack \mathcomma &\text{period} &\equal 2 \\%
+		\sqrt{ 12 } &\equal \lbrack 3 \mathsemicolon \lparen 2 \mathcomma 6                                     \rparen \rbrack \mathcomma &\text{period} &\equal 2 \\%
+		\sqrt{ 13 } &\equal \lbrack 3 \mathsemicolon \lparen 1 \mathcomma 1\mathcomma 1\mathcomma 1\mathcomma 6 \rparen \rbrack \mathcomma &\text{period} &\equal 5 %
+	\end{align*}
+	Exactly four continued fractions, for \( N \leq 13 \), have an odd period.
+
+	How many continued fractions for \( N \leq 10000 \) have an odd period?
+	\par%
+	\hrefOriginalPage{64}%
+\end{tcbProblem}

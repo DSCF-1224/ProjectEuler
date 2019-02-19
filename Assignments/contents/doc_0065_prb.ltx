@@ -1,0 +1,56 @@
+% --- Project Euler Problem 65 --- %
+\begin{tcbProblem}[label={problem:0065:question:Eng}]
+	The square root of 2 can be written as an infinite continued fraction.
+	\begin{equation*}
+		\relax \sqrt{ 2 }%
+		\equal 1 \mathplus \frac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 \mathplus \unicodecdots } } } }%
+	\end{equation*}
+	The infinite continued fraction can be written,
+	\( \sqrt{ 2 } \equal \lbrack 1 \mathsemicolon \lparen 2 \rparen \rbrack \),
+	\( \lparen 2 \rparen \) indicates that 2 repeats ad infinitum.
+	In a similar way, \( \sqrt{ 23 } \equal \lbrack 4 \mathsemicolon \lparen 1 \mathcomma 3 \mathcomma 1 \mathcomma 8 \rparen \rbrack \).
+
+	It turns out that the sequence of partial values of continued fractions for square roots provide the best rational approximations.
+	Let us consider the convergents for \( \sqrt{ 2 } \).
+	\begin{align*}
+		1 \mathplus 1 &\equal 2 \\%
+		1 \mathplus \frac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 } } &\equal \frac{ 7 }{ 5 } \\%
+		1 \mathplus \frac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 } } } &\equal \frac{ 17 }{ 12 } \\%
+		1 \mathplus \frac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 \mathplus \dfrac{ 1 }{ 2 } } } } &\equal \frac{ 41 }{ 29 } %
+	\end{align*}
+	Hence the sequence of the first ten convergents for \( \sqrt{ 2 } \) are:
+	\begin{equation*}
+		1                     \mathcomma%
+		\frac{    3 }{    2 } \mathcomma%
+		\frac{    7 }{    5 } \mathcomma%
+		\frac{   17 }{   12 } \mathcomma%
+		\frac{   41 }{   29 } \mathcomma%
+		\frac{   99 }{   70 } \mathcomma%
+		\frac{  239 }{  169 } \mathcomma%
+		\frac{  577 }{  408 } \mathcomma%
+		\frac{ 1393 }{  985 } \mathcomma%
+		\frac{ 3363 }{ 2378 } \mathcomma \unicodecdots%
+	\end{equation*}
+	What is most surprising is that the important mathematical constant,
+	\begin{equation*}
+		e \equal \lbrack 2 \mathsemicolon\ 1 \mathcomma 2 \mathcomma 1 \mathcomma\ 1 \mathcomma 4 \mathcomma 1 \mathcomma\ 1 \mathcomma 6 \mathcomma 1 \mathcomma \unicodecdots \mathcomma 1 \mathcomma 2k \mathcomma 1 \mathcomma \rbrack
+	\end{equation*}
+	The first ten terms in the sequence of convergents for \( e \) are:
+	\begin{equation*}
+		2                    \mathcomma%
+		3                    \mathcomma%
+		\frac{    8 }{   3 } \mathcomma%
+		\frac{   11 }{   4 } \mathcomma%
+		\frac{   19 }{   7 } \mathcomma%
+		\frac{   87 }{  32 } \mathcomma%
+		\frac{  106 }{  39 } \mathcomma%
+		\frac{  193 }{  71 } \mathcomma%
+		\frac{ 1264 }{ 465 } \mathcomma%
+		\frac{ 1457 }{ 536 } \mathcomma \unicodecdots%
+	\end{equation*}
+	The sum of digits in the numerator of the 10th convergent is \( 1 \mathplus 4 \mathplus 5 \mathplus 7 \equal 17 \).
+
+	Find the sum of digits in the numerator of the 100th convergent of the continued fraction for \( e \).
+	\par%
+	\hrefOriginalPage{65}%
+\end{tcbProblem}

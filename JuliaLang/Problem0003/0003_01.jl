@@ -21,37 +21,37 @@ Base.MainInclude.include( "0003_support.jl" )
 
 function problem0003( target::Core.Integer )
 
-    # [1] target::Core.Integer
-    # find the largest prime factor of the `target`
-    
-    # STEP.01
-    # initialize the local variables for this <function>
-    buf_trgt    = target
-    buf_one     = Base.one( target )
-    buf_zero    = Base.zero( target )
-    factor_crnt = buf_one + buf_one
-    factor_last = buf_one
+	# [1] target::Core.Integer
+	# find the largest prime factor of the `target`
+	
+	# STEP.01
+	# initialize the local variables for this <function>
+	buf_trgt    = target
+	buf_one     = Base.one( target )
+	buf_zero    = Base.zero( target )
+	factor_crnt = buf_one + buf_one
+	factor_last = buf_one
 
-    # STEP.02
-    # find the largest prime factor of the `target`
-    while Base.isless( buf_one, buf_trgt )
+	# STEP.02
+	# find the largest prime factor of the `target`
+	while Base.isless( buf_one, buf_trgt )
 
-        if Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=factor_crnt )
+		if Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=factor_crnt )
 
-            factor_last = factor_crnt
+			factor_last = factor_crnt
 
-            while Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=factor_crnt )
-                buf_trgt = Base.div( buf_trgt, factor_crnt )
-            end
+			while Main.SupportProjectEuler.ismultiple( target=buf_trgt, base=factor_crnt )
+				buf_trgt = Base.div( buf_trgt, factor_crnt )
+			end
 
-        end
+		end
 
-        factor_crnt += buf_one
+		factor_crnt += buf_one
 
-    end
+	end
 
-    # STEP.END
-    return factor_last
+	# STEP.END
+	return factor_last
 	
 end
 

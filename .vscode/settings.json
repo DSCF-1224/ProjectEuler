@@ -1,0 +1,6 @@
+{
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+    "latex-workshop.latex.autoBuild.run": "never",
+	"editor.insertSpaces": false,
+	"editor.fontFamily": "Fira Code"
+}

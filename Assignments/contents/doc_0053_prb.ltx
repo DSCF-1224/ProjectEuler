@@ -1,0 +1,22 @@
+% --- Project Euler Problem 53 --- %
+\begin{tcbProblem}[label={problem:0053:question:Eng}]
+	There are exactly ten ways of selecting three from five, 12345:
+	\begin{center}
+		123, 124, 125, 134, 135, 145, 234, 235, 245, and 345
+	\end{center}
+	In combinatorics, we use the notation, \( \vphantom{C}^{5} C_3 \equal 10 \).
+
+	In general,
+	\begin{equation*}
+		\vphantom{C}^{ n } {C}_{ r } \equal \frac{ n\mathexclam }{ r\mathexclam \lparen n \minus r \rparen\mathexclam } \mathcomma%
+		\text{where}\ %
+		r \leq n \mathcomma%
+		n\mathexclam \equal n \times \lparen n \minus 1 \rparen \times \unicodecdots \times 3 \times 2 \times 1 \mathcomma%
+		0\mathexclam \equal 1
+	\end{equation*}
+	It is not until \( n \equal 23 \), that a value exceeds one-million: \( \vphantom{C}^{23} {C}_{10} \equal 1144066 \).
+
+	How many, not necessarily distinct, values of \( \vphantom{C}^{n} {C}_{r} \), for \( 1 \leq n \leq 100 \), are greater than one-million?
+	\par%
+	\hrefOriginalPage{53}%
+\end{tcbProblem}

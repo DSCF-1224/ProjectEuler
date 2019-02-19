@@ -1,0 +1,21 @@
+% --- Project Euler Problem 57 --- %
+\begin{tcbProblem}[label={problem:0057:question:Eng}]
+	It is possible to show that the square root of two can be expressed as an infinite continued fraction.
+	\begin{equation*}
+		\sqrt{2}
+		\equal 1 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash \lparen 2 \mathplus \unicodecdots \rparen\rparen\rparen
+		\equal 1.414213 \unicodecdots
+	\end{equation*}
+	By expanding this for the first four iterations, we get:
+	\begin{align*}
+		\relax & 1 \mathplus 1 \fracslash 2 \equal 3 \fracslash 2 \equal 1.5 \\%
+		\relax & 1 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash 2 \rparen \equal 7 \fracslash 5 \equal 1.4 \\%
+		\relax & 1 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash 2 \rparen \rparen \equal 17 \fracslash 12 \equal 1.41666 \unicodecdots \\%
+		\relax & 1 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash \lparen 2 \mathplus 1 \fracslash 2 \rparen \rparen \rparen \equal 41 \fracslash 29 \equal 1.41379 \unicodecdots
+	\end{align*}
+	The next three expansions are \( 99 \fracslash 70 \), \( 239 \fracslash 169 \), and \( 577 \fracslash 408 \), but the eighth expansion, \( 1393 \fracslash 985 \), is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.
+
+	In the first one-thousand expansions, how many fractions contain a numerator with more digits than denominator?
+	\par%
+	\hrefOriginalPage{57}%
+\end{tcbProblem}
