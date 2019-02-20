@@ -26,4 +26,34 @@
 	Which starting number, under one million, produces the longest chain?
 
 	{\small \emph{NOTE:} Once the chain starts the terms are allowed to go above one million.}
+	\par%
+	\hrefOriginalPage{14}%
+	\tcbline%
+	正の整数に以下の式で繰り返し生成する数列を定義する．
+	\begin{equation*}
+		\begin{array}{ll}
+			n \rightarrow n \fracslash 2 & \text{（\( n \)は偶数）} \\%
+			n \rightarrow 3n \mathplus 1 & \text{（\( n \)は奇数）} \\%
+		\end{array}
+	\end{equation*}
+	13からはじめるとこの数列は以下のようになる．
+	\begin{equation*}
+		13 \rightarrow%
+		40 \rightarrow%
+		20 \rightarrow%
+		10 \rightarrow%
+		5  \rightarrow%
+		16 \rightarrow%
+		8  \rightarrow%
+		4  \rightarrow%
+		2  \rightarrow%
+		1
+	\end{equation*}
+	13から1まで10個の項になる．
+	この数列はどのような数字からはじめても最終的には1になると考えられているが，
+	まだそのことは証明されていない（コラッツ問題）
+
+	さて，100万未満の数字の中でどの数字からはじめれば最長の数列を生成するか．
+	\par%
+	\hrefTransitionPageJpn{14}%
 \end{tcbProblem}

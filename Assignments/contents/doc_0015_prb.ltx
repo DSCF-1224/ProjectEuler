@@ -1,6 +1,83 @@
 % --- Project Euler Problem 15 --- %
 \begin{tcbProblem}[label={problem:0015:question:Eng}]
 	Starting in the top left corner of a \( 2 \times 2 \) grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
-	
+	\begin{center}
+		\medskip%
+		\newcommand{\ValGridSize}{20pt}
+		\tikzstyle{StyleGrid}=[draw=cudblack, solid, thin]
+		\tikzstyle{StyleRoute}=[draw=cudblack, solid, ultra thick, {}-{Latex[fill=cudblack]}]
+		\begin{tabular}{ccc}
+			% --- row 1/2, column 1/3 --- %
+			\begin{tikzpicture}
+				\path [StyleGrid] (0.0*\ValGridSize,0.0*\ValGridSize) grid [step=\ValGridSize] (2.0*\ValGridSize,2.0*\ValGridSize);
+				\path [StyleRoute]
+					( 0.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 0.0*\ValGridSize ) %
+				;%
+			\end{tikzpicture}
+			&% --- row 1/2, column 2/3 --- %
+			\begin{tikzpicture}
+				\path [StyleGrid] (0.0*\ValGridSize,0.0*\ValGridSize) grid [step=\ValGridSize] (2.0*\ValGridSize,2.0*\ValGridSize);
+				\path [StyleRoute]
+					( 0.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 1.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 1.0*\ValGridSize, 1.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 1.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 0.0*\ValGridSize ) %
+				;%
+			\end{tikzpicture}
+			&% --- row 1/2, column 3/3 --- %
+			\begin{tikzpicture}
+				\path [StyleGrid] (0.0*\ValGridSize,0.0*\ValGridSize) grid [step=\ValGridSize] (2.0*\ValGridSize,2.0*\ValGridSize);
+				\path [StyleRoute]
+					( 0.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 1.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 1.0*\ValGridSize, 0.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 0.0*\ValGridSize ) %
+				;%
+			\end{tikzpicture}
+			\\% --- row 2/2, column 1/3 --- %
+			\begin{tikzpicture}
+				\path [StyleGrid] (0.0*\ValGridSize,0.0*\ValGridSize) grid [step=\ValGridSize] (2.0*\ValGridSize,2.0*\ValGridSize);
+				\path [StyleRoute]
+					( 0.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 0.0*\ValGridSize, 1.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 1.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 0.0*\ValGridSize ) %
+				;%
+			\end{tikzpicture}
+			&% --- row 2/2, column 2/3 --- %
+			\begin{tikzpicture}
+				\path [StyleGrid] (0.0*\ValGridSize,0.0*\ValGridSize) grid [step=\ValGridSize] (2.0*\ValGridSize,2.0*\ValGridSize);
+				\path [StyleRoute]
+					( 0.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 0.0*\ValGridSize, 1.0*\ValGridSize ) --%
+					( 1.0*\ValGridSize, 1.0*\ValGridSize ) --%
+					( 1.0*\ValGridSize, 0.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 0.0*\ValGridSize ) %
+				;%
+			\end{tikzpicture}
+			&% --- row 2/2, column 3/3 --- %
+			\begin{tikzpicture}
+				\path [StyleGrid] (0.0*\ValGridSize,0.0*\ValGridSize) grid [step=\ValGridSize] (2.0*\ValGridSize,2.0*\ValGridSize);
+				\path [StyleRoute]
+					( 0.0*\ValGridSize, 2.0*\ValGridSize ) --%
+					( 0.0*\ValGridSize, 0.0*\ValGridSize ) --%
+					( 2.0*\ValGridSize, 0.0*\ValGridSize ) %
+				;%
+			\end{tikzpicture}
+		\end{tabular}
+		\medskip%
+	\end{center}
 	How many such routes are there through a \( 20 \times 20 \) grid?
+	\par%
+	\
+	\hrefOriginalPage{15}%
+	\tcbline%
+	\( 2 \times 2 \)のマス目の左上からスタートした場合，
+	引き返しなしで右下にいくルートは6つある．\\%
+	では，\( 20 \times 20 \)のマス目ではいくつのルートがあるか．
+	\par%
+	\hrefTransitionPageJpn{15}%
 \end{tcbProblem}
