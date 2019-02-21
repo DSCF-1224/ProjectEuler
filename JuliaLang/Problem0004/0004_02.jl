@@ -2,7 +2,7 @@
 # Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0004/0004_01.jl" ) 
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0004/0004_02.jl" ) 
 
 # Project Euler
 # Problem 0004
@@ -57,18 +57,6 @@ function problem0004( num_digit::Core.Integer )
 
 end
 
-
-function pick_ValTargetDigit( target::Core.Integer, digit::Core.Integer )
-
-	# argument of this function
-	# [1] target::Core.Integer
-	# [2]  digit::Core.Integer
-	# pick the digit of 10^`digit` of the `target`
-	return Base.div( Base.rem( target, 10^digit ), 10^(digit-1) )
-
-end
-
-
 function isPalindromic( target::Core.Integer )
 
 	# argument of this function
@@ -76,28 +64,25 @@ function isPalindromic( target::Core.Integer )
 	# the target integer to determine whether it is a palindrome
 
 	# STEP.01
-	# get the number of the digits in integer `target`
-	num_digit = Base.ndigits( target, base=10 )
+	# get the digits of the `target` as an array
+	bffr_digits_nrml = Base.digits( target )
 
 	# STEP.02
-	# compute the number of the digits to check
-	itr_max = Base.div( Core.ifelse( Base.iseven( num_digit ), num_digit, num_digit-1 ), 2 )
+	# check the digit of the 10^0 order
+	if Base.isequal( bffr_digits_nrml[ Base.length( bffr_digits_nrml ) ], 0 )
+		stat = false
+	else
 
-	# STEP.03
-	# determine whether the integer `target` is an palindrome
+		# STEP.03
+		# get the reversed digits of the `target` as an array
+		bffr_digits_rvrs = Base.reverse( bffr_digits_nrml )
 
-	stat = false # initialization
-
-	for itr = 1:1:itr_max
-
-		# STEP.03.01
-		# determine whether the target value of the digit is equal
-		stat = Base.isequal( Main.pick_ValTargetDigit( target, itr ), Main.pick_ValTargetDigit( target, num_digit-itr+1 ) )
-
-		# STEP.03.02
-		# determine whether to break this loop
-		if !stat
-			break
+		# STEP.04
+		# determine whether the `target` is palindrome
+		if Base.isequal( bffr_digits_nrml, bffr_digits_rvrs )
+			stat = true
+		else
+			stat = false
 		end
 
 	end
