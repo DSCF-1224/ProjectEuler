@@ -1,0 +1,44 @@
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0005/0005_03.jl" )
+[Data from Base.@timed]
+         t =   5.249900000000000E-05
+     bytes =                    1688
+    gctime =   0.000000000000000E+00
+    allocd =                    1688
+    malloc =                      37
+   realloc =                      34
+ poolalloc =                      38
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 10
+result   : 2520
+
+[Data from Base.@timed]
+         t =   1.370000000000000E-05
+     bytes =                    3048
+    gctime =   0.000000000000000E+00
+    allocd =                    3048
+    malloc =                      67
+   realloc =                      64
+ poolalloc =                      68
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 20
+result   : 232792560
+
+
+julia>
