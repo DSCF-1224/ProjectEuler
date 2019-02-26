@@ -69,7 +69,7 @@ function isPalindromic( target::Core.Integer )
 
 	# STEP.02
 	# determine whether the `target` is palindrome
-	if Base.isequal( bffr_digits[end], 0 )
+	if Base.iszero( bffr_digits[end] )
 		return false
 	else
 		return Base.isequal( bffr_digits, Base.reverse( bffr_digits ) )

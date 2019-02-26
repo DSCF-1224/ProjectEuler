@@ -7,9 +7,9 @@
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
-julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0004/0004_03.jl" )
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0004/0004_03.jl" )
 [Data from Base.@timed]
-         t =   1.852170000000000E-02
+         t =   1.929910000000000E-02
      bytes =                 1875993
     gctime =   0.000000000000000E+00
     allocd =                 1875993
@@ -25,7 +25,7 @@ argument : 2
 result   : 9009
 
 [Data from Base.@timed]
-         t =   1.618500000000000E-03
+         t =   1.275200000000000E-03
      bytes =                 1665728
     gctime =   0.000000000000000E+00
     allocd =                 1665728
@@ -41,7 +41,7 @@ argument : 3
 result   : 906609
 
 [Data from Base.@timed]
-         t =   8.532000000000000E-04
+         t =   7.676000000000000E-04
      bytes =                  760000
     gctime =   0.000000000000000E+00
     allocd =                  760000

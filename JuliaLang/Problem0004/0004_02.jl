@@ -69,7 +69,7 @@ function isPalindromic( target::Core.Integer )
 
 	# STEP.02
 	# check the digit of the 10^0 order
-	if Base.isequal( bffr_digits_nrml[ Base.length( bffr_digits_nrml ) ], 0 )
+	if Base.iszero( bffr_digits_nrml[ Base.length( bffr_digits_nrml ) ] )
 		stat = false
 	else
 
