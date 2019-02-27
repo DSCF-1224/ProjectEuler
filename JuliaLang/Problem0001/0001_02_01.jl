@@ -58,6 +58,5 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-Main.show_result( 10^1 )
-Main.show_result( 10^3 )
-Main.show_result( 10^9 )
+Main.show_result( Base.convert( Core.UInt64, 10^1 ) )
+Main.show_result( Base.convert( Core.UInt64, 10^3 ) )

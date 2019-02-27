@@ -28,7 +28,7 @@ module SupportProjectEuler
 	# judge whether the `target` is a multiple of `base`
 	function ismultiple(; target::Core.Integer, base::Core.Integer )
 	
-		return Base.isequal( Base.rem( target, base ), 0 )
+		return Base.iszero( Base.rem( target, base ) )
 	
 	end
 
