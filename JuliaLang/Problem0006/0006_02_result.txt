@@ -7,7 +7,7 @@
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
-julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0006/0006_01.jl" )
+julia> Base.MainInclude.include( "GutHub/ProjectEuler/JuliaLang/Problem0006/0006_01.jl" )
 [Data from Base.@timed]
          t =   0.000000000000000E+00
      bytes =                       0

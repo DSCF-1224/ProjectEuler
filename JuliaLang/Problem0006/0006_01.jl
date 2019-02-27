@@ -28,7 +28,7 @@ function problem0006( n::Core.Integer )
 
 	# STEP.02
 	# calculate the square of the sum of the first `n` natural numbers and the square of the sum
-	for itr in 1:1:n
+	for itr in Base.OneTo(n)
 		sum_squares += itr*itr
 		square_sum  += itr
 	end

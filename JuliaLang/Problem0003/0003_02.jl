@@ -72,4 +72,5 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
+Main.show_result( Base.convert( Core.Int64,        13195 ) )
 Main.show_result( Base.convert( Core.Int64, 600851475143 ) )
