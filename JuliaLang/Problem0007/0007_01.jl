@@ -54,11 +54,49 @@ end
 
 function isprime( target::Core.Integer )
 
-	if Base.isone( largest_prime_factor( target ) )
+	# [1] target::Core.Integer
+	# judge whether the integer `target` is a prime number or not
+	# if `target` was     a prime number -> true
+	# if `target` was NOT a prime number -> false
+
+	if Base.isequal( largest_prime_factor( target ), target )
 		return true
 	else
 		return false
 	end
+
+end
+
+function problem0007( num::Core.Integer )
+
+	# [1] num::Core.Integer
+	# find the `num`-th prime number
+
+	# STEP.01
+	# initialize the counter
+	count  = Base.one( num )
+	buf_PN = Base.one( num )
+
+	# STEP.02
+	# search the prime numbers
+	while count <= num
+
+		# STEP.02.01
+		# update the buffer
+		buf_PN += 1
+
+		# STEP.02.02
+		# judge the value of buffer
+		stat = Main.isprime( buf_PN )
+
+		if stat
+			count += 1
+		end
+
+	end
+
+	# STEP.END
+	return buf_PN
 
 end
 
@@ -67,5 +105,5 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-Main.show_result( Base.convert( Core.Int64,        13195 ) )
-Main.show_result( Base.convert( Core.Int64, 600851475143 ) )
+Main.show_result( Base.convert( Core.UInt32,     6 ) )
+Main.show_result( Base.convert( Core.UInt32, 10001 ) )
