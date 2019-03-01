@@ -1,11 +1,11 @@
 # [tested version]
-# Version 1.1.0 (2019-01-21)
+# Version 1.0.2 (2018-11-08)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_03.jl" ) 
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0010/0010_03.jl" ) 
 
 # Project Euler
-# Problem 0007
+# Problem 0010
 
 #==============================================================================================================================#
 # own defined functions are below                                                                                              #
@@ -13,7 +13,7 @@
 
 # <module>s and <function>s to use
 Base.MainInclude.include( "../support/support_projecteuler.jl" )
-Base.MainInclude.include( "0007_support.jl" )
+Base.MainInclude.include( "0010_support.jl" )
 
 
 function largest_prime_factor( target::Core.Integer )
@@ -100,19 +100,19 @@ function isprime( target::Core.Integer )
 
 end
 
-function problem0007( num::Core.Integer )
+function problem0010( limit::Core.Integer )
 
-	# [1] num::Core.Integer
-	# find the `num`-th prime number
+	# [1] limit::Core.Integer
+	# find the sum of all the primes below `limit`
 
 	# STEP.01
 	# initialize the counter
-	count  = Base.one( num )
-	buf_PN = Base.one( num )
+	sum    = Base.zero( limit )
+	buf_PN = Base.one( limit )
 
 	# STEP.02
 	# search the prime numbers
-	while count <= num
+	while buf_PN < limit
 
 		# STEP.02.01
 		# update the buffer
@@ -123,13 +123,13 @@ function problem0007( num::Core.Integer )
 		stat = Main.isprime( buf_PN )
 
 		if stat
-			count += 1
+			sum += buf_PN
 		end
 
 	end
 
 	# STEP.END
-	return buf_PN
+	return sum
 
 end
 
@@ -138,5 +138,10 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-Main.show_result( Base.convert( Core.UInt32,     6 ) )
-Main.show_result( Base.convert( Core.UInt32, 10001 ) )
+Main.show_result( Base.convert( Core.UInt64,   10   ) )
+Main.show_result( Base.convert( Core.UInt64, 2*10^1 ) )
+Main.show_result( Base.convert( Core.UInt64, 2*10^2 ) )
+Main.show_result( Base.convert( Core.UInt64, 2*10^3 ) )
+Main.show_result( Base.convert( Core.UInt64, 2*10^4 ) )
+Main.show_result( Base.convert( Core.UInt64, 2*10^5 ) )
+Main.show_result( Base.convert( Core.UInt64, 2*10^6 ) )

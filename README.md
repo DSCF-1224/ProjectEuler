@@ -13,7 +13,7 @@
 |7|10001st prime                            |[&#x1F517;](https://projecteuler.net/problem=7) |[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%207) |&#x2714;|&#x2718;|&#x2718;|
 |8|Largest product in a series              |[&#x1F517;](https://projecteuler.net/problem=8) |[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%208) |&#x2718;|&#x2718;|&#x2718;|
 |9|Special Pythagorean triplet              |[&#x1F517;](https://projecteuler.net/problem=9) |[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%209) |&#x2718;|&#x2718;|&#x2718;|
-|10|Summation of primes                     |[&#x1F517;](https://projecteuler.net/problem=10)|[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%2010)|&#x2718;|&#x2718;|&#x2718;|
+|10|Summation of primes                     |[&#x1F517;](https://projecteuler.net/problem=10)|[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%2010)|&#x2718;|&#x2714;|&#x2718;|
 |11|Largest product in a grid               |[&#x1F517;](https://projecteuler.net/problem=11)|[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%2011)|&#x2718;|&#x2718;|&#x2718;|
 |12|Highly divisible triangular number      |[&#x1F517;](https://projecteuler.net/problem=12)|[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%2012)|&#x2718;|&#x2718;|&#x2718;|
 |13|Large sum                               |[&#x1F517;](https://projecteuler.net/problem=13)|[&#x1F517;](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%2013)|&#x2718;|&#x2718;|&#x2718;|

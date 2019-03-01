@@ -2,7 +2,7 @@
 # Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
-# Base.MainInclude.include( "0007_support.jl" )
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_02.jl" ) 
 
 # Project Euler
 # Problem 0007
