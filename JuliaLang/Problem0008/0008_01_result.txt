@@ -1,0 +1,172 @@
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0008/0008_01.jl" )
+[Data from Base.@timed]
+         t =   1.571330000000000E-02
+     bytes =                 3226903
+    gctime =   0.000000000000000E+00
+    allocd =                 3226903
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                   58112
+  bigalloc =                       4
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4
+result   : 5832
+
+[Data from Base.@timed]
+         t =   2.064000000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 5
+result   : 40824
+
+[Data from Base.@timed]
+         t =   2.781000000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 6
+result   : 285768
+
+[Data from Base.@timed]
+         t =   3.584010000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 7
+result   : 2571912
+
+[Data from Base.@timed]
+         t =   3.345990000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 8
+result   : 7838208
+
+[Data from Base.@timed]
+         t =   2.566000000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 9
+result   : 61725888
+
+[Data from Base.@timed]
+         t =   3.210990000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 10
+result   : 493807104
+
+[Data from Base.@timed]
+         t =   3.316000000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 11
+result   : 940584960
+
+[Data from Base.@timed]
+         t =   2.508000000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 12
+result   : 4702924800
+
+[Data from Base.@timed]
+         t =   2.456990000000000E-04
+     bytes =                   50384
+    gctime =   0.000000000000000E+00
+    allocd =                   50384
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                    1015
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 13
+result   : 23514624000
+
+
+julia>
