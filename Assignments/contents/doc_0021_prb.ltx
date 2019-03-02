@@ -1,5 +1,6 @@
 % --- Project Euler Problem 21 --- %
 \begin{tcbProblem}[label={problem:0021:question:Eng}]
+	\sisetup{list-final-separator={, }, list-pair-separator={, }}%
 	Let \( d \lparen n \rparen \) be defined as the sum of proper divisors of \( n \) (numbers less than \( n \) which divide evenly into \( n \)).
 
 	If \( d \lparen a \rparen \equal b \) and \( d \lparen b \rparen \equal a \),
@@ -7,8 +8,19 @@
 	then \( a \) and \( b \) are an amicable pair and each of \( a \) and \( b \) are called amicable numbers.
 
 	For example,
-	the proper divisors of \( 220 \) are \( 1 \mathcomma 2 \mathcomma 4 \mathcomma 5 \mathcomma 10 \mathcomma 11 \mathcomma 20 \mathcomma 22 \mathcomma 44 \mathcomma 55 \) and \( 110 \); therefore \( d \lparen 220 \rparen \equal 284 \).
-	The proper divisors of \( 284 \) are \( 1 \mathcomma 2 \mathcomma 4 \mathcomma 71 \) and \( 142 \); so \( d \lparen 284 \rparen \equal 220 \).
+	the proper divisors of \num{220} are \numlist{1;2;4;5;10;11;20;22;44;55;110}; therefore \( d \lparen 220 \rparen \equal 284 \).
+	The proper divisors of \num{284} are \numlist{1;2;4;71;142}; so \( d \lparen 284 \rparen \equal 220 \).
 
-	Evaluate the sum of all the amicable numbers under \( 10000 \).
+	Evaluate the sum of all the amicable numbers under \num{10000}.
+	\par\hrefOriginalPage{21}%
+\tcbline%
+	\( d \lparen n \rparen \)を\( n \)の真の約数の和と定義する．%
+	（真の訳するとは\( n \)以外の約数のことである．）\par%
+	もし，\( d \lparen a \rparen \equal b \)かつ\( d \lparen b \rparen \equal a \)（\( a \neq b \)のとき）を満たすとき，\( a \)と\( b \)は友愛数（親和数）であるという．\par%
+
+	例えば，\num{220}の約数は\numlist{1;2;4;5;10;11;20;22;44;55;110}なので\( d \lparen 220 \rparen \equal 284 \)である．\par%
+	また，\num{284}の約数は\numlist{1;2;4;71;142}なので\( d \lparen 284 \rparen \equal 220 \)である．\par%
+
+	それでは\num{10000}未満の友愛数の和を求めよ．
+	\par\hrefTransitionPageJpn{21}%
 \end{tcbProblem}

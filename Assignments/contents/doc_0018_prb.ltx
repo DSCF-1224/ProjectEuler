@@ -1,7 +1,7 @@
 % --- Project Euler Problem 18 --- %
 \begin{tcbProblem}[label={problem:0018:question:Eng}]
 	By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
-	\vskip\baselineskip%
+	\medskip%
 	\begin{center}
 		\ttfamily%
 		\begin{tabular}{c}
@@ -11,11 +11,11 @@
 			8 5 \textcolor{cudred}{9} 3 \\[-5pt]%
 		\end{tabular}
 	\end{center}
-	\vskip\baselineskip%
+	\medskip%
 	That is, \( 3 \mathplus 7 \mathplus 4 \mathplus 9 \equal 23 \).
 
 	Find the maximum total from top to bottom of the triangle below:
-	\vskip\baselineskip%
+	\medskip%
 	\begin{center}
 		\ttfamily%
 		\begin{tabular}{c}
@@ -36,11 +36,33 @@
 			04 62 98 27 23 09 70 98 73 93 38 53 60 04 23 \\[-5pt]%
 		\end{tabular}
 	\end{center}
-	\vskip\baselineskip%
+	\medskip%
 
 	{\small
 		\emph{NOTE:}
 		As there are only 16384 routes, it is possible to solve this problem by trying every route.
 		However, \hyperref[prob:0067]{Problem 67}, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 	}
+\tcbline%
+	以下の三角形の頂点から下まで移動するとき, その数値の和の最大値は23になる．
+	\medskip%
+	\begin{center}（中略）\end{center}
+	\medskip%
+	この例では\( 3 \mathplus 7 \mathplus 4 \mathplus 9 \equal 23 \)．
+
+	以下の三角形を頂点から下まで移動するとき，
+	その最大の和を求めよ．
+	\medskip%
+	\begin{center}（中略）\end{center}
+	\medskip%
+
+	{\small
+		\emph{注：}
+		ここではたかだか\num{16384}通りのルートしかないので，
+		すべてのパターンを試すこともできる．
+		\hyperref[prob:0067]{Problem 67}は同じ問題だが\num{100}行あるので，
+		総当りでは解けない．
+		もっと賢い方法が必要である．
+	}
+	\hrefTransitionPageJpn{18}%
 \end{tcbProblem}

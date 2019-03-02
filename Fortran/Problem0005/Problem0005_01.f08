@@ -50,9 +50,9 @@ end module Problem0005
 ! gfortran ^                                                                                                                      !
 ! -c ^                                                                                                                            !
 ! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\GitHub\Fortran\miniparts\GCD_LCM.f08 ^                                                                                       !
-! D:\GitHub\Fortran\ProjectEuler\Problem0005\Problem0005_01.f08 ^                                                                 !
-! D:\GitHub\Fortran\ProjectEuler\Problem0005\main.f08                                                                             !
+! GitHub\Fortran\miniparts\GCD_LCM.f08 ^                                                                                       !
+! GitHub\Fortran\ProjectEuler\Problem0005\Problem0005_01.f08 ^                                                                 !
+! GitHub\Fortran\ProjectEuler\Problem0005\main.f08                                                                             !
 !                                                                                                                                 !
 ! gfortran ^                                                                                                                      !
 ! -o Problem0005_01.exe ^                                                                                                         !

@@ -148,8 +148,8 @@ end module Problem0004
 ! gfortran ^                                                                                                                      !
 ! -c ^                                                                                                                            !
 ! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\GitHub\Fortran\ProjectEuler\Problem0004\Problem0004_01.f08 ^                                                                 !
-! D:\GitHub\Fortran\ProjectEuler\Problem0004\main.f08                                                                             !
+! GitHub\Fortran\ProjectEuler\Problem0004\Problem0004_01.f08 ^                                                                 !
+! GitHub\Fortran\ProjectEuler\Problem0004\main.f08                                                                             !
 !                                                                                                                                 !
 ! gfortran ^                                                                                                                      !
 ! -o Problem0004_01.exe ^                                                                                                         !
