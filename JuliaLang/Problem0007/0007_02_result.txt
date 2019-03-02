@@ -9,7 +9,7 @@
 
 julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_02.jl" )
 [Data from Base.@timed]
-         t =   1.000000000000000E-06
+         t =   7.000000000000000E-07
      bytes =                       0
     gctime =   0.000000000000000E+00
     allocd =                       0
@@ -25,7 +25,7 @@ argument : 6
 result   : 13
 
 [Data from Base.@timed]
-         t =   2.071340200000000E+00
+         t =   1.252232001000000E+00
      bytes =                       0
     gctime =   0.000000000000000E+00
     allocd =                       0

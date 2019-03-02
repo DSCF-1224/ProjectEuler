@@ -59,7 +59,7 @@ function isprime( target::Core.Integer )
 	# if `target` was     a prime number -> true
 	# if `target` was NOT a prime number -> false
 
-	if Base.isequal( largest_prime_factor( target ), target )
+	if Base.isequal( Main.largest_prime_factor( target ), target )
 		return true
 	else
 		return false
