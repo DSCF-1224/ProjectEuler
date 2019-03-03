@@ -15,6 +15,7 @@ module support_projecteuler
   public  :: determine_isEven           ! interface
   public  :: determine_isOdd            ! interface
   public  :: determine_isprime          ! interface
+  public  :: read_path_file_save        ! subroutine
   private :: determine_ismultiple_INT16 ! function
   private :: determine_ismultiple_INT32 ! function
   private :: determine_ismultiple_INT64 ! function
@@ -52,7 +53,13 @@ module support_projecteuler
     module procedure determine_isprime_INT32
     module procedure determine_isprime_INT64
   end interface
-  
+
+
+  ! constants for this <module>
+  integer, parameter, public :: SAVE_UNIT       =  21
+  integer, parameter, public :: len_buffer_path = 512
+
+
   ! <subroutine>s and <function>s in this <module> is below
   contains
 
@@ -60,5 +67,6 @@ module support_projecteuler
   include "determine_isEven.f08"
   include "determine_ismultiple.f08"
   include "determine_isprime.f08"
+  include "show_result.f08"
 
 end module support_projecteuler

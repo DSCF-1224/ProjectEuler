@@ -12,19 +12,12 @@ program main
   ! Require all variables to be explicitly declared
   implicit none
 
-  ! variables for this <program>
-  integer ( kind=INT64 ) :: limit
 
   ! STEP.01
-  limit = 10_INT64 ** 3
-
-  ! STEP.02
-  call show_result( 1, limit )
-  call show_result( 2, limit )
-  call show_result( 3, limit )
+  call show_result( 10_INT64**3 )
 
   ! STEP.END
-  read *
+  call show_reach_end
   
 end program main
 ! -------------------------------------------------------------------------------------------------------------------------------- !
