@@ -4,7 +4,31 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%201                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
   
-pure function Problem0001_01 ( limit ) result ( sum )
+pure function Problem0001_03_sub ( divisor, limit ) result ( sum )
+
+  ! argument of this <function>
+  integer ( kind=INT64 ), intent (in) :: divisor
+  integer ( kind=INT64 ), intent (in) :: limit
+
+  ! return value of this <function>
+  integer ( kind=INT64 ) :: sum
+
+  ! support variables for this <function>
+  integer ( kind=INT64 ) :: num_terms
+
+
+  ! STEP.01 !
+  num_terms = ( limit - 1_INT64 ) / divisor
+
+  ! STEP.02 !
+  sum = divisor * num_terms * ( num_terms + 1_INT64 ) / 2_INT64
+
+  ! STEP.END !
+  return
+
+end function Problem0001_03_sub
+
+pure function Problem0001_03 ( limit ) result ( sum )
 
   ! argument of this <function>
   integer ( kind=INT64 ), intent (in) :: limit
@@ -12,26 +36,16 @@ pure function Problem0001_01 ( limit ) result ( sum )
   ! return value of this <function>
   integer ( kind=INT64 ) :: sum
 
-  ! support variables for this <function>
-  integer ( kind=INT64 ) :: itr
 
+  ! STEP.01 !
+  sum =       Problem0001_03_sub ( divisor= 3_INT64, limit=limit )
+  sum = sum + Problem0001_03_sub ( divisor= 5_INT64, limit=limit )
+  sum = sum - Problem0001_03_sub ( divisor=15_INT64, limit=limit )
 
-  ! STEP.01
-  ! initialize the variables
-  itr = 1_INT64
-  sum = 0_INT64
-
-  ! STEP.02
-  ! calculate the target sum
-  do while ( itr .lt. limit )
-    if ( determine_istargetmultiple ( itr ) ) sum = sum + itr
-    itr = itr + 1_INT64
-  end do
-
-  ! STEP.END
+  ! STEP.END !
   return
 
-end function Problem0001_01
+end function Problem0001_03
 
 ! -------------------------------------------------------------------------------------------------------------------------------- !
 ! End of Source Code                                                                                                               !

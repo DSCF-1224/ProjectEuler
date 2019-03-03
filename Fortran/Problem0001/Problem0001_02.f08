@@ -4,7 +4,7 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%201                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
   
-pure function Problem0001_01 ( limit ) result ( sum )
+pure function Problem0001_02 ( limit ) result ( sum )
 
   ! argument of this <function>
   integer ( kind=INT64 ), intent (in) :: limit
@@ -18,20 +18,18 @@ pure function Problem0001_01 ( limit ) result ( sum )
 
   ! STEP.01
   ! initialize the variables
-  itr = 1_INT64
   sum = 0_INT64
 
   ! STEP.02
   ! calculate the target sum
-  do while ( itr .lt. limit )
+  do itr = 1, limit-1, 1
     if ( determine_istargetmultiple ( itr ) ) sum = sum + itr
-    itr = itr + 1_INT64
   end do
 
-  ! STEP.END
+  ! STEP.END !
   return
 
-end function Problem0001_01
+end function Problem0001_02
 
 ! -------------------------------------------------------------------------------------------------------------------------------- !
 ! End of Source Code                                                                                                               !
