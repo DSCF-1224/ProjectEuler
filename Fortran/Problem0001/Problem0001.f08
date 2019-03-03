@@ -1,8 +1,8 @@
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! [Project Euler] 0001                                                                                                            !
-! https://projecteuler.net/problem=1                                                                                              !
-! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%201                                                        !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! [Project Euler] 0001                                                                                                             !
+! https://projecteuler.net/problem=1                                                                                               !
+! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%201                                                         !
+! -------------------------------------------------------------------------------------------------------------------------------- !
 module Problem0001
 
   ! <module>s to import
@@ -24,17 +24,17 @@ module Problem0001
   contains
 
 
-  pure function determine_istargetmultiple ( target ) result ( stat )
+  pure function determine_istargetmultiple (target) result (stat)
 
     ! argument of this <function>
-    integer( kind=INT64 ), intent(in) :: target
+    integer (kind=INT64), intent (in) :: target
 
     ! return value of this <function>
     logical :: stat
 
     ! STEP.01/01
-    stat = determine_ismultiple( target= target, base= 3_INT64 )
-    stat = determine_ismultiple( target= target, base= 5_INT64 ) .or. stat
+    stat = determine_ismultiple (target=target, base=3_INT64)
+    stat = determine_ismultiple (target=target, base=5_INT64) .or. stat
 
     ! STEP.TRUE_END
     return
@@ -42,15 +42,15 @@ module Problem0001
   end function determine_istargetmultiple
 
 
-  ! pure function Problem0001_01 ( limit ) result ( sum )
+  ! pure function Problem0001_01 (limit) result (sum)
   include "Problem0001_01.f08"
 
 
-  ! pure function Problem0001_02 ( limit ) result( sum )
+  ! pure function Problem0001_02 (limit) result (sum)
   include "Problem0001_02.f08"
 
 
-  ! pure function Problem0001_03 ( limit ) result( sum )
+  ! pure function Problem0001_03 (limit) result (sum)
   include "Problem0001_03.f08"
 
 

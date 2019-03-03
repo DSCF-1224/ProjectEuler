@@ -1,9 +1,9 @@
 # Project Euler 0001 #
 
-## [設問](https://projecteuler.net/problem=1) ##
+## 設問 ##
 
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-Find the sum of all the multiples of 3 or 5 below 1000.
+* [Problem 1 - Project Euler](https://projecteuler.net/problem=1)
+* [Problem 1 - PukiWiki](http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%201)
 
 ## テスト環境 ##
 
@@ -11,59 +11,74 @@ gfortran 8.1.0
 
 ## 構成 ##
 
-- [Problem0001_01.f08](#problem0001_01f08)
-  - [`module Problem0001`](#module-problem0001)
-    - `function` [`Problem0001_01`](#function-problem0001_01)
-    - `function` [`Problem0001_02`](#function-problem0001_02)
-    - `function` [`Problem0001_03_sub`](#function-problem0001_03_sub)
-    - `function` [`Problem0001_03`](#function-problem0001_03)
-- [main.f08](#mainf08)
+* [Problem0001.f08](Problem0001.f08)
+  * [`module Problem0001`](#module-problem0001)
+    * `function` [`determine_istargetmultiple`](#function-determine_istargetmultiple)
+    * [Problem0001_01.f08](Problem0001_01.f08)
+      * `function` [`Problem0001_01`](#function-problem0001_01)
+    * [Problem0001_02.f08](Problem0001_02.f08)
+      * `function` [`Problem0001_02`](#function-problem0001_02)
+    * [Problem0001_03.f08](Problem0001_03.f08)
+      * `function` [`Problem0001_03_sub`](#function-problem0001_03_sub)
+      * `function` [`Problem0001_03`](#function-problem0001_03)
+    * [show_result.f08](show_result.f08)
+      * `subroutine` [`show_result_core`](#subroutine-show_result_core)
+      * `subroutine` [`show_result`](#subroutine-show_result)
+* [main.f08](main.f08)
 
-## Problem0001_01.f08 ##
+## Problem0001.f08 ##
 
 ### `module Problem0001` ###
 
-- 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必須とする
-- 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を必須とする
+* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を使用しています。
+* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を使用しています。
+
+#### `function determine_istargetmultiple` ####
+
+* 当該 `function` の引数は 64bit 整数型変数 `target` の1個です。
+* 当該 `function` は、以下の 2 個の条件の少なくとも一方が満たされるとき、`.true.` を返します。それ以外の場合は `.false.` を返します。
+  * 整数 `target` が 3 の倍数であるとき。
+  * 整数 `target` が 5 の倍数であるとき。
+* `3` の倍数であるかどうか、及び `5` の倍数であるかどうかを判定するためには、自作 `module` [`support_projecteuler`](../support) 中の `function determine_ismultiple` を用いています。
 
 #### `function Problem0001_01` ####
 
-- 当該 `function` の引数は `limit` の1個．3か5の倍数であるかを判定する自然数の上限を与える．本問題なら `1000` を与えればよい．
-- 反復子 `itr` は `itr=itr+1` で更新し，`limit` 未満であるか否かは `do while` 構文で判定する．
-- `3` の倍数であるか否か，及び `5` の倍数であるか否かは，自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) 中の `function determine_ismultiple` を用いる
+* 当該 `function` の引数は 64bit 整数型変数 `limit` の1個です。
+* 当該 `function` は正の整数 `limit` の中で、3 か 5 の倍数であるものの総和を返します。本問題の解答は `1000` を与えることで得られます。
+* 当該 `function` において、反復子 `itr` は `itr=itr+1` によって更新され、`limit` 未満であるかどうかは `do while ... end do` 構文で判定しています。
+* `3` の倍数であるかどうか、及び `5` の倍数であるかどうかを判定するためには、自作 `function` [`determine_istargetmultiple`](#function-determine_istargetmultiple) を用いています。
 
 #### `function Problem0001_02` ####
 
-- 当該 `function` の引数は `limit` の1個．3か5の倍数であるかを判定する自然数の上限を与える．本問題なら `1000` を与えればよい．
-- 反復子 `itr` は `do` 構文で更新する
-- `3` の倍数であるか否か，及び `5` の倍数であるか否かは，自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) 中の `function determine_ismultiple` を用いる
+* 当該 `function` の引数は 64bit 整数型変数 `limit` の1個です。
+* 当該 `function` は正の整数 `limit` の中で、3 か 5 の倍数であるものの総和を返します。本問題の解答は `1000` を与えることで得られます。
+* 反復子 `itr` は `do ... end do` 構文を用いて更新しています。
+* `3` の倍数であるかどうか、及び `5` の倍数であるかどうかを判定するためには、自作 `function` [`determine_istargetmultiple`](#function-determine_istargetmultiple) を用いています。
 
 #### `function Problem0001_03_sub` ####
 
-- 当該 `function` の引数は `divisor` と `limit` の2個．
-- `1` から `limit` までの自然数の内，自然数 `divsor` の倍数だけの和を求めるための `function`
-- 求める `divsor` の倍数の総和の算出には，等差数列の総和の公式を用いる
+* 当該 `function` の引数は 64bit 整数型変数 `divisor` と 64bit 整数型変数 `limit` の2個です。
+* 当該 `function` は正の整数の内、整数 `divsor` の倍数の総和を返します。
+* `divsor` の倍数の総和の算出には、等差数列の総和の公式を用いています。
 
 #### `function Problem0001_03` ####
 
-- 当該 `function` の引数は `limit` の1個．3か5の倍数であるかを判定する自然数の上限を与える．本問題なら `1000` を与えればよい．
-[`function Problem0001_03_sub`](#function-problem0001_03_sub) を用いて，`1` から `limit` までの自然数の内，`3`, `5` および `15` の倍数の総和を求める．`3` ならびに `5` の倍数には，各々 `15` の倍数が含まれているので，`15` の倍数の総和も算出して，その補正を行っている．
+* 当該 `function` の引数は 64bit 整数型変数 `limit` の1個です。
+* 当該 `function` は正の整数 `limit` の中で、3 か 5 の倍数であるものの総和を返します。本問題の解答は `1000` を与えることで得られます。
+* 自作 `function` [`Problem0001_03_sub`](#function-problem0001_03_sub) を用いて、正の整数の内、`3`, `5` および `15` の倍数の総和を求める。`3` ならびに `5` の倍数には，各々 `15` の倍数の総和が含まれているので、`15` の倍数の総和も算出し、その補正を行っています。
 
-## main.f08 ##
+#### `subroutine show_result_core` ####
 
-### `program main` ###
-
-- 組み込み `module` [`iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必須とする
-- 自作 `module` [`Problem0001`](#module-problem0001) を必須とする
-- 自作 `module` [`support_system_clock`](https://github.com/DSCF-1224/Fortran/blob/master/support/support_system_clock.f08) を必須とする
-- 自作 `module` [`Problem0001`](#module-problem0001) 中の以下の `function` の実行結果を標準出力 `OUTPUT_UNIT` へ出力する
-  - `function` [`Problem0001_01`](#function-problem0001_01)
-  - `function` [`Problem0001_02`](#function-problem0001_02)
-  - `function` [`Problem0001_03`](#function-problem0001_03)
+* 当該 `subroutine` の引数は整数型変数 `version` と 64bit 整数型変数 `limit` の 2 個です。
+* 当該 `subroutine` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` の戻し値を `SAVE_UNIT` に出力するために用います。
+* 引数 `version` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` のいずれを用いるのかを指定します。
+  * `version = 1` --> `function` [`Problem0001_01`](#function-problem0001_01)
+  * `version = 2` --> `function` [`Problem0001_02`](#function-problem0001_02)
+  * `version = 3` --> `function` [`Problem0001_03`](#function-problem0001_03)
+* 引数 `limit` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` に渡されます。
 
 #### `subroutine show_result` ####
 
-- 当該 `subroutine` の引数は `limit`, `retval`, `start`, `stop` の合計4個
-- 引数 `limit` は3か5の倍数であるかを判定する自然数の上限を与える．
-- 引数 `retval` には当該問題の返し値を渡す
-- 引数 `start`, `stop` には組み込み `subroutine` `SYSTEM_CLOCK` の返し値を渡す
+* 当該 `subroutine` の引数は 64bit 整数型変数 `limit` の 1 個です。
+* 当該 `subroutine` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` の戻し値を `SAVE_UNIT` に出力するために用います。
+* 引数 `limit` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` に渡されます。
