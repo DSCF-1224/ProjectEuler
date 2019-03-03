@@ -34,7 +34,7 @@ module Problem0009
     isfound = .false.
 
     ! STEP.02
-    ! search the target set of integers `a`, `b` and `c`
+    ! search the Pythagorean triplet `a`, `b` and `c` which a+b+c=`target`
     do itr_a = 1, target, 1 ! loop for integer `a`
     
       do itr_b = itr_a+1, target, 1 ! loop for integer `b`

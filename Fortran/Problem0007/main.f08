@@ -13,15 +13,15 @@ program main
   implicit none
 
   ! variables for this <program>
-  integer( kind= INT32 ) :: itr, target
+  integer( kind=INT64 ) :: itr, target
 
   do target = 1, 10, 1
-    write( unit=output_unit, fmt='(I8,I20)', advance='yes' ) target, Problem0007_01( target )
+    write( unit=output_unit, fmt='(I8,I20)', advance='yes' ) target, Problem0007_02( target )
   end do
 
   do itr = 1, 5, 1
-    target = 10_INT32 ** itr + 1_INT32
-    write( unit=output_unit, fmt='(I8,I20)', advance='yes' ) target, Problem0007_01( target )
+    target = 10_INT64 ** itr + 1_INT64
+    write( unit=output_unit, fmt='(I8,I20)', advance='yes' ) target, Problem0007_02( target )
   end do
   
 end program main
