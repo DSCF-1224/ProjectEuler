@@ -8,16 +8,19 @@ module Problem0002
   ! <module>s to import
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
+  use, non_intrinsic :: support_system_clock
 
   ! require all variables to be explicitly declared
   implicit none
 
   ! accessibility of <subroutine>s and <function>s in this <module>
-  public  :: Problem0002_01_RCR
-  public  :: Problem0002_01_WithMemo
-  public  :: Problem0002_02
+  public  :: show_result
+  private :: Problem0002_01_RCR
+  private :: Problem0002_01_WithMemo
+  private :: Problem0002_02
   private :: Calc_FibonacciNum_RCR
   private :: Calc_FibonacciNum_WithMemo
+  private :: show_result_core
 
   ! constants for this <module>
   integer (kind=INT64), private, parameter :: Fibonacci_1st = 1_INT64
@@ -36,6 +39,9 @@ module Problem0002
 
   ! pure function Problem0002_02 (limit) result (sum)
   include "Problem0002_02.f08"
+
+  ! show the result
+  include "show_result.f08"
 
 end module Problem0002
 ! -------------------------------------------------------------------------------------------------------------------------------- !

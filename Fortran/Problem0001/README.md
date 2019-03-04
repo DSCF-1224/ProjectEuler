@@ -82,3 +82,12 @@ gfortran 8.1.0
 * 当該 `subroutine` の引数は 64bit 整数型変数 `limit` の 1 個です。
 * 当該 `subroutine` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` の戻し値を `SAVE_UNIT` に出力するために用います。
 * 引数 `limit` は、自作 `function` `Problem0001_0i` `(i=1,2,3)` に渡されます。
+
+## main.f08 ##
+
+### `program main` ###
+
+* Project Euler 2 の解答を指定されたファイルへ出力する `program` です。
+* ［実行過程］
+  1. 結果を保存するファイルのパスの入力を求められるので、適当なファイルのパスを入力し、Enter キーを押します。
+  2. プログラムが正常に実行されたことを示す文が console に表示されるので、任意のキーを押し、当該プログラムを終了してください。
