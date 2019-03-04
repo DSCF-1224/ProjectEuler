@@ -8,15 +8,17 @@ module Problem0004
   ! <module>s to import
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
+  use, non_intrinsic :: support_system_clock
 
   ! require all variables to be explicitly declared
   implicit none
 
   ! accessibility of <subroutine>s and <function>s in this <module>
   private :: find_largest_palindrome_v01 ! function
-  private :: Get_Digits                  ! function
   private :: Check_IsPalindromic_int     ! function
   private :: Pick_ValTargetDigit         ! function
+  private :: show_result_core            ! subroutine
+  public  :: show_result                 ! subroutine
 
   
   ! <subroutine>s and <function>s in this <module> is below
@@ -25,6 +27,9 @@ module Problem0004
 
   ! version 01
   include "Problem0004_01.f08"
+
+  ! show the result
+  include "show_result.f08"
 
 end module Problem0004
 ! ------------------------------------------------------------------------------------------------------------------------------- !

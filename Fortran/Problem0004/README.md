@@ -16,6 +16,8 @@ gfortran 8.1.0
     * `function` [`Check_IsPalindromic_int`](#function-check_ispalindromic_int)
     * `function` [`find_largest_palindrome_v01`](#function-find_largest_palindrome_v01)
     * `function` [`Pick_ValTargetDigit`](#function-pick_valtargetdigit)
+    * `subroutine` [`show_result_core`](#subroutine-show_result_core)
+    * `subroutine` [`show_result`](#subroutine-show_result)
 
 ## Problem0004_01.f08 ##
 
@@ -42,3 +44,17 @@ gfortran 8.1.0
 * `private` 属性の `function` です。
 * 当該 `function` の引数は 64bit 整数型変数 `target` と `digit` の 2 個です。
 * 整数 `target` の 10 の `digit` 乗の位の数を返します。
+
+#### `subroutine show_result_core` ####
+
+* `private` 属性の `subroutine` です。
+* 当該 `subroutine` の引数は整数型変数 `version` と 64bit 整数型変数 `digit` の 2 個です。
+* 当該 `subroutine` は、自作 `function` `find_largest_palindrome_v0i` `(i=1)` の戻し値を `SAVE_UNIT` に出力するために用います。
+* 引数 `version` は、自作 `function` `find_largest_palindrome_v0i` `(i=1)` のいずれを用いるのかを指定します。
+* 引数 `target` は、自作 `function` `find_largest_palindrome_v0i` `(i=1)` に渡されます。
+
+#### `subroutine show_result` ####
+
+* `public` 属性の `subroutine` です。
+* 当該 `subroutine` の引数は 64bit 整数型変数 `digit` の 1 個です。
+* 当該 `subroutine` は、自作 `function` `Problem0003_0i_INT32` `(i=1,2,3)` の戻し値を `SAVE_UNIT` に出力するために用います。

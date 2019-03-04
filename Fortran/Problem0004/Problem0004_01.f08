@@ -20,7 +20,7 @@ pure function Check_IsPalindromic_int (target) result (IsPalindromic)
 
   ! STEP.01
   ! get the number of the digit of `target`
-  num_digit = number_of_digits (target, kind=INT64)
+  num_digit = number_of_digits_INT64 (target)
 
   ! STEP.02 !
   if (determine_isEven (num_digit)) then
@@ -82,7 +82,7 @@ pure function find_largest_palindrome_v01 (digit) result (buf_Palindromic)
       IsUpdatable = .false.
       exit
     else
-      IsPalindromic = Check_IsPalindromic (product)
+      IsPalindromic = Check_IsPalindromic_int (product)
       if (IsPalindromic) then
         buf_Palindromic = product
         IsUpdatable     = .true.

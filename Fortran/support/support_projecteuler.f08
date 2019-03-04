@@ -54,10 +54,22 @@ module support_projecteuler
     module procedure determine_isprime_INT64
   end interface
 
-  interface  number_of_digits
-    module procedure  number_of_digits_INT16
-    module procedure  number_of_digits_INT32
-    module procedure  number_of_digits_INT64
+  interface  number_of_digits_INT16
+    module procedure  number_of_digits_INT16_to_INT16
+    module procedure  number_of_digits_INT32_to_INT16
+    module procedure  number_of_digits_INT64_to_INT16
+  end interface
+
+  interface  number_of_digits_INT32
+    module procedure  number_of_digits_INT16_to_INT32
+    module procedure  number_of_digits_INT32_to_INT32
+    module procedure  number_of_digits_INT64_to_INT32
+  end interface
+
+  interface  number_of_digits_INT64
+    module procedure  number_of_digits_INT16_to_INT64
+    module procedure  number_of_digits_INT32_to_INT64
+    module procedure  number_of_digits_INT64_to_INT64
   end interface
 
 

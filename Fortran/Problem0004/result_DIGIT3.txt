@@ -1,0 +1,5 @@
+  VERSION :              1
+    DIGIT :              3
+   TAEGET :         906609
+ CPU TIME : 7.5780000E-004
+

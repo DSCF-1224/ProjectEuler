@@ -118,6 +118,7 @@ gfortran 8.1.0
 
 #### `function show_result_core_INT32` ####
 
+* `private` 属性の `subroutine` です。
 * 当該 `subroutine` の引数は整数型変数 `version` と 32bit 整数型変数 `target` の 2 個です。
 * 当該 `subroutine` は、自作 `function` `Problem0003_0i_INT32` `(i=1,2,3)` の戻し値を `SAVE_UNIT` に出力するために用います。
 * 引数 `version` は、自作 `function` `Problem0003_0i_INT32` `(i=1,2,3)` のいずれを用いるのかを指定します。
@@ -128,18 +129,19 @@ gfortran 8.1.0
 
 #### `function show_result_core_INT64` ####
 
-* `private` 属性の `function` です。
+* `private` 属性の `subroutine` です。
 * [`function show_result_core_INT32`](#function-show_result_core_int32) の引数，内部処理ならびに戻し値を 64bit 整数型変数に変更したものです。
 
 #### `subroutine show_result_INT32` ####
 
+* `private` 属性の `subroutine` です。
 * 当該 `subroutine` の引数は 32bit 整数型変数 `target` の 1 個です。
 * 当該 `subroutine` は、自作 `function` `Problem0003_0i_INT32` `(i=1,2,3)` の戻し値を `SAVE_UNIT` に出力するために用います。
 * 引数 `target` は、自作 `function` `Problem0003_0i_INT32` `(i=1,2,3)` に渡されます。
 
-#### `function show_result_INT64` ####
+#### `subroutine show_result_INT64` ####
 
-* `private` 属性の `function` です。
+* `private` 属性の `subroutine` です。
 * [`function show_result_core_INT32`](#function-show_result_core_int32) の引数，内部処理ならびに戻し値を 64bit 整数型変数に変更したものです。
 
 ## main.f08 ##
