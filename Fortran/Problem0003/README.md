@@ -38,8 +38,8 @@ gfortran 8.1.0
 
 ### `module Problem0003` ###
 
-* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を使用しています。
-* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を使用しています。
+* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必要とします。
+* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を必要とします。
 
 #### `interface Problem0003_01` ####
 

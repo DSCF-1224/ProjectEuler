@@ -30,8 +30,8 @@ gfortran 8.1.0
 
 ### `module` `Problem0002` ###
 
-* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を使用しています。
-* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を使用しています。
+* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必要とします。
+* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を必要とします。
 * `Fibonacci_1st`
   * Fibonacci 数列の第1項（本問題での定義値）を格納する `parameter` 属性の 64bit 整数型変数
 * `Fibonacci_2nd`
