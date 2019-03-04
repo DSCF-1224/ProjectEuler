@@ -1,0 +1,15 @@
+ VERSION :              1
+  TARGET :          13195
+  RESULT :             29
+CPU TIME : 8.5333151E-007
+
+ VERSION :              2
+  TARGET :          13195
+  RESULT :             29
+CPU TIME : 4.2666576E-007
+
+ VERSION :              3
+  TARGET :          13195
+  RESULT :             29
+CPU TIME : 8.5333151E-007
+

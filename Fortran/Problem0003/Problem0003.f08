@@ -3,24 +3,79 @@
 ! https://projecteuler.net/problem=3                                                                                              !
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%203                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
-program main
+module Problem0003
 
   ! <module>s to import
-  use, non_intrinsic :: Problem0003
+  use,     intrinsic :: iso_fortran_env
+  use, non_intrinsic :: support_projecteuler
+  use, non_intrinsic :: support_system_clock
 
-  ! Require all variables to be explicitly declared
+  ! require all variables to be explicitly declared
   implicit none
 
+  ! accessibility of <subroutine>s and <function>s in this <module>
+  public  :: show_result            ! interface
+  private :: Problem0003_01         ! interface
+  private :: Problem0003_02         ! interface
+  private :: Problem0003_03         ! interface
+  private :: show_result_core       ! interface
+  private :: Problem0003_01_INT32   ! function
+  private :: Problem0003_01_INT64   ! function
+  private :: Problem0003_02_INT32   ! function
+  private :: Problem0003_02_INT64   ! function
+  private :: Problem0003_03_INT32   ! function
+  private :: Problem0003_03_INT64   ! function
+  private :: show_result_core_INT32 ! subroutine
+  private :: show_result_core_INT64 ! subroutine
+  private :: show_result_INT32      ! subroutine
+  private :: show_result_INT64      ! subroutine
 
-  ! STEP.01
-  call show_result (000000013195_INT32)
-  call show_result (000000013195_INT64)
-  call show_result (600851475143_INT64)
+  ! <interface>s for this <program>
+  interface Problem0003_01
+    module procedure Problem0003_01_INT32
+    module procedure Problem0003_01_INT64
+  end interface
 
-  ! STEP.END
-  call show_reach_end
+  interface Problem0003_02
+    module procedure Problem0003_02_INT32
+    module procedure Problem0003_02_INT64
+  end interface
+
+  interface Problem0003_03
+    module procedure Problem0003_03_INT32
+    module procedure Problem0003_03_INT64
+  end interface
+
+  interface show_result_core
+    module procedure show_result_core_INT32
+    module procedure show_result_core_INT64
+  end interface
+
+  interface show_result
+    module procedure show_result_INT32
+    module procedure show_result_INT64
+  end interface
+
   
-end program main
+  ! <subroutine>s and <function>s in this <module> is below
+  contains
+
+  ! pure function Problem0003_01_INT32 (target)
+  ! pure function Problem0003_01_INT64 (target)
+  include "Problem0003_01.f08"
+
+  ! pure function Problem0003_02_INT32 (target)
+  ! pure function Problem0003_02_INT64 (target)
+  include "Problem0003_02.f08"
+
+  ! pure function Problem0003_03_INT32 (target)
+  ! pure function Problem0003_03_INT64 (target)
+  include "Problem0003_03.f08"
+
+  ! show the result
+  include "show_result.f08"
+
+end module Problem0003
 ! -------------------------------------------------------------------------------------------------------------------------------- !
 ! gfortran ^                                                                                                                       !
 ! -c ^                                                                                                                             !
