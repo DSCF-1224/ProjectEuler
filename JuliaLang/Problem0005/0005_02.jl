@@ -46,13 +46,13 @@ function my_gcd(; n1::Core.Integer, n2::Core.Integer )
 	buf_n1 = n1
 	buf_n2 = n2
 
-	while !Base.iszero( n2 )
-		buf = Base.mod(n1, n2)
-		n1  = n2
-		n2  = buf
+	while !Base.iszero( buf_n2 )
+		buf     = Base.mod(buf_n1, buf_n2)
+		buf_n1  = buf_n2
+		buf_n2  = buf
 	end
 
-	return n1
+	return buf_n1
 
 end
 
