@@ -1,5 +1,5 @@
   VERSION :              1
     DIGIT :              2
    TAEGET :           9009
- CPU TIME : 4.1813244E-005
+ CPU TIME : 1.2200000E-005
 

@@ -1,15 +1,15 @@
   VERSION :              1
     LIMIT :           1000
       SUM :         233168
- CPU TIME : 1.9500000E-005
+ CPU TIME : 2.7500000E-005
 
   VERSION :              2
     LIMIT :           1000
       SUM :         233168
- CPU TIME : 3.9500000E-005
+ CPU TIME : 2.7300000E-005
 
   VERSION :              3
     LIMIT :           1000
       SUM :         233168
- CPU TIME : 0.0000000E+000
+ CPU TIME : 2.0000000E-007
 

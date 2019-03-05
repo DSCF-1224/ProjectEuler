@@ -1,15 +1,15 @@
   VERSION :              1
     LIMIT :        4000000
       SUM :        4613732
- CPU TIME : 5.8942500E-002
+ CPU TIME : 2.9169000E-002
 
   VERSION :              2
     LIMIT :        4000000
       SUM :        4613732
- CPU TIME : 1.3200000E-005
+ CPU TIME : 5.1000000E-006
 
   VERSION :              3
     LIMIT :        4000000
       SUM :        4613732
- CPU TIME : 2.0000000E-007
+ CPU TIME : 1.0000000E-007
 
