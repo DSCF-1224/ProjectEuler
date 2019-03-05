@@ -1,0 +1,10 @@
+  VERSION :              1
+   TARGET :             20
+   RESULT :      232792560
+ CPU TIME : 2.4000000E-006
+
+  VERSION :              2
+   TARGET :             20
+   RESULT :      232792560
+ CPU TIME : 1.9000000E-006
+

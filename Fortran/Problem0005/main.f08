@@ -6,21 +6,15 @@
 program main
 
   ! <module>s to import
-  use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: Problem0005
 
   ! Require all variables to be explicitly declared
   implicit none
 
-  ! variables for this <program>
-  integer( kind=INT64 ) :: num
+  ! STEP.01
+  call show_result ( 10_INT64 )
+  call show_result ( 20_INT64 )
 
-  write( unit=output_unit, fmt='(A)', advance='yes' ) '[input the numbers]'
-  read *, num
-
-  print *, num, Problem0005_01( num )
-  read *
-  
 end program main
 ! ------------------------------------------------------------------------------------------------------------------------------- !
 ! gfortran ^                                                                                                                      !
