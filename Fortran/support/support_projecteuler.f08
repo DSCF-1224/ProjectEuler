@@ -54,24 +54,6 @@ module support_projecteuler
     module procedure determine_isprime_INT64
   end interface
 
-  interface  number_of_digits_INT16
-    module procedure  number_of_digits_INT16_to_INT16
-    module procedure  number_of_digits_INT32_to_INT16
-    module procedure  number_of_digits_INT64_to_INT16
-  end interface
-
-  interface  number_of_digits_INT32
-    module procedure  number_of_digits_INT16_to_INT32
-    module procedure  number_of_digits_INT32_to_INT32
-    module procedure  number_of_digits_INT64_to_INT32
-  end interface
-
-  interface  number_of_digits_INT64
-    module procedure  number_of_digits_INT16_to_INT64
-    module procedure  number_of_digits_INT32_to_INT64
-    module procedure  number_of_digits_INT64_to_INT64
-  end interface
-
 
   ! constants for this <module>
   integer, parameter, public :: SAVE_UNIT       =  21
@@ -85,7 +67,6 @@ module support_projecteuler
   include "determine_isEven.f08"
   include "determine_ismultiple.f08"
   include "determine_isprime.f08"
-  include "number_of_digits.f08"
   include "show_result.f08"
 
 end module support_projecteuler

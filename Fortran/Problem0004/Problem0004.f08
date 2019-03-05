@@ -9,6 +9,7 @@ module Problem0004
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
   use, non_intrinsic :: support_system_clock
+  use, non_intrinsic :: number_of_digits
 
   ! require all variables to be explicitly declared
   implicit none
