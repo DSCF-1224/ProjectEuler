@@ -31,7 +31,7 @@ gfortran 8.1.0
 ### `module Problem0001` ###
 
 * 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必要とします。
-* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を必要とします。
+* 自作 `module` [`support_projecteuler`](../support/) を必要とします。
 
 #### `function determine_istargetmultiple` ####
 

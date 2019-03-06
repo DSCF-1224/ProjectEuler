@@ -44,20 +44,7 @@ module Problem0002
   include "show_result.f08"
 
 end module Problem0002
+
 ! -------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                       !
-! -c ^                                                                                                                             !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^    
-! Fortran\support\support_system_clock.f08 ^                                                                                       !
-! ProjectEuler\Fortran\support\support_projecteuler.f08 ^                                                                          !
-! ProjectEuler\Fortran\Problem0002\Problem0002_01.f08 ^                                                                            !
-! ProjectEuler\Fortran\Problem0002\main.f08                                                                                        !
-!                                                                                                                                  !
-! gfortran ^                                                                                                                       !
-! -o Problem0002_01.exe ^                                                                                                          !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
-! support_system_clock.o ^                                                                                                         !
-! support_projecteuler.o ^                                                                                                         !
-! Problem0002_01.o ^                                                                                                               !
-! main.o                                                                                                                           !
+! End of Source Code                                                                                                               !
 ! -------------------------------------------------------------------------------------------------------------------------------- !

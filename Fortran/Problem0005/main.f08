@@ -16,18 +16,7 @@ program main
   call show_result ( 20_INT64 )
 
 end program main
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! GitHub\Fortran\miniparts\GCD_LCM.f08 ^                                                                                       !
-! GitHub\Fortran\ProjectEuler\Problem0005\Problem0005_01.f08 ^                                                                 !
-! GitHub\Fortran\ProjectEuler\Problem0005\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0005_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! GCD_LCM.o ^                                                                                                                     !
-! D:\gfortran\Problem0005_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! End of Source Code                                                                                                               !
+! -------------------------------------------------------------------------------------------------------------------------------- !

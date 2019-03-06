@@ -14,24 +14,13 @@ program main
 
 
   ! STEP.01
-  call show_result( 10_INT64**3 )
+  call show_result (10_INT64 ** 3)
 
   ! STEP.END
   call show_reach_end
   
 end program main
+
 ! -------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                       !
-! -c ^                                                                                                                             !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
-! ProjectEuler\Fortran\support\support_projecteuler.f08 ^                                                                          !
-! ProjectEuler\Fortran\Problem0001\Problem0001_01.f08 ^                                                                            !
-! ProjectEuler\Fortran\Problem0001\main.f08                                                                                        !
-!                                                                                                                                  !
-! gfortran ^                                                                                                                       !
-! -o Problem0001_01.exe ^                                                                                                          !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                 !
-! gfortran\support_projecteuler.o ^                                                                                                !
-! Problem0001_01.o ^                                                                                                               !
-! main.o                                                                                                                           !
+! End of Source Code                                                                                                               !
 ! -------------------------------------------------------------------------------------------------------------------------------- !
