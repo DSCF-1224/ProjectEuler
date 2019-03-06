@@ -1,4 +1,4 @@
-pure function determine_isprime_INT16 ( target ) result ( stat )
+pure function determine_isprime_INT16 ( target ) result( stat )
 
   ! arguments for this <function>
   integer( kind=INT16 ), intent(in) :: target
@@ -73,7 +73,7 @@ pure function determine_isprime_INT16 ( target ) result ( stat )
 
 end function determine_isprime_INT16
 
-pure function determine_isprime_INT32 ( target ) result ( stat )
+pure function determine_isprime_INT32 ( target ) result( stat )
 
 ! arguments for this <function>
 integer( kind=INT32 ), intent(in) :: target
@@ -148,7 +148,7 @@ end if
 
 end function determine_isprime_INT32
 
-pure function determine_isprime_INT64 ( target ) result ( stat )
+pure function determine_isprime_INT64 ( target ) result( stat )
 
 ! arguments for this <function>
 integer( kind=INT64 ), intent(in) :: target

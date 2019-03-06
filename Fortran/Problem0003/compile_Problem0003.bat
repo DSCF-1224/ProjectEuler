@@ -17,6 +17,7 @@
 @gfortran ^
 -c ^
 -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^
+%path_folder_GitHub_Fortran%miniparts\IsMultiple.f08 ^
 %path_folder_GitHub_Fortran%support\support_system_clock.f08 ^
 %path_folder_GitHub_ProjectEuler%Fortran\support\support_projecteuler.f08 ^
 %path_folder_GitHub_ProjectEuler%Fortran\Problem0003\Problem0003.f08 ^
@@ -28,6 +29,7 @@
 @gfortran ^
 -o %path_folder_gfortran%Problem0003.exe ^
 -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^
+%path_folder_gfortran%ismultiple.o ^
 %path_folder_gfortran%support_system_clock.o ^
 %path_folder_gfortran%support_projecteuler.o ^
 %path_folder_gfortran%Problem0003.o ^

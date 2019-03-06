@@ -1,15 +1,18 @@
  VERSION :              1
+    KIND :          INT32
   TARGET :          13195
   RESULT :             29
-CPU TIME : 9.0000000E-007
+CPU TIME : 7.0000000E-007
 
  VERSION :              2
+    KIND :          INT32
   TARGET :          13195
   RESULT :             29
-CPU TIME : 5.0000000E-007
+CPU TIME : 2.0000000E-007
 
  VERSION :              3
+    KIND :          INT32
   TARGET :          13195
   RESULT :             29
-CPU TIME : 1.3000000E-006
+CPU TIME : 6.0000000E-007
 

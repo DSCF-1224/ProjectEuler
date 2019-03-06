@@ -13,9 +13,9 @@ program main
 
 
   ! STEP.01
-  call show_result (000000013195_INT32)
-  call show_result (000000013195_INT64)
-  call show_result (600851475143_INT64)
+  call show_result(       13195_INT32)
+  call show_result(       13195_INT64)
+  call show_result(600851475143_INT64)
 
   ! STEP.END
   call show_reach_end

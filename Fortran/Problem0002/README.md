@@ -21,7 +21,7 @@ gfortran 8.1.0
     * [Problem0001_02.f08](Problem0001_02.f08)
       * `function` [`Problem0002_02`](#function-problem0002_02)
     * [show_result.f08](show_result.f08)
-      * `subroutine` [`show_result_core`](#subroutine-show_result_core)
+      * `subroutine` [`show_result_each`](#subroutine-show_result_each)
       * `subroutine` [`show_result`](#subroutine-show_result)
 * [main.f08](#mainf08)
   * [`program main`](#program-main)
@@ -30,8 +30,10 @@ gfortran 8.1.0
 
 ### `module` `Problem0002` ###
 
-* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必要とします。
-* 自作 `module` [`support_projecteuler`](../support/support_projecteuler.f08) を必要とします。
+* 組み込み `module` [`module iso_fortran_env`](http://fortranwiki.org/fortran/show/iso_fortran_env) を必要とします。
+* 当該リポジトリ中の自作 `module` [`support_projecteuler`](../support/) を必要とします。
+* 別リポジトリ [`Fortran`](https://github.com/DSCF-1224/Fortran) の自作 `module` [`support_system_clock`](https://github.com/DSCF-1224/Fortran/tree/master/support) を必要とします。
+* 別リポジトリ [`Fortran`](https://github.com/DSCF-1224/Fortran) の自作 `module` [`mod_IsMultiple`](https://github.com/DSCF-1224/Fortran/tree/master/miniparts) を必要とします。
 * `Fibonacci_1st`
   * Fibonacci 数列の第1項（本問題での定義値）を格納する `parameter` 属性の 64bit 整数型変数
 * `Fibonacci_2nd`
@@ -69,7 +71,7 @@ gfortran 8.1.0
 * 当該 `function` は、正の整数 `limit` 未満の Fibonacci 数列中の偶数項の総和を返します。
 * 最初の 2 項が 1 と 2 の Fibonnaci 数列の場合、初項から数えて `n` 番目の偶数項は、全体の 第 `3n-1` 項になることを利用して、計算過程のメモ化を行っています。
 
-#### `subroutine show_result_core` ####
+#### `subroutine show_result_each` ####
 
 * 当該 `subroutine` の引数は整数型変数 `version` と 64bit 整数型変数 `limit` の 2 個です。
 * 当該 `subroutine` は、自作 `function` `Problem0002_0i_*` `(i=1,2)` の戻し値を `SAVE_UNIT` に出力するために用います。

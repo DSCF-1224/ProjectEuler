@@ -4,65 +4,65 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%202                                                         !
 ! ------------------------------------------------------------------------------------------------------------------------------- -!
  
-pure function Problem0002_01_RCR (limit) result (sum)
+pure function Problem0002_01_RCR(limit) result(sum)
 
   ! argument of this <function>
-  integer (kind=INT64), intent (in) :: limit
+  integer(kind=INT64), intent(in) :: limit
 
   ! return value of this <function>
-  integer (kind=INT64) :: sum
+  integer(kind=INT64) :: sum
 
   ! support variables for this <function>
-  integer (kind=INT32) :: itr
-  integer (kind=INT64) :: buf_Fibonacci
+  integer(kind=INT32) :: itr
+  integer(kind=INT64) :: buf_Fibonacci
 
 
   ! STEP.01
   ! initialize the local variables
   itr           = 1_INT32
-  buf_Fibonacci = Calc_FibonacciNum_RCR (itr)
+  buf_Fibonacci = Calc_FibonacciNum_RCR(itr)
   sum           = 0_INT64
 
-  ! STEP.02 !
+  ! STEP.02
   do while (buf_Fibonacci .lt. limit)
-    if ( determine_isEven (buf_Fibonacci) ) sum = sum + buf_Fibonacci
+    if ( IsEven(buf_Fibonacci) ) sum = sum + buf_Fibonacci
     itr           = itr + 1_INT32
-    buf_Fibonacci = Calc_FibonacciNum_RCR (itr)
+    buf_Fibonacci = Calc_FibonacciNum_RCR(itr)
   end do
 
-  ! STEP.END !
+  ! STEP.END
   return
 
 end function Problem0002_01_RCR
 
  
-pure function Problem0002_01_WithMemo (limit) result (sum)
+pure function Problem0002_01_WithMemo(limit) result(sum)
 
   ! argument of this <function>
-  integer (kind=INT64), intent (in) :: limit
+  integer(kind=INT64), intent(in) :: limit
 
   ! return value of this <function>
-  integer (kind=INT64) :: sum
+  integer(kind=INT64) :: sum
 
   ! support variables for this <function>
-  integer (kind=INT32) :: itr
-  integer (kind=INT64) :: buf_Fibonacci
+  integer(kind=INT32) :: itr
+  integer(kind=INT64) :: buf_Fibonacci
 
 
   ! STEP.01
   ! initialize the local variables
   itr           = 1_INT32
-  buf_Fibonacci = Calc_FibonacciNum_WithMemo (itr)
+  buf_Fibonacci = Calc_FibonacciNum_WithMemo(itr)
   sum           = 0_INT64
 
-  ! STEP.02 !
+  ! STEP.02
   do while (buf_Fibonacci .lt. limit)
-    if ( determine_isEven(buf_Fibonacci) ) sum = sum + buf_Fibonacci
+    if ( IsEven(buf_Fibonacci) ) sum = sum + buf_Fibonacci
     itr           = itr + 1_INT32
-    buf_Fibonacci = Calc_FibonacciNum_WithMemo (itr)
+    buf_Fibonacci = Calc_FibonacciNum_WithMemo(itr)
   end do
 
-  ! STEP.END !
+  ! STEP.END
   return
 
 end function Problem0002_01_WithMemo

@@ -9,6 +9,8 @@ module Problem0003
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
   use, non_intrinsic :: support_system_clock
+  use, non_intrinsic :: mod_IsMultiple
+
 
   ! require all variables to be explicitly declared
   implicit none
@@ -18,15 +20,15 @@ module Problem0003
   private :: Problem0003_01         ! interface
   private :: Problem0003_02         ! interface
   private :: Problem0003_03         ! interface
-  private :: show_result_core       ! interface
+  private :: show_result_each       ! interface
   private :: Problem0003_01_INT32   ! function
   private :: Problem0003_01_INT64   ! function
   private :: Problem0003_02_INT32   ! function
   private :: Problem0003_02_INT64   ! function
   private :: Problem0003_03_INT32   ! function
   private :: Problem0003_03_INT64   ! function
-  private :: show_result_core_INT32 ! subroutine
-  private :: show_result_core_INT64 ! subroutine
+  private :: show_result_each_INT32 ! subroutine
+  private :: show_result_each_INT64 ! subroutine
   private :: show_result_INT32      ! subroutine
   private :: show_result_INT64      ! subroutine
 
@@ -46,9 +48,9 @@ module Problem0003
     module procedure Problem0003_03_INT64
   end interface
 
-  interface show_result_core
-    module procedure show_result_core_INT32
-    module procedure show_result_core_INT64
+  interface show_result_each
+    module procedure show_result_each_INT32
+    module procedure show_result_each_INT64
   end interface
 
   interface show_result

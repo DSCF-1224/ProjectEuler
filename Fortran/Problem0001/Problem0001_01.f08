@@ -4,16 +4,16 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%201                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
   
-pure function Problem0001_01 (limit) result (sum)
+pure function Problem0001_01(limit) result(sum)
 
   ! argument of this <function>
-  integer (kind=INT64), intent (in) :: limit
+  integer(kind=INT64), intent(in) :: limit
 
   ! return value of this <function>
-  integer (kind=INT64) :: sum
+  integer(kind=INT64) :: sum
 
   ! support variables for this <function>
-  integer (kind=INT64) :: itr
+  integer(kind=INT64) :: itr
 
 
   ! STEP.01
@@ -24,11 +24,11 @@ pure function Problem0001_01 (limit) result (sum)
   ! STEP.02
   ! calculate the target sum
   do while (itr .lt. limit)
-    if ( determine_istargetmultiple (itr) ) sum = sum + itr
+    if (IsTargetMultiple (itr)) sum = sum + itr
     itr = itr + 1_INT64
   end do
 
-  ! STEP.END
+  ! STEP.03
   return
 
 end function Problem0001_01

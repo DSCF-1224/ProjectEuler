@@ -13,7 +13,7 @@ program main
 
 
   ! STEP.01
-  call show_result (4_INT64 * 10_INT64 ** 6)
+  call show_result(4_INT64 * 10_INT64 ** 6)
 
   ! STEP.END
   call show_reach_end

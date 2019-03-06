@@ -9,6 +9,7 @@ module Problem0002
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
   use, non_intrinsic :: support_system_clock
+  use, non_intrinsic :: mod_IsMultiple
 
   ! require all variables to be explicitly declared
   implicit none
@@ -20,12 +21,13 @@ module Problem0002
   private :: Problem0002_02
   private :: Calc_FibonacciNum_RCR
   private :: Calc_FibonacciNum_WithMemo
-  private :: show_result_core
+  private :: show_result_each
 
   ! constants for this <module>
-  integer (kind=INT64), private, parameter :: Fibonacci_1st = 1_INT64
-  integer (kind=INT64), private, parameter :: Fibonacci_2nd = 2_INT64
-
+  character(len=10, kind=1), private, parameter :: name_file_save = 'result.txt'
+  integer(kind=INT64),       private, parameter :: Fibonacci_1st  = 1_INT64
+  integer(kind=INT64),       private, parameter :: Fibonacci_2nd  = 2_INT64 
+ 
   ! <subroutine>s and <function>s in this <module> is below
   contains
 
@@ -37,7 +39,7 @@ module Problem0002
   ! pure function Problem0002_01_WithMemo (limit)
   include "Problem0002_01.f08"
 
-  ! pure function Problem0002_02 (limit) result (sum)
+  ! pure function Problem0002_02 (limit) result(sum)
   include "Problem0002_02.f08"
 
   ! show the result

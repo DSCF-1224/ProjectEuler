@@ -14,7 +14,7 @@ program main
 
 
   ! STEP.01
-  call show_result (10_INT64 ** 3)
+  call show_result
 
   ! STEP.END
   call show_reach_end

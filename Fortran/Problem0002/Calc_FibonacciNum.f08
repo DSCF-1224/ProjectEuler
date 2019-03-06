@@ -3,13 +3,13 @@
 ! https://projecteuler.net/problem=2                                                                                               !
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%202                                                         !
 ! ------------------------------------------------------------------------------------------------------------------------------- -!
-recursive pure function Calc_FibonacciNum_RCR (term) result (retval)
+recursive pure function Calc_FibonacciNum_RCR (term) result(retval)
 
   ! argument of this <function>
-  integer (kind=INT32), intent (in) :: term
+  integer(kind=INT32), intent(in) :: term
 
   ! return value of this <function>
-  integer (kind=INT64) :: retval
+  integer(kind=INT64) :: retval
 
   ! STEP.01
   select case (term)
@@ -24,17 +24,17 @@ recursive pure function Calc_FibonacciNum_RCR (term) result (retval)
 end function Calc_FibonacciNum_RCR
 
 
-pure function Calc_FibonacciNum_WithMemo (term) result (retval)
+pure function Calc_FibonacciNum_WithMemo (term) result(retval)
 
   ! arguments for this <function>
-  integer (kind=INT32), intent (in) :: term
+  integer(kind=INT32), intent(in) :: term
 
   ! return value of this <function>
-  integer (kind=INT64) :: retval
+  integer(kind=INT64) :: retval
 
   ! local variables for this <function>
-  integer (kind=INT32)              :: itr
-  integer (kind=INT64), allocatable :: buf(:)
+  integer(kind=INT32)              :: itr
+  integer(kind=INT64), allocatable :: buf(:)
 
   select case (term)
     case (1_INT32); retval = Fibonacci_1st; return

@@ -4,16 +4,16 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%202                                                         !
 ! ------------------------------------------------------------------------------------------------------------------------------- -!
  
-  pure function Problem0002_02 (limit) result (sum)
+  pure function Problem0002_02(limit) result(sum)
 
   ! argument of this <function>
-  integer (kind=INT64), intent (in) :: limit
+  integer(kind=INT64), intent(in) :: limit
 
   ! return value of this <function>
-  integer (kind=INT64) :: sum
+  integer(kind=INT64) :: sum
 
   ! support variables for this <function>
-  integer (kind=INT64) :: buf_Fibonacci(1:3)
+  integer(kind=INT64) :: buf_Fibonacci(1:3)
 
 
   ! STEP.01 !

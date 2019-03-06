@@ -4,14 +4,14 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%202                                                         !
 ! -------------------------------------------------------------------------------------------------------------------------------- !
 
-subroutine show_result_core (version, limit)
+subroutine show_result_each(version, limit)
 
   ! arguments for this <subroutine>
-  integer,              intent (in) :: version
-  integer (kind=INT64), intent (in) :: limit
+  integer,             intent(in) :: version
+  integer(kind=INT64), intent(in) :: limit
 
   ! variables for this <subroutine>
-  integer (kind=INT64)     :: sum
+  integer(kind=INT64)      :: sum
   type (Type_System_Clock) :: System_Clock_Start, System_Clock_End
 
 
@@ -49,31 +49,31 @@ subroutine show_result_core (version, limit)
   ! STEP.TRUE_END
   return
 
-end subroutine show_result_core
+end subroutine show_result_each
 
 
-subroutine show_result (limit)
+subroutine show_result(limit)
 
   ! arguments for this <subroutine>
-  integer (kind=INT64), intent (in) :: limit
+  integer(kind=INT64), intent(in) :: limit
 
   ! variables for this <subroutine>
-  character (len=len_buffer_path, kind=1) :: path_file_save
+  character (len=len_buffer_path, kind=1) :: path_folder_save
 
 
   ! STEP.01
   ! read out the path of the file to save the result
-  call read_path_file_save (path_file_save)
+  call read_path_folder_save (path_folder_save)
 
   ! STEP.02
   ! open the file to save the result
-  open (unit=SAVE_UNIT, file=trim (path_file_save), action='write', status='replace')
+  open(unit=SAVE_UNIT, file=trim(path_folder_save)//name_file_save, action='write', status='replace')
 
   ! STEP.03
   ! calculate & save the result
-  call show_result_core (version=1, limit=limit)
-  call show_result_core (version=2, limit=limit)
-  call show_result_core (version=3, limit=limit)
+  call show_result_each(version=1, limit=limit)
+  call show_result_each(version=2, limit=limit)
+  call show_result_each(version=3, limit=limit)
 
   ! STEP.04
   ! close the file to save the result

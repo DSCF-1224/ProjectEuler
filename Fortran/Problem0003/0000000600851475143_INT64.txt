@@ -1,15 +1,18 @@
  VERSION :              1
+    KIND :          INT64
   TARGET :   600851475143
   RESULT :           6857
-CPU TIME : 9.7000000E-005
+CPU TIME : 8.1800000E-005
 
  VERSION :              2
+    KIND :          INT64
   TARGET :   600851475143
   RESULT :           6857
-CPU TIME : 3.9600000E-005
+CPU TIME : 6.0900000E-005
 
  VERSION :              3
+    KIND :          INT64
   TARGET :   600851475143
   RESULT :           6857
-CPU TIME : 9.3000000E-006
+CPU TIME : 1.5800000E-005
 

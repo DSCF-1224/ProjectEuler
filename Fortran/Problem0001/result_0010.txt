@@ -1,0 +1,15 @@
+  VERSION :              1
+    LIMIT :             10
+      SUM :             23
+ CPU TIME : 9.0000000E-007
+
+  VERSION :              2
+    LIMIT :             10
+      SUM :             23
+ CPU TIME : 5.0000000E-007
+
+  VERSION :              3
+    LIMIT :             10
+      SUM :             23
+ CPU TIME : 1.0000000E-007
+
