@@ -1,0 +1,18 @@
+  VERSION :              1
+     KIND :          INT64
+    LIMIT :          10001
+   RESULT :         104743
+ CPU TIME : 1.1670900E-002
+
+  VERSION :              2
+     KIND :          INT64
+    LIMIT :          10001
+   RESULT :         104743
+ CPU TIME : 5.1963060E-001
+
+  VERSION :              3
+     KIND :          INT64
+    LIMIT :          10001
+   RESULT :         104743
+ CPU TIME : 4.6398150E-001
+

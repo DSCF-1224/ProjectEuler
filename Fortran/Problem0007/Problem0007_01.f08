@@ -3,131 +3,85 @@
 ! https://projecteuler.net/problem=7                                                                                              !
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%207                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
-module Problem0007
 
-  ! <module>s to import
-  use, intrinsic :: iso_fortran_env
+pure function Problem0007_01_INT32 (limit) result(target_PrimeNum)
 
-  ! require all variables to be explicitly declared
-  implicit none
+  ! arguments for this <function>
+  integer(kind=INT32), intent(in) :: limit
 
-  ! accessibility of <subroutine>s and <function>s in this <module>
-  private :: Check_IsPrime        ! interface
-  public  :: Problem0007_01       ! interface
-  private :: Check_IsPrime_INT32  ! function
-  private :: Problem0007_01_INT32 ! function
+  ! return value of this <function>
+  integer(kind=INT32) :: target_PrimeNum
 
-  ! <interface>s for this <program>
-  interface Problem0007_01
-    module procedure Problem0007_01_INT32
-  end interface
+  ! variables for this <function>
+  integer(kind=INT32) :: itr_ntrl, count_prime
 
-  interface Check_IsPrime
-    module procedure Check_IsPrime_INT32
-  end interface
+  ! STEP.01
+  ! initialize the variables
+  itr_ntrl    = 2_INT32
+  count_prime = 1_INT32
 
-  ! <subroutine>s and <function>s in this <module> is below
-  contains
+  ! STEP.02
+  ! search the `limit`-th prime number
+  do while (count_prime .lt. limit)
 
-  function Check_IsPrime_INT32( target, list ) result( status )
+    ! STEP.02.01
+    ! update the iterator of natural number
+    itr_ntrl = itr_ntrl + 1_INT32
 
-    ! arguments for this <function>
-    integer( kind= INT32 ), intent(in) :: target
-    integer( kind= INT32 ), intent(in) :: list(:)
+    ! STEP.02.02
+    ! update the counter of number of the prime number
+    if (IsPrime(itr_ntrl)) count_prime = count_prime + 1_INT32
 
-    ! return value of this <function>
-    logical :: status
+  end do
 
-    ! variables for this <function>
-    integer( kind= INT32 ) :: length
+  ! STEP.03
+  ! determine the return value of this <function>
+  target_PrimeNum = itr_ntrl
 
-    ! support variables for this <function>
-    integer( kind= INT32 ) :: itr
+  ! STEP.END
+  return
 
-    ! STEP.01 !
-    length = size( list, dim=1 )
+end function Problem0007_01_INT32
 
-    ! STEP.02 !
-    do itr = 1, length, 1
-      if( mod( target, list(itr) ) .eq. 0_INT32 ) then
-        status = .false.
-        return
-      end if
-    end do
+pure function Problem0007_01_INT64 (limit) result(target_PrimeNum)
 
-    ! STEP.03 !
-    status = .true.
-    return
+  ! arguments for this <function>
+  integer(kind=INT64), intent(in) :: limit
 
-  end function Check_IsPrime_INT32
+  ! return value of this <function>
+  integer(kind=INT64) :: target_PrimeNum
 
-  function Problem0007_01_INT32( term ) result( target_prime )
+  ! variables for this <function>
+  integer(kind=INT64) :: itr_ntrl, count_prime
 
-    ! arguments for this <function>
-    integer( kind= INT32 ), intent(in) :: term
+  ! STEP.01
+  ! initialize the variables
+  itr_ntrl    = 2_INT64
+  count_prime = 1_INT64
 
-    ! return value of this <function>
-    integer( kind= INT32 ) :: target_prime
+  ! STEP.02
+  ! search the `limit`-th prime number
+  do while (count_prime .lt. limit)
 
-    ! variables for this <function>
-    integer( kind= INT32 ), allocatable :: list_main(:), list_buff(:)
+    ! STEP.02.01
+    ! update the iterator of natural number
+    itr_ntrl = itr_ntrl + 1_INT64
 
-    ! support variables for this <function>
-    integer( kind= INT32 ) :: itr_num
-    integer( kind= INT32 ) :: itr_term
-    integer( kind= INT32 ) :: length
+    ! STEP.02.02
+    ! update the counter of number of the prime number
+    if (IsPrime(itr_ntrl)) count_prime = count_prime + 1_INT64
 
-    ! STEP.01 !
-    if( allocated( list_main ) ) deallocate( list_main )
-    if( allocated( list_buff ) ) deallocate( list_buff )
-    itr_num  = 2_INT32
-    itr_term = 1_INT32
-    allocate( list_main(1:1) )
-    list_main(itr_term) = itr_num
+  end do
 
-    ! STEP.02 !
-    do while( itr_term .lt. term )
+  ! STEP.03
+  ! determine the return value of this <function>
+  target_PrimeNum = itr_ntrl
 
-      itr_num = itr_num + 1_INT32
-      length  = size( list_main(:), dim=1 )
+  ! STEP.END
+  return
 
-      if( Check_IsPrime( target= itr_num, list= list_main(:) ) ) then
+end function Problem0007_01_INT64
 
-        if( allocated( list_buff ) ) deallocate( list_buff )
-        allocate( list_buff(1:length) )
-        list_buff(:) = list_main(:)
-
-        deallocate( list_main )
-        allocate( list_main(1:length+1) )
-        list_main(1:length) = list_buff(1:length)
-        list_main(length+1) = itr_num
-        itr_term            = itr_term + 1_INT32
-
-      end if
-
-    end do
-
-    ! STEP.03 !
-    target_prime = maxval( list_main, dim=1 )
-
-    ! STEP.04 !
-    if( allocated( list_main ) ) deallocate( list_main )
-    if( allocated( list_buff ) ) deallocate( list_buff )
-    return
-
-  end function Problem0007_01_INT32
-
-end module Problem0007
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! GitHub\Fortran\ProjectEuler\Problem0007\Problem0007_01.f08 ^                                                                 !
-! GitHub\Fortran\ProjectEuler\Problem0007\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0007_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\gfortran\Problem0007_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! End of Source Code                                                                                                               !
+! -------------------------------------------------------------------------------------------------------------------------------- !

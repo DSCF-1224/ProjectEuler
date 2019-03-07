@@ -6,35 +6,23 @@
 program main
 
   ! <module>s to import
-  use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: Problem0007
 
   ! Require all variables to be explicitly declared
   implicit none
 
-  ! variables for this <program>
-  integer( kind=INT64 ) :: itr, target
+  call show_result(     6_INT32)
+  call show_result( 10001_INT32)
+  call show_result(100001_INT32)
+  call show_result(     6_INT64)
+  call show_result( 10001_INT64)
+  call show_result(100001_INT64)
 
-  do target = 1, 10, 1
-    write( unit=output_unit, fmt='(I8,I20)', advance='yes' ) target, Problem0007_02( target )
-  end do
-
-  do itr = 1, 5, 1
-    target = 10_INT64 ** itr + 1_INT64
-    write( unit=output_unit, fmt='(I8,I20)', advance='yes' ) target, Problem0007_02( target )
-  end do
+  ! STEP.END
+  call show_reach_end
   
 end program main
-! ------------------------------------------------------------------------------------------------------------------------------- !
-! gfortran ^                                                                                                                      !
-! -c ^                                                                                                                            !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! GitHub\Fortran\ProjectEuler\Problem0007\Problem0007_01.f08 ^                                                                 !
-! GitHub\Fortran\ProjectEuler\Problem0007\main.f08                                                                             !
-!                                                                                                                                 !
-! gfortran ^                                                                                                                      !
-! -o Problem0007_01.exe ^                                                                                                         !
-! -Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^                                !
-! D:\gfortran\Problem0007_01.o ^                                                                                                  !
-! D:\gfortran\main.o                                                                                                              !
-! ------------------------------------------------------------------------------------------------------------------------------- !
+
+! -------------------------------------------------------------------------------------------------------------------------------- !
+! End of Source Code                                                                                                               !
+! -------------------------------------------------------------------------------------------------------------------------------- !

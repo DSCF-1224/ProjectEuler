@@ -1,0 +1,18 @@
+  VERSION :              1
+     KIND :          INT32
+    LIMIT :          10001
+   RESULT :         104743
+ CPU TIME : 4.0013000E-003
+
+  VERSION :              2
+     KIND :          INT32
+    LIMIT :          10001
+   RESULT :         104743
+ CPU TIME : 2.5832450E-001
+
+  VERSION :              3
+     KIND :          INT32
+    LIMIT :          10001
+   RESULT :         104743
+ CPU TIME : 1.5616910E-001
+
