@@ -36,6 +36,12 @@ subroutine show_result_each_INT32 (version, limit)
       result = Problem0007_03 (limit)
       call SYSTEM_CLOCK_UsingType (System_Clock_End)
 
+    case (4)
+      
+      call SYSTEM_CLOCK_UsingType (System_Clock_Start)
+      result = Problem0007_04 (limit)
+      call SYSTEM_CLOCK_UsingType (System_Clock_End)
+
   end select
 
   ! STEP.02
@@ -68,20 +74,26 @@ subroutine show_result_each_INT64 (version, limit)
   
     case (1)
     
-    call SYSTEM_CLOCK_UsingType (System_Clock_Start)
-    result = Problem0007_01 (limit)
-    call SYSTEM_CLOCK_UsingType (System_Clock_End)
+      call SYSTEM_CLOCK_UsingType (System_Clock_Start)
+      result = Problem0007_01 (limit)
+      call SYSTEM_CLOCK_UsingType (System_Clock_End)
   
     case (2)
     
-    call SYSTEM_CLOCK_UsingType (System_Clock_Start)
-    result = Problem0007_02 (limit)
-    call SYSTEM_CLOCK_UsingType (System_Clock_End)
+      call SYSTEM_CLOCK_UsingType (System_Clock_Start)
+      result = Problem0007_02 (limit)
+      call SYSTEM_CLOCK_UsingType (System_Clock_End)
 
     case (3)
       
       call SYSTEM_CLOCK_UsingType (System_Clock_Start)
       result = Problem0007_03 (limit)
+      call SYSTEM_CLOCK_UsingType (System_Clock_End)
+
+    case (4)
+      
+      call SYSTEM_CLOCK_UsingType (System_Clock_Start)
+      result = Problem0007_04 (limit)
       call SYSTEM_CLOCK_UsingType (System_Clock_End)
   
   end select
@@ -130,6 +142,7 @@ subroutine show_result_INT32 (limit)
   call show_result_each (version=1, limit=limit)
   call show_result_each (version=2, limit=limit)
   call show_result_each (version=3, limit=limit)
+  call show_result_each (version=4, limit=limit)
 
   ! STEP.05
   ! close the file to save the result
@@ -169,6 +182,7 @@ subroutine show_result_INT64 (limit)
   call show_result_each (version=1, limit=limit)
   call show_result_each (version=2, limit=limit)
   call show_result_each (version=3, limit=limit)
+  call show_result_each (version=4, limit=limit)
 
   ! STEP.05
   ! close the file to save the result

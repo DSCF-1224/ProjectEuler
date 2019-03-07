@@ -9,6 +9,7 @@ module Problem0007
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
   use, non_intrinsic :: support_system_clock
+  use, non_intrinsic :: mod_IsMultiple
   use, non_intrinsic :: mod_IsPrime
 
   ! require all variables to be explicitly declared
@@ -18,12 +19,15 @@ module Problem0007
   public  :: Problem0007_01       ! interface
   public  :: Problem0007_02       ! interface
   public  :: Problem0007_03       ! interface
+  public  :: Problem0007_04       ! interface
   private :: Problem0007_01_INT32 ! function
   private :: Problem0007_01_INT64 ! function
   private :: Problem0007_02_INT32 ! function
   private :: Problem0007_02_INT64 ! function
   private :: Problem0007_03_INT32 ! function
   private :: Problem0007_03_INT64 ! function
+  private :: Problem0007_04_INT32 ! function
+  private :: Problem0007_04_INT64 ! function
 
   ! <interface>s for this <program>
   interface Problem0007_01
@@ -41,6 +45,11 @@ module Problem0007
     module procedure Problem0007_03_INT64
   end interface Problem0007_03
 
+  interface Problem0007_04
+    module procedure Problem0007_04_INT32
+    module procedure Problem0007_04_INT64
+  end interface Problem0007_04
+
   interface show_result_each
     module procedure show_result_each_INT32
     module procedure show_result_each_INT64
@@ -57,6 +66,7 @@ module Problem0007
   include "Problem0007_01.f08"
   include "Problem0007_02.f08"
   include "Problem0007_03.f08"
+  include "Problem0007_04.f08"
   include "show_result.f08"
 
 end module Problem0007

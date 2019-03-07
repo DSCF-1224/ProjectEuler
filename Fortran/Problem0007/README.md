@@ -16,6 +16,7 @@ gfortran 8.1.0
     * [`interface Problem0007_01`](#interface-problem0007_01)
     * [`interface Problem0007_02`](#interface-problem0007_02)
     * [`interface Problem0007_03`](#interface-problem0007_03)
+    * [`interface Problem0007_04`](#interface-problem0007_04)
     * [`interface show_result_each`](#interface-show_result_each)
     * [`interface show_result`](#interface-show_result)
     * [Problem0007_01.f08](Problem0007_01.f08)
@@ -27,6 +28,9 @@ gfortran 8.1.0
     * [Problem0007_02.f08](Problem0007_03.f08)
       * `function` [`Problem0007_03_INT32`](#function-problem0007_03_int32)
       * `function` [`Problem0007_03_INT64`](#function-problem0007_03_int64)
+    * [Problem0007_02.f08](Problem0007_04.f08)
+      * `function` [`Problem0007_04_INT32`](#function-problem0007_04_int32)
+      * `function` [`Problem0007_04_INT64`](#function-problem0007_04_int64)
     * [show_result.f08](show_result.f08)
       * `subroutine` [`show_result_each_INT32`](#subroutine-show_result_each_int32)
       * `subroutine` [`show_result_each_INT64`](#subroutine-show_result_each_int64)
@@ -64,6 +68,13 @@ gfortran 8.1.0
 * 自作関数手続の総称名を宣言するために使用しています。含まれる自作 `function` は以下の 2 個になります。
   * [`function Problem0007_03_INT32`](#function-problem0007_03_int32)
   * [`function Problem0007_03_INT64`](#function-problem0007_03_int64)
+
+#### `interface Problem0007_04` ####
+
+* `private` 属性の `interface` です。
+* 自作関数手続の総称名を宣言するために使用しています。含まれる自作 `function` は以下の 2 個になります。
+  * [`function Problem0007_04_INT32`](#function-problem0007_04_int32)
+  * [`function Problem0007_04_INT64`](#function-problem0007_04_int64)
 
 #### `interface show_result_each` ####
 
@@ -118,6 +129,19 @@ gfortran 8.1.0
 * `private` 属性の `function` です。
 * [`function Problem0007_03_INT32`](#function-problem0007_03_int32) の引数，内部処理ならびに戻し値を 64bit 整数型変数に変更したものです。
 
+#### `function Problem0007_04_INT32` ####
+
+* `private` 属性の `function` です。
+* 当該 `function` の引数は 32bit 整数型変数 `limit` の1個です。
+* 当該 `function` は小さい方から数えて `limit` 番目の素数を返します。
+* `limit` 個の要素をもつ 1 次元配列を宣言し、`limit` 番目までの全ての素数を記録しています。
+* 別リポジトリ [`Fortran`](https://github.com/DSCF-1224/Fortran) の自作 `module` [`mod_IsPrime`](https://github.com/DSCF-1224/Fortran/tree/master/miniparts) で定義した `function IsPrime` を必要とします。
+
+#### `function Problem0007_04_INT64` ####
+
+* `private` 属性の `function` です。
+* [`function Problem0007_04_INT32`](#function-problem0007_04_int32) の引数，内部処理ならびに戻し値を 64bit 整数型変数に変更したものです。
+
 #### `function show_result_each_INT32` ####
 
 * `private` 属性の `subroutine` です。
@@ -127,6 +151,7 @@ gfortran 8.1.0
   * `version = 1` --> `function` [`Problem0007_01_INT32`](#function-problem0007_01_int32)
   * `version = 2` --> `function` [`Problem0007_02_INT32`](#function-problem0007_02_int32)
   * `version = 3` --> `function` [`Problem0007_03_INT32`](#function-problem0007_03_int32)
+  * `version = 4` --> `function` [`Problem0007_04_INT32`](#function-problem0007_04_int32)
 * 引数 `target` は、自作 `function` `Problem0007_0i_INT32` `(i=1,2,3)` に渡されます。
 
 #### `function show_result_each_INT64` ####

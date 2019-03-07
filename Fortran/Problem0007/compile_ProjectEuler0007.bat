@@ -6,8 +6,8 @@
 
 @REM # STEP.02
 @REM # set the path of folders to use
-@SET path_folder_gfortran=　???
-@SET path_folder_GitHub=　???
+@SET path_folder_gfortran= ???
+@SET path_folder_GitHub= ???
 @SET path_folder_GitHub_Fortran=%path_folder_GitHub%Fortran\
 @SET path_folder_GitHub_ProjectEuler=%path_folder_GitHub%ProjectEuler\
 
@@ -16,7 +16,7 @@
 @REM # compile each F08 file
 @gfortran ^
 -c ^
--Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^
+-Wall -pedantic -fbounds-check -O2 -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^
 %path_folder_GitHub_ProjectEuler%Fortran\support\support_projecteuler.f08 ^
 %path_folder_GitHub_Fortran%miniparts\IsMultiple.f08 ^
 %path_folder_GitHub_Fortran%miniparts\IsPrime.f08 ^
@@ -28,7 +28,7 @@
 @REM # create EXE file
 @gfortran ^
 -o Problem0007.exe ^
--Wall -pedantic -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^
+-Wall -pedantic -fbounds-check -O2 -Wuninitialized -ffpe-trap=invalid,zero,overflow -fbacktrace ^
 %path_folder_gfortran%ismultiple.o ^
 %path_folder_gfortran%isprime.o ^
 %path_folder_gfortran%support_projecteuler.o ^
