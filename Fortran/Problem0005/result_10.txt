@@ -1,10 +1,10 @@
   VERSION :              1
    TARGET :             10
    RESULT :           2520
- CPU TIME : 9.0000000E-007
+ CPU TIME : 1.4000000E-006
 
   VERSION :              2
    TARGET :             10
    RESULT :           2520
- CPU TIME : 5.0000000E-007
+ CPU TIME : 9.0000000E-007
 

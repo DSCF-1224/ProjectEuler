@@ -12,8 +12,8 @@ program main
   implicit none
 
   ! STEP.01
-  call show_result ( 10_INT64 )
-  call show_result ( 20_INT64 )
+  call show_result( 10_INT64 )
+  call show_result( 20_INT64 )
 
 end program main
 

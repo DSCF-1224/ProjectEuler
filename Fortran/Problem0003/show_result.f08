@@ -55,7 +55,7 @@ end subroutine show_result_each_INT32
 subroutine show_result_each_INT64(version, target)
 
   ! arguments for this <subroutine>
-  integer,              intent(in) :: version
+  integer,             intent(in) :: version
   integer(kind=INT64), intent(in) :: target
 
   ! variables for this <subroutine>

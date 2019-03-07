@@ -4,26 +4,26 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%204                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
 
-pure function Check_IsPalindromic_int (target) result (IsPalindromic)
+pure function Check_IsPalindromic_int (target) result(IsPalindromic)
 
   ! argument of this <function>
-  integer (kind=INT64), intent(in) :: target
+  integer(kind=INT64), intent(in) :: target
 
   ! return value of this <function>
   logical :: IsPalindromic
 
   ! support variables for this <function>
-  integer (kind=INT64) :: num_digit
-  integer (kind=INT64) :: buf1, buf2
-  integer (kind=INT64) :: itr_digit, itr_Max
+  integer(kind=INT64) :: num_digit
+  integer(kind=INT64) :: buf1, buf2
+  integer(kind=INT64) :: itr_digit, itr_Max
 
 
   ! STEP.01
   ! get the number of the digit of `target`
-  num_digit = number_of_digits_INT64 (target)
+  num_digit = number_of_digits_INT64(target)
 
   ! STEP.02 !
-  if (determine_isEven (num_digit)) then
+  if (IsEven(num_digit)) then
     itr_Max =  num_digit / 2_INT64
   else
     itr_Max = (num_digit - 1_INT64) / 2_INT64
@@ -32,8 +32,8 @@ pure function Check_IsPalindromic_int (target) result (IsPalindromic)
   ! STEP.03
   do itr_digit = 1_INT64, itr_Max, 1_INT64
 
-    buf1 = Pick_ValTargetDigit (target=target, digit=itr_digit                      )
-    buf2 = Pick_ValTargetDigit (target=target, digit=num_digit - itr_digit + 1_INT64)
+    buf1 = Pick_ValTargetDigit(target=target, digit=itr_digit                      )
+    buf2 = Pick_ValTargetDigit(target=target, digit=num_digit - itr_digit + 1_INT64)
 
     if (buf1 .eq. buf2) then
       IsPalindromic = .true.
@@ -49,19 +49,19 @@ pure function Check_IsPalindromic_int (target) result (IsPalindromic)
 end function Check_IsPalindromic_int
 
 
-pure function find_largest_palindrome_v01 (digit) result (buf_Palindromic)
+pure function find_largest_palindrome_v01(digit) result(buf_Palindromic)
 
   ! argument of this <function>
-  integer (kind=INT64), intent (in) :: digit
+  integer(kind=INT64), intent(in) :: digit
 
   ! return value of this ⟨function⟩
-  integer (kind=INT64) :: buf_Palindromic
+  integer(kind=INT64) :: buf_Palindromic
 
   ! support variables for this <function>
-  integer (kind=INT64) :: product
-  integer (kind=INT64) :: itr_Max, itr_Min
-  integer (kind=INT64) :: itrLv1, itrLv2
-  logical              :: IsPalindromic, IsUpdatable
+  integer(kind=INT64) :: product
+  integer(kind=INT64) :: itr_Max, itr_Min
+  integer(kind=INT64) :: itrLv1, itrLv2
+  logical             :: IsPalindromic, IsUpdatable
 
 
   ! STEP.01
@@ -82,7 +82,7 @@ pure function find_largest_palindrome_v01 (digit) result (buf_Palindromic)
       IsUpdatable = .false.
       exit
     else
-      IsPalindromic = Check_IsPalindromic_int (product)
+      IsPalindromic = Check_IsPalindromic_int(product)
       if (IsPalindromic) then
         buf_Palindromic = product
         IsUpdatable     = .true.
@@ -98,14 +98,14 @@ pure function find_largest_palindrome_v01 (digit) result (buf_Palindromic)
 end function find_largest_palindrome_v01
 
 
-pure function Pick_ValTargetDigit (target, digit) result (num)
+pure function Pick_ValTargetDigit (target, digit) result(num)
 
   ! argument of this <function>
-  integer (kind=INT64), intent (in) :: target
-  integer (kind=INT64), intent (in) :: digit
+  integer(kind=INT64), intent(in) :: target
+  integer(kind=INT64), intent(in) :: digit
 
   ! return value of this <function>
-  integer (kind=INT64) :: num
+  integer(kind=INT64) :: num
 
   num = mod (target, 10_INT64 ** digit) / ( 10_INT64 ** ( digit-1_INT64 ) )
   return

@@ -9,6 +9,7 @@ module Problem0004
   use,     intrinsic :: iso_fortran_env
   use, non_intrinsic :: support_projecteuler
   use, non_intrinsic :: support_system_clock
+  use, non_intrinsic :: mod_IsMultiple
   use, non_intrinsic :: number_of_digits
 
   ! require all variables to be explicitly declared
@@ -18,7 +19,7 @@ module Problem0004
   private :: find_largest_palindrome_v01 ! function
   private :: Check_IsPalindromic_int     ! function
   private :: Pick_ValTargetDigit         ! function
-  private :: show_result_core            ! subroutine
+  private :: show_result_each            ! subroutine
   public  :: show_result                 ! subroutine
 
   

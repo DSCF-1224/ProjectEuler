@@ -17,23 +17,23 @@ module Problem0005
   ! accessibility of <subroutine>s and <function>s in this <module>
   private :: Problem0005_RCR  ! function
   private :: Problem0005_IND  ! function
-  private :: show_result_core ! subroutine
+  private :: show_result_each ! subroutine
   public  :: show_result      ! subroutine
 
  
   ! <subroutine>s and <function>s in this <module> is below
   contains
 
-  pure function Problem0005_RCR (target) result (lcm)
+  pure function Problem0005_RCR (target) result(lcm)
   
     ! argument of this <function>
-    integer (kind=INT64), intent (in) :: target
+    integer(kind=INT64), intent(in) :: target
   
     ! return value of this <function>
-    integer (kind=INT64) :: lcm
+    integer(kind=INT64) :: lcm
   
     ! support variables for this <function>
-    integer (kind=INT64) :: itr
+    integer(kind=INT64) :: itr
   
   
     ! STEP.01 !
@@ -49,16 +49,16 @@ module Problem0005
   
   end function Problem0005_RCR
  
-  pure function Problem0005_IND (target) result (lcm)
+  pure function Problem0005_IND (target) result(lcm)
  
     ! argument of this <function>
-    integer (kind=INT64), intent (in) :: target
+    integer(kind=INT64), intent(in) :: target
 
     ! return value of this <function>
-    integer (kind=INT64) :: lcm
+    integer(kind=INT64) :: lcm
  
     ! support variables for this <function>
-    integer (kind=INT64) :: itr
+    integer(kind=INT64) :: itr
  
  
     ! STEP.01 !

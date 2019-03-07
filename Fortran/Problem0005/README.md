@@ -25,8 +25,9 @@ gfortran 8.1.0
 
 ### module Problem0005 ###
 
-* 組み込み `module` [`module iso_fortran_env`](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html) を必要とします。
-* 当該リポジトリ中の自作 `module` [`support_projecteuler`](../support) を必要とします。
+* 組み込み `module` [`module iso_fortran_env`](http://fortranwiki.org/fortran/show/iso_fortran_env) を必要とします。
+* 当該リポジトリ中の自作 `module` [`support_projecteuler`](../support/) を必要とします。
+* 別リポジトリ [`Fortran`](https://github.com/DSCF-1224/Fortran) の自作 `module` [`support_system_clock`](https://github.com/DSCF-1224/Fortran/tree/master/support) を必要とします。
 * 別リポジトリ [`Fortran`](https://github.com/DSCF-1224/Fortran) の自作 `module` [`GCD_LCM`](https://github.com/DSCF-1224/Fortran/tree/master/miniparts) を必要とします。
 
 #### function Problem0005_RCR ####

@@ -4,14 +4,14 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%205                                                         !
 ! -------------------------------------------------------------------------------------------------------------------------------- !
 
-subroutine show_result_core (version, target)
+subroutine show_result_each (version, target)
 
   ! arguments for this <subroutine>
-  integer,              intent (in) :: version
-  integer (kind=INT64), intent (in) :: target
+  integer,              intent(in) :: version
+  integer(kind=INT64), intent(in) :: target
 
   ! variables for this <subroutine>
-  integer (kind=INT64)     :: result
+  integer(kind=INT64)     :: result
   type (Type_System_Clock) :: System_Clock_Start, System_Clock_End
 
 
@@ -43,32 +43,39 @@ subroutine show_result_core (version, target)
   ! STEP.TRUE_END
   return
 
-end subroutine show_result_core
+end subroutine show_result_each
 
 
-subroutine show_result (target)
+subroutine show_result(target)
 
   ! arguments for this <subroutine>
-  integer (kind=INT64), intent (in) :: target
+  integer(kind=INT64), intent(in) :: target
 
   ! variables for this <subroutine>
-  character (len=len_buffer_path, kind=1) :: path_file_save
+  character(len=len_buffer_path, kind=1) :: path_folder_save
+  character(len=len_buffer_path, kind=1) :: name_file_save
 
 
   ! STEP.01
   ! read out the path of the file to save the result
-  call read_path_file_save (path_file_save)
+  call read_path_folder_save (path_folder_save)
 
   ! STEP.02
-  ! open the file to save the result
-  open (unit=SAVE_UNIT, file=trim (path_file_save), action='write', status='replace')
+  ! make the file name to save the result
+  write(unit=name_file_save(8:9), fmt='(I2.2)') target
+  name_file_save(01:07) = 'result_'
+  name_file_save(10:13) = '.txt'
 
   ! STEP.03
-  ! calculate & save the result
-  call show_result_core (version=1, target=target)
-  call show_result_core (version=2, target=target)
+  ! open the file to save the result
+  open (unit=SAVE_UNIT, file=trim(path_folder_save)//trim(name_file_save), action='write', status='replace')
 
   ! STEP.04
+  ! calculate & save the result
+  call show_result_each (version=1, target=target)
+  call show_result_each (version=2, target=target)
+
+  ! STEP.05
   ! close the file to save the result
   close (unit=SAVE_UNIT, status='keep')
 
