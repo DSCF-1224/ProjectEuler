@@ -15,7 +15,6 @@ pure function Problem0007_04_INT32 (limit) result(target_PrimeNum)
   ! variables for this <function>
   integer(kind=INT32)              :: itr_elem, itr_ntrl, num_PrimeNums
   integer(kind=INT32), allocatable :: list_PrimeNums(:)
-  logical                          :: stat_IsPrime
 
   ! STEP.01
   ! allocate the array to store the prime numbers
@@ -23,30 +22,24 @@ pure function Problem0007_04_INT32 (limit) result(target_PrimeNum)
 
   ! STEP.02
   ! initialize the list of the prime numbers
-  itr_ntrl          = 2_INT32
-  list_PrimeNums(1) = itr_ntrl
+  list_PrimeNums(1) = 2_INT32
+  itr_ntrl          = 1_INT32
   num_PrimeNums     = 1_INT32
 
   ! STEP.03
-  ! calculate the `limit`-th prime number
+  ! make the list of prime numbers
   do while (num_PrimeNums .lt. limit)
 
-    itr_ntrl = itr_ntrl + 1_INT32
-    
-    stat_IsPrime = .true.
+    itr_ntrl = itr_ntrl + 2_INT32
+    itr_elem = 1_INT32
 
-    do itr_elem = 1_INT32, num_PrimeNums, 1_INT32
-      if (isMultiple(target=itr_ntrl, ref=list_PrimeNums(itr_elem))) then
-        stat_IsPrime = .false.
-        exit
-      end if
+    do while (itr_elem .lt. num_PrimeNums .and. .not. IsMultiple(target=itr_ntrl, ref=list_PrimeNums(itr_elem)))
+      itr_elem = itr_elem + 1_INT32
     end do
 
-    if ( stat_IsPrime ) then
+    if (itr_elem .eq. num_PrimeNums) then
       num_PrimeNums                 = num_PrimeNums + 1_INT32
       list_PrimeNums(num_PrimeNums) = itr_ntrl
-    else
-      continue
     end if
 
   end do
@@ -75,7 +68,6 @@ pure function Problem0007_04_INT64 (limit) result(target_PrimeNum)
   ! variables for this <function>
   integer(kind=INT64)              :: itr_elem, itr_ntrl, num_PrimeNums
   integer(kind=INT64), allocatable :: list_PrimeNums(:)
-  logical                          :: stat_IsPrime
 
   ! STEP.01
   ! allocate the array to store the prime numbers
@@ -83,30 +75,24 @@ pure function Problem0007_04_INT64 (limit) result(target_PrimeNum)
 
   ! STEP.02
   ! initialize the list of the prime numbers
-  itr_ntrl          = 2_INT64
-  list_PrimeNums(1) = itr_ntrl
+  list_PrimeNums(1) = 2_INT64
+  itr_ntrl          = 1_INT64
   num_PrimeNums     = 1_INT64
 
   ! STEP.03
-  ! calculate the `limit`-th prime number
+  ! make the list of prime numbers
   do while (num_PrimeNums .lt. limit)
 
-    itr_ntrl = itr_ntrl + 1_INT64
-    
-    stat_IsPrime = .true.
+    itr_ntrl = itr_ntrl + 2_INT64
+    itr_elem = 1_INT64
 
-    do itr_elem = 1_INT64, num_PrimeNums, 1_INT64
-      if (isMultiple(target=itr_ntrl, ref=list_PrimeNums(itr_elem))) then
-        stat_IsPrime = .false.
-        exit
-      end if
+    do while (itr_elem .lt. num_PrimeNums .and. .not. IsMultiple(target=itr_ntrl, ref=list_PrimeNums(itr_elem)))
+      itr_elem = itr_elem + 1_INT64
     end do
 
-    if ( stat_IsPrime ) then
+    if (itr_elem .eq. num_PrimeNums) then
       num_PrimeNums                 = num_PrimeNums + 1_INT64
       list_PrimeNums(num_PrimeNums) = itr_ntrl
-    else
-      continue
     end if
 
   end do

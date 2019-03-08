@@ -36,10 +36,18 @@
   * [`0007_01.jl`](#0007_01jl) の同名の [`function`][julialang.doc.v1.function] と同じ機能を有します。
 
 ### 0007_03.jl ###
+
 * `problem0007( num::Core.Integer )`
   * 引数は `num` の 1 個です。
   * [`0007_01.jl`](#0007_01jl) の同名の [`function`][julialang.doc.v1.function] と同じ機能を有します。
-  * [`../support/support_projecteuler.jl`](../support_projecteuler.jl) の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `Main.SupportProjectEuler.isprime` を使用
+  * [`../support/support_projecteuler.jl`](../support_projecteuler.jl) の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `Main.SupportProjectEuler.isprime` を使用します。
+
+### 0007_03.jl ###
+
+* `problem0007( num::Core.Integer )`
+  * 引数は `num` の 1 個です。
+  * [`0007_01.jl`](#0007_01jl) の同名の [`function`][julialang.doc.v1.function] と同じ機能を有します。
+  * [`../support/support_projecteuler.jl`](../support_projecteuler.jl) の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `Main.SupportProjectEuler.ismultiple` を使用します。
 
 ## 補助コード ##
 

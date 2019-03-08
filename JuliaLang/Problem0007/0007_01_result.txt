@@ -9,7 +9,7 @@
 
 julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_01.jl" )
 [Data from Base.@timed]
-         t =   9.000000000000000E-07
+         t =   7.990000000000000E-07
      bytes =                       0
     gctime =   0.000000000000000E+00
     allocd =                       0
@@ -25,7 +25,7 @@ argument : 6
 result   : 13
 
 [Data from Base.@timed]
-         t =   2.115711801000000E+00
+         t =   2.047946301000000E+00
      bytes =                       0
     gctime =   0.000000000000000E+00
     allocd =                       0
@@ -39,6 +39,22 @@ total_time =                       0
 [returned value]
 argument : 10001
 result   : 104743
+
+[Data from Base.@timed]
+         t =   2.806060516990000E+02
+     bytes =                       0
+    gctime =   0.000000000000000E+00
+    allocd =                       0
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                       0
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 100001
+result   : 1299721
 
 
 julia>

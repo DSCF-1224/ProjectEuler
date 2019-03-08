@@ -2,7 +2,7 @@
 # Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_03.jl" ) 
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_04.jl" ) 
 
 # Project Euler
 # Problem 0007
@@ -15,36 +15,43 @@
 Base.MainInclude.include( "../support/support_projecteuler.jl" )
 Base.MainInclude.include( "0007_support.jl" )
 
-function problem0007( num::Core.Integer )
+function problem0007( limit::Core.Integer )
 
-	# [1] num::Core.Integer
-	# find the `num`-th prime number
+	# [1] limit::Core.Integer
+	# find the `limit`-th prime number
 
 	# STEP.01
-	# initialize the counter
-	count  = Base.one( num )
-	buf_PN = Base.one( num )
+	# prepare the array to store the prime numbers
+	list_PrimeNums = Base.Vector{ Core.typeof( limit ) }( Core.undef, limit )
 
 	# STEP.02
-	# search the prime numbers
-	while count <= num
+	# initialize the list of the prime numbersmake the list of prime numbers
+	buf_one           = Base.one( limit )
+	buf_two           = buf_one + buf_one
+	list_PrimeNums[1] = buf_two
+	itr_ntrl          = buf_one
+	num_PrimeNums     = buf_one
 
-		# STEP.02.01
-		# update the buffer
-		buf_PN += 1
+	# STEP.03
+	# make the list of prime numbers
+	while num_PrimeNums < limit
 
-		# STEP.02.02
-		# judge the value of buffer
-		stat = Main.SupportProjectEuler.isprime( buf_PN )
+		itr_ntrl += buf_two
+		itr_elem  = buf_one
 
-		if stat
-			count += 1
+		while itr_elem < num_PrimeNums && !Main.SupportProjectEuler.ismultiple( target=itr_ntrl, base=list_PrimeNums[itr_elem] )
+			itr_elem += buf_one
+		end
+
+		if Base.isequal(itr_elem, num_PrimeNums)
+			num_PrimeNums += buf_one
+			list_PrimeNums[num_PrimeNums] = itr_ntrl
 		end
 
 	end
 
 	# STEP.END
-	return buf_PN
+	return list_PrimeNums[limit]
 
 end
 

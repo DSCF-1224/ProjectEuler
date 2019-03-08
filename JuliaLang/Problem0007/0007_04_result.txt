@@ -7,15 +7,15 @@
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
-julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_02.jl" )
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0007/0007_04.jl" )
 [Data from Base.@timed]
-         t =   7.000000000000000E-07
-     bytes =                       0
+         t =   1.599000000000000E-06
+     bytes =                     112
     gctime =   0.000000000000000E+00
-    allocd =                       0
+    allocd =                     112
     malloc =                       0
    realloc =                       0
- poolalloc =                       0
+ poolalloc =                       1
   bigalloc =                       0
   freecall =                       0
 total_time =                       0
@@ -25,13 +25,13 @@ argument : 6
 result   : 13
 
 [Data from Base.@timed]
-         t =   1.382943101000000E+00
-     bytes =                       0
+         t =   1.069263000000000E-01
+     bytes =                   40144
     gctime =   0.000000000000000E+00
-    allocd =                       0
-    malloc =                       0
+    allocd =                   40144
+    malloc =                       1
    realloc =                       0
- poolalloc =                       0
+ poolalloc =                       1
   bigalloc =                       0
   freecall =                       0
 total_time =                       0
@@ -41,13 +41,13 @@ argument : 10001
 result   : 104743
 
 [Data from Base.@timed]
-         t =   1.921518084000000E+02
-     bytes =                       0
+         t =   1.042305379900000E+01
+     bytes =                  400144
     gctime =   0.000000000000000E+00
-    allocd =                       0
-    malloc =                       0
+    allocd =                  400144
+    malloc =                       1
    realloc =                       0
- poolalloc =                       0
+ poolalloc =                       1
   bigalloc =                       0
   freecall =                       0
 total_time =                       0

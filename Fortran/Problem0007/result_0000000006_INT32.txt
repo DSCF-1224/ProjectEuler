@@ -2,23 +2,23 @@
      KIND :          INT32
     LIMIT :              6
    RESULT :             13
- CPU TIME : 9.0000000E-007
+ CPU TIME : 1.0000000E-006
 
   VERSION :              2
      KIND :          INT32
     LIMIT :              6
    RESULT :             13
- CPU TIME : 4.6000000E-006
+ CPU TIME : 4.4000000E-006
 
   VERSION :              3
      KIND :          INT32
     LIMIT :              6
    RESULT :             13
- CPU TIME : 1.2000000E-006
+ CPU TIME : 9.0000000E-007
 
   VERSION :              4
      KIND :          INT32
     LIMIT :              6
    RESULT :             13
- CPU TIME : 9.0000000E-007
+ CPU TIME : 8.0000000E-007
 

@@ -130,5 +130,6 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-Main.show_result( Base.convert( Core.UInt32,     6 ) )
-Main.show_result( Base.convert( Core.UInt32, 10001 ) )
+Main.show_result( Base.convert( Core.UInt32,      6 ) )
+Main.show_result( Base.convert( Core.UInt32, 10^4+1 ) )
+Main.show_result( Base.convert( Core.UInt32, 10^5+1 ) )

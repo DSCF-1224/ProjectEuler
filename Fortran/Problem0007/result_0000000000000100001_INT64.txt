@@ -2,23 +2,23 @@
      KIND :          INT64
     LIMIT :         100001
    RESULT :        1299721
- CPU TIME : 2.8283650E-001
+ CPU TIME : 2.6457190E-001
 
   VERSION :              2
      KIND :          INT64
     LIMIT :         100001
    RESULT :        1299721
- CPU TIME : 4.5026836E+001
+ CPU TIME : 4.4649784E+001
 
   VERSION :              3
      KIND :          INT64
     LIMIT :         100001
    RESULT :        1299721
- CPU TIME : 4.1033885E+001
+ CPU TIME : 4.2355944E+001
 
   VERSION :              4
      KIND :          INT64
     LIMIT :         100001
    RESULT :        1299721
- CPU TIME : 4.4071556E+001
+ CPU TIME : 4.2177620E+001
 

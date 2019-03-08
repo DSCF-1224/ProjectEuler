@@ -2,13 +2,13 @@
      KIND :          INT64
     LIMIT :              6
    RESULT :             13
- CPU TIME : 1.5000000E-006
+ CPU TIME : 1.0000000E-006
 
   VERSION :              2
      KIND :          INT64
     LIMIT :              6
    RESULT :             13
- CPU TIME : 4.3000000E-006
+ CPU TIME : 4.4000000E-006
 
   VERSION :              3
      KIND :          INT64
@@ -20,5 +20,5 @@
      KIND :          INT64
     LIMIT :              6
    RESULT :             13
- CPU TIME : 1.0000000E-006
+ CPU TIME : 7.0000000E-007
 

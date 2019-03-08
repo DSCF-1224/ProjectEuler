@@ -2,23 +2,23 @@
      KIND :          INT32
     LIMIT :          10001
    RESULT :         104743
- CPU TIME : 4.2979000E-003
+ CPU TIME : 7.0734000E-003
 
   VERSION :              2
      KIND :          INT32
     LIMIT :          10001
    RESULT :         104743
- CPU TIME : 2.0913040E-001
+ CPU TIME : 2.0745920E-001
 
   VERSION :              3
      KIND :          INT32
     LIMIT :          10001
    RESULT :         104743
- CPU TIME : 1.3124840E-001
+ CPU TIME : 1.2962830E-001
 
   VERSION :              4
      KIND :          INT32
     LIMIT :          10001
    RESULT :         104743
- CPU TIME : 1.4522090E-001
+ CPU TIME : 1.4160760E-001
 
