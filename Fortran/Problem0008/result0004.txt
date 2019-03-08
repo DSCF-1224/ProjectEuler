@@ -1,0 +1,10 @@
+  VERSION :                   1
+   DIGITS :                   4
+   RESULT :                5832
+ CPU TIME :      3.4906000E-003
+
+  VERSION :                   2
+   DIGITS :                   4
+   RESULT :                5832
+ CPU TIME :      2.2583000E-003
+

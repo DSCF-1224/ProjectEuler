@@ -1,0 +1,10 @@
+  VERSION :                   1
+   DIGITS :                  19
+   RESULT :     127031877504000
+ CPU TIME :      2.4234000E-003
+
+  VERSION :                   2
+   DIGITS :                  19
+   RESULT :     127031877504000
+ CPU TIME :      1.8116000E-003
+

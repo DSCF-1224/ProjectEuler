@@ -1,0 +1,10 @@
+  VERSION :                   1
+   DIGITS :                   7
+   RESULT :             2571912
+ CPU TIME :      1.6302000E-003
+
+  VERSION :                   2
+   DIGITS :                   7
+   RESULT :             2571912
+ CPU TIME :      1.4797000E-003
+

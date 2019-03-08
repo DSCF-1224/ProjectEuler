@@ -11,12 +11,14 @@ module support_projecteuler
   implicit none
 
   ! accessibility of <subroutine>s and <function>s in this <module>
-  public  :: read_path_file_save        ! subroutine
-  public  :: read_path_folder_save      ! subroutine
+  public :: read_path_file_save     ! subroutine
+  public :: read_path_folder_save   ! subroutine
+  public :: read_path_folder_parent ! subroutine
 
 
   ! constants for this <module>
-  integer, parameter, public :: SAVE_UNIT       =  21
+  integer, parameter, public :: DATA_UNIT       =  21
+  integer, parameter, public :: SAVE_UNIT       =  31
   integer, parameter, public :: len_buffer_path = 512
 
 

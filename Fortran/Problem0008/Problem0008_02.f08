@@ -4,7 +4,7 @@
 ! http://odz.sakura.ne.jp/projecteuler/index.php?cmd=read&page=Problem%208                                                        !
 ! ------------------------------------------------------------------------------------------------------------------------------- !
 
-function Problem0008_01( num_digit ) result(product_max)
+function Problem0008_02( num_digit ) result(product_max)
 
   ! arguments for this <function>
   integer( kind=INT32 ), intent(in) :: num_digit
@@ -15,7 +15,7 @@ function Problem0008_01( num_digit ) result(product_max)
   ! variables for this <function>
   character( len=NUM_DIGIT_MAX, kind=1 ) :: buf_num_chr
   
-  integer(kind=INT64) :: buf_num_int(1:NUM_DIGIT_MAX)
+  integer(kind=INT8)  :: buf_num_int(1:NUM_DIGIT_MAX)
   integer(kind=INT64) :: product_buf
   integer(kind=INT32) :: itr_elem
   integer(kind=INT32) :: itr_start
@@ -60,7 +60,7 @@ function Problem0008_01( num_digit ) result(product_max)
   ! STEP.END
   return
 
-end function Problem0008_01
+end function Problem0008_02
 
 ! -------------------------------------------------------------------------------------------------------------------------------- !
 ! End of Source Code                                                                                                               !

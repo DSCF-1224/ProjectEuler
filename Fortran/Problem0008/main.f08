@@ -7,13 +7,28 @@ program main
 
   ! <module>s to import
   use, non_intrinsic :: Problem0008
+  use, non_intrinsic :: support_projecteuler
 
   ! Require all variables to be explicitly declared
   implicit none
 
-  call Problem0008_01(  4 )
-  call Problem0008_01( 13 )
-  
+
+  ! STEP.01
+  ! read out the path of the parent folder
+  call read_path_folder_parent (path_folder_parent)
+
+  ! STEP.02
+  ! calculate the target value
+  call show_result(  4 )
+  call show_result(  7 )
+  call show_result( 10 )
+  call show_result( 13 )
+  call show_result( 16 )
+  call show_result( 19 )
+
+  ! STEP.END
+  call show_reach_end
+
 end program main
 ! ------------------------------------------------------------------------------------------------------------------------------- !
 ! gfortran ^                                                                                                                      !

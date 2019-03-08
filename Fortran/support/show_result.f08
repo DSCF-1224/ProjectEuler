@@ -42,6 +42,26 @@ subroutine read_path_folder_save ( path_folder_save )
 end subroutine read_path_folder_save
 
 
+subroutine read_path_folder_parent ( path_folder_parent )
+
+  ! arguments for this <subroutine>
+  character (len=len_buffer_path, kind=1), intent (inout) :: path_folder_parent
+
+  ! STEP.01
+  ! show the current status of this program
+  write (unit=OUTPUT_UNIT, fmt='(A)',    advance='yes') 'Input the path of parent folder.'
+  write (unit=OUTPUT_UNIT, fmt='(A,1X)', advance='no')  '[PATH]'
+
+  ! STEP.02
+  ! read out the path of the file to save the result
+  read (unit=INPUT_UNIT, fmt='(A)') path_folder_parent
+
+  ! STEP.END
+  return
+
+end subroutine read_path_folder_parent
+
+
 subroutine show_reach_end
 
   ! STEP.01
