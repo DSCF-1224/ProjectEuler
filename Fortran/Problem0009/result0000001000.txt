@@ -1,0 +1,18 @@
+  VERSION :                    1
+ IS FOUND :                    T
+        a :                  200
+        b :                  375
+        c :                  425
+      SUM :                 1000
+  PRODUCT :             31875000
+ CPU TIME :       8.0868300E-002
+
+  VERSION :                    2
+ IS FOUND :                    T
+        a :                  200
+        b :                  375
+        c :                  425
+      SUM :                 1000
+  PRODUCT :             31875000
+ CPU TIME :       5.4000000E-005
+

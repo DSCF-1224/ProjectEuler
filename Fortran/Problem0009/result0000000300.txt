@@ -1,0 +1,18 @@
+  VERSION :                    1
+ IS FOUND :                    T
+        a :                   50
+        b :                  120
+        c :                  130
+      SUM :                  300
+  PRODUCT :               780000
+ CPU TIME :       3.3836000E-003
+
+  VERSION :                    2
+ IS FOUND :                    T
+        a :                   50
+        b :                  120
+        c :                  130
+      SUM :                  300
+  PRODUCT :               780000
+ CPU TIME :       5.8000000E-006
+
