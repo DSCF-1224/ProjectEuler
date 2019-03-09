@@ -1,3 +1,5 @@
+-- Project Euler 0001 : https://projecteuler.net/problem=1
+
 -- [Used Compiler]
 -- The Glorious Glasgow Haskell Compilation System, version 8.6.3
 
