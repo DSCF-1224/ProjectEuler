@@ -3,12 +3,16 @@
 -- [Used Compiler]
 -- The Glorious Glasgow Haskell Compilation System, version 8.6.3
 
+-- modules to import
+import System.Exit
+
+
 -- Fibonacci 数列の第`n`を返します。
 calc_Fibonacci :: Integer -> Integer
 calc_Fibonacci n
-    | n == 1 = 1
-    | n == 2 = 2
-    | n >= 3 = calc_Fibonacci (n - 1) + calc_Fibonacci (n - 2)
+    | n == 1    = 1
+    | n == 2    = 2
+    | otherwise = calc_Fibonacci (n - 1) + calc_Fibonacci (n - 2)
 
 
 -- `limit`以下で最大のFibonacci数は第`term`項である
@@ -33,15 +37,18 @@ is_Even n
 -- Fibonacci数列の第`n`項までの偶数項の総和を返します。
 sum_EvenTerms :: Integer -> Integer
 sum_EvenTerms n
-    | n <= 0 = 0
-    | n == 1 = is_Even (n)
-    | n >= 2 = sum_EvenTerms (n - 1) + is_Even (calc_Fibonacci n)
+    | n <= 0    = 0
+    | n == 1    = is_Even (n)
+    | otherwise = sum_EvenTerms (n - 1) + is_Even (calc_Fibonacci n)
 
 
 prob0002 :: Integer -> Integer
 prob0002 limit = sum_EvenTerms (is_LessEqual_Limit_main limit)
 
+
 -- 以下、主プロセス --
+main :: IO ()
 main = do
-    print $ prob0002 $ 4*10^6 -- 4613732
+    print $ prob0002 $ 4 * 10 ^ (6::Int) -- 4613732
     putStrLn "Finished" 
+    exitWith $ ExitSuccess

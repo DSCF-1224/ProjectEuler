@@ -3,6 +3,9 @@
 -- [Used Compiler]
 -- The Glorious Glasgow Haskell Compilation System, version 8.6.3
 
+-- modules to import
+import System.Exit
+
 
 -- Integer型変数`n`が次の2つの条件の少なくとも一方を満足するとき、`True`を返します。
 -- 1. 整数`n`が3の倍数であるとき。
@@ -31,8 +34,10 @@ prob0001 :: Integer -> Integer
 prob0001 limit = sum $ extract_TargetMultiple [1..limit-1]
 
 -- 以下、主プロセス --
+main :: IO ()
 main = do
     print $ prob0001     10 -- 23
     print $ prob0001   1000 -- 233168
     print $ prob0001 100000 -- 2333316668
     putStrLn "Finished" 
+    exitWith $ ExitSuccess
