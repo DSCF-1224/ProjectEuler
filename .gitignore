@@ -1,3 +1,6 @@
+Haskell/*/*.exe
+Haskell/*/*.hi
+Haskell/*/*.o
 *.aux
 *.fdb_latexmk
 *.fls
