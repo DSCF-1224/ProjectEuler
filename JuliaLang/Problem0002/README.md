@@ -8,6 +8,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 
 ## 依存関係 ##
+
 * `0002_support.jl` 中の自作 [`function`][julialang.doc.v1.function] の `show_result` を使用
 	* [`../support/support_projecteuler.jl`][support_projecteuler.jl] の自作 [`module`](https://docs.julialang.org/en/v1/base/base/#module) 中の [`function`][julialang.doc.v1.function] `SupportProjectEuler.println_timed` を使用
 
@@ -15,25 +16,120 @@ find the sum of the even-valued terms.
 ## 解答例 ##
 
 ### 0002_01_01.jl ###
+
 * `problem0002( max::Core.Integer )`
 	* [`0002_01_common.jl`](#0002_01_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
 	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
 	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.rem`][julialang.doc.v1.Base.rem] と [`Base.isequal`][julialang.doc.v1.Base.isequal] を用いて判断している
 	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
+```Text
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0002/0002_01_01.jl" )
+[Data from Base.@timed]
+         t =   3.772130000000000E-02
+     bytes =                  797007
+    gctime =   0.000000000000000E+00
+    allocd =                  797007
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                   13743
+  bigalloc =                       1
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia>
+```
+
 ### 0002_01_02.jl ###
+
 * `problem0002( max::Core.Integer )`
 	* [`0002_01_common.jl`](#0002_01_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
 	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
 	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.iseven`][julialang.doc.v1.Base.iseven] を用いて判断している
 	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
+```Text
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0002/0002_01_02.jl" )
+[Data from Base.@timed]
+         t =   2.479820000000000E-02
+     bytes =                     224
+    gctime =   0.000000000000000E+00
+    allocd =                     224
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                      14
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia>
+```
+
 ### 0002_02_01.jl ###
+
 * `problem0002( max::Core.Integer )`
 	* [`0002_02_common.jl`](#0002_02_commonjl) で定義した [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` を用いる
 	* [`function`][julialang.doc.v1.function]  `calc_FibonacciNum( max::Core.Integer )` で求められる Fibonacci 数列の各項の内, `max` を超えない偶数の総和を返す [`function`][julialang.doc.v1.function]
 	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.rem`][julialang.doc.v1.Base.rem] と [`Base.isequal`][julialang.doc.v1.Base.isequal] を用いて判断している
 	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
+
+```Text
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0002/0002_02_01.jl" )
+[Data from Base.@timed]
+         t =   4.401000000000000E-06
+     bytes =                    4672
+    gctime =   0.000000000000000E+00
+    allocd =                    4672
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                      30
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia>
+```
 
 ### 0002_02_02.jl ###
 * `problem0002( max::Core.Integer )`
@@ -42,11 +138,150 @@ find the sum of the even-valued terms.
 	* [`function`][julialang.doc.v1.function] `calc_FibonacciNum( max::Core.Integer )` の `return` 偶奇は [`Base.iseven`][julialang.doc.v1.Base.iseven] を用いて判断している
 	* 当該 [`function`][julialang.doc.v1.function] の出力は, [上述の](#依存関係) `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力される
 
+```Text
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "D:GitHub/ProjectEuler/JuliaLang/Problem0002/0002_02_02.jl" )
+[Data from Base.@timed]
+         t =   4.600000000000000E-06
+     bytes =                    4672
+    gctime =   0.000000000000000E+00
+    allocd =                    4672
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                      30
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia>
+```
+
 ### 0002_03_01.jl ###
 * `problem0002( max::Core.Integer )`
 
 ### 0002_03_02.jl ###
 * `problem0002( max::Core.Integer )`
+
+### 0002_04_01.jl ###
+
+```Text
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_04_01.jl" )
+[Data from Base.@timed]
+         t =   1.990100000000000E-05
+     bytes =                   15872
+    gctime =   0.000000000000000E+00
+    allocd =                   15872
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                     496
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_04_01.jl" )
+WARNING: replacing module SupportProjectEuler.
+WARNING: replacing module Fibonacci.
+[Data from Base.@timed]
+         t =   8.600000000000001E-06
+     bytes =                   15872
+    gctime =   0.000000000000000E+00
+    allocd =                   15872
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                     496
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia>
+```
+
+### 0002_04_02.jl ###
+
+* `problem0002( max::Core.Integer )`
+
+```Text
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.1.0 (2019-01-21)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_04_02.jl" )
+[Data from Base.@timed]
+         t =   3.260100000000000E-05
+     bytes =                   15872
+    gctime =   0.000000000000000E+00
+    allocd =                   15872
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                     496
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia> Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0002/0002_04_02.jl" )
+WARNING: replacing module SupportProjectEuler.
+WARNING: replacing module Fibonacci.
+[Data from Base.@timed]
+         t =   5.900000000000000E-06
+     bytes =                   15872
+    gctime =   0.000000000000000E+00
+    allocd =                   15872
+    malloc =                       0
+   realloc =                       0
+ poolalloc =                     496
+  bigalloc =                       0
+  freecall =                       0
+total_time =                       0
+     pause =                       0
+[returned value]
+argument : 4000000
+result   : 4613732
+
+
+julia>
+```
 
 ## 補助コード ##
 
