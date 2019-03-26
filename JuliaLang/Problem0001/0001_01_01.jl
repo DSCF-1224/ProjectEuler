@@ -2,7 +2,7 @@
 # Version 1.1.0 (2019-01-21)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0001/0001_01_01.jl" )
+# Base.MainInclude.include( "0001_01_01.jl" )
 
 # Project Euler Problem 0001 [Multiples of 3 and 5]
 # https://projecteuler.net/problem=1
@@ -25,23 +25,24 @@ function problem0001( max::Core.Integer )
 	# Find the sum of all the multiples of 3 or 5 below `max`.
 
 	# STEP.01
-	# initialize the buffer of sum
+	# initialize the buffer of summation and so on
 	sum = Base.zero( max )
 	min = Base.one( max )
 	
 	# STEP.02
-	# calculate the target sum
-	for itr in min : min : max-min
+	# calculate the target summation
+	for natural_num in min : min : max-min
 		
-		if Main.SupportProjectEuler.ismultiple( target=itr, base=3 )
-			sum += itr
-		elseif Main.SupportProjectEuler.ismultiple( target=itr, base=5 )
-			sum += itr
+		if Main.SupportProjectEuler.ismultiple(target=natural_num, base=3)
+			sum += natural_num
+		elseif Main.SupportProjectEuler.ismultiple(target=natural_num, base=5)
+			sum += natural_num
 		end
 
 	end
 
 	# STEP.END
+	# determine the return value of this function
 	return sum
 
 end

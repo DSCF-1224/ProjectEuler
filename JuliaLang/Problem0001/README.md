@@ -1,22 +1,27 @@
 # Project Euler 0001 #
 
 ## [設問](https://projecteuler.net/problem=1) ##
+
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 
 ## 依存関係 ##
+
 * `0001_support.jl` 中の自作 [`function`][julialang.doc.v1.function] の `show_result` を使用
-	* [`../support/support_projecteuler.jl`][support_projecteuler.jl] の自作 [`module`][julialang.doc.v1.module] 中の [`function`][julialang.doc.v1.function] `SupportProjectEuler.println_timed` を使用
+  * [`../support/support_projecteuler.jl`][support_projecteuler.jl] の自作 [`module`][julialang.doc.v1.module] 中の以下の [`function`][julialang.doc.v1.function] を使用しています。
+    * `function` `println_timed`
+    * `function` `ismultiple`
 
 ## 解答例 ##
 
 ### 0001_01_01.jl ###
+
 * `function problem0001( max::Core.Integer )`
-	* 1 から `max` 未満の整数から, 3 ないし 5 の倍数のみを抽出し, その総和を求める
-	* [`for`][julialang.doc.v1.for] 文で反復子 `itr` を `1` から `max-1` まで `1` ずつ増加させつつ, `itr` が 3 ないし 5 の倍数であるかを，[`function Base.rem`](https://docs.julialang.org/en/v1/base/math/#Base.rem) を用いた 3 ないし 5 で割ったときの余りで判定し, 倍数なら和を計算する
-	* 3 の倍数であるか 5 のであるかの条件分岐には [`if`][julialang.doc.v1.if] を使用
-	* 当該 [`function`][julialang.doc.v1.function]  の出力は，自作 [`function`][julialang.doc.v1.function]  の `show_result` を介して標準出力 [`Base.stdout`][julialang.doc.v1.Base.stdout] に出力する
-	* [`../support/support_projecteuler.jl`][support_projecteuler.jl] の自作 [`module`][julialang.doc.v1.module] 中の [`function`][julialang.doc.v1.function] `Main.SupportProjectEuler.ismultiple` を使用
+  * `max` 未満の3か5の倍数の総和を返します。
+  * 引数は `max` の1個のみです。
+  * `max` と同じ変数型の変数 `natural_num` を `1` から `max-1` まで `1` ずつ増加させつつ、「3か5の倍数である」かどうかを判定し、本命題が真のとき、求める総和を格納している変数 `sum` に `natural_num` を加算します。
+  * `natural_num` の更新には [`for`][julialang.doc.v1.for] 文を用いています。
+  * 「3か5の倍数である」かどうかを判定するには、 [`if ... elseif ... end`][julialang.doc.v1.if] と[`function` `ismultiple`](#依存関係)を使用しています。
 
 ### 0001_01_02.jl ###
 * `function problem0001( max::Core.Integer )`
