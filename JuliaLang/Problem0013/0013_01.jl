@@ -2,7 +2,7 @@
 # Version 1.1.1 (2019-05-16)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0010/0010_01.jl" ) 
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0013/0013_01.jl" ) 
 
 # Project Euler
 # Problem 0013
@@ -13,6 +13,7 @@
 
 # <module>s and <function>s to use
 Base.MainInclude.include( "../support/support_projecteuler.jl" )
+Base.MainInclude.include( "0013_support.jl" )
 
 function problem0013(path_datafile::AbstractString, len_data::Core.Integer)
 
@@ -45,6 +46,6 @@ end
 # Main process is below                                                                                                        #
 #==============================================================================================================================#
 
-Base.println( Main.problem0013("???/ProjectEuler/Data/p013_number.txt", 100) )
+Main.show_result("???/GitHub/ProjectEuler/Data/p013_number.txt", 100)
 
 # EOF

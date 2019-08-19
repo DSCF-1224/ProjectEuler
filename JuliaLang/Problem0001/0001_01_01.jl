@@ -53,3 +53,5 @@ end
 
 Main.show_result( Base.convert( Core.UInt64, 10^1 ) )
 Main.show_result( Base.convert( Core.UInt64, 10^3 ) )
+
+# EOF
