@@ -15,19 +15,19 @@
 Base.MainInclude.include( "../support/support_projecteuler.jl" )
 Base.MainInclude.include( "0008_support.jl" )
 
-function problem0008( digit::Core.Integer )
+function problem0008(digit::Core.Integer, path_datafile::Core.AbstractString)
 
 	# STEP.01
 	# open the target file
-	io_inpt = Base.open("D:GitHub/ProjectEuler/Data/p010_number.txt", "r")
+	iostream_datafile = Base.open(path_datafile, "r")
 
 	# STEP.02
 	# read out the target number
-	buf_number_str = Base.read( io_inpt, Core.String )
+	buf_number_str = Base.read( iostream_datafile, Core.String )
 
 	# STEP.03
 	# close the file which stores the target data
-	Base.close( io_inpt )
+	Base.close( iostream_datafile )
 
 	# STEP.04
 	# check the digit of the target number
@@ -72,5 +72,5 @@ end
 #==============================================================================================================================#
 
 for itr in 4:1:13
-	Main.show_result( itr )
+	Main.show_result( itr, "???/GitHub/ProjectEuler/Data/p008_number.txt"  )
 end

@@ -12,13 +12,13 @@
 #==============================================================================================================================#
 
 # show the result of main function
-function show_result( digit::Core.Integer )
+function show_result(digit::Core.Integer, path_datafile::Core.AbstractString)
 
 	# [1] num::Core.Integer
 	# find the `num`-th prime number
 
 	# STEP.01
-	retval, t, bytes, gctime, memallocs = Base.@timed Main.problem0008( digit )
+	retval, t, bytes, gctime, memallocs = Base.@timed Main.problem0008(digit, path_datafile)
 
 	# STEP.02
 	Main.SupportProjectEuler.println_timed( t, bytes, gctime, memallocs )
