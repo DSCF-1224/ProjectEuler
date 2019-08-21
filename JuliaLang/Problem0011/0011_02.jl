@@ -2,7 +2,7 @@
 # Version 1.1.1 (2019-05-16)
 # 
 # [how to use]
-# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0011/0011_01.jl" ) 
+# Base.MainInclude.include( "GitHub/ProjectEuler/JuliaLang/Problem0011/0011_02.jl" ) 
 
 # Project Euler
 # Problem 0011
@@ -39,57 +39,55 @@ function problem0011(path_datafile::Core.AbstractString, len_calc::Core.Integer)
 	val_prod_max = Base.zero(Core.UInt64)
 
 	for itr_rw in 1 : 1 : num_lines
-	for itr_cl in 1 : 1 : num_lines - len_calc
-
-		val_prod_tmp = Base.one(Core.UInt64)
-
-		for itr_elm in 0 : 1 : len_calc - 1
-			val_prod_tmp *= given_array[itr_rw, itr_cl + itr_elm]
-		end
-
-		val_prod_max = Base.max(val_prod_max, val_prod_tmp)
-
-	end
-	end
-
-	for itr_rw in 1 : 1 : num_lines - len_calc
 	for itr_cl in 1 : 1 : num_lines
 
-		val_prod_tmp = Base.one(Core.UInt64)
+		if itr_cl <= num_lines - len_calc
 
-		for itr_elm in 0 : 1 : len_calc - 1
-			val_prod_tmp *= given_array[itr_rw + itr_elm, itr_cl]
+			val_prod_tmp = Base.one(Core.UInt64)
+
+			for itr_elm in 0 : 1 : len_calc - 1
+				val_prod_tmp *= given_array[itr_rw, itr_cl + itr_elm]
+			end
+
+			val_prod_max = Base.max(val_prod_max, val_prod_tmp)
+
 		end
 
-		val_prod_max = Base.max(val_prod_max, val_prod_tmp)
+		if itr_rw <= num_lines - len_calc
 
-	end
-	end
+			val_prod_tmp = Base.one(Core.UInt64)
 
-	for itr_rw in 1 : 1 : num_lines - len_calc
-	for itr_cl in 1 : 1 : num_lines - len_calc
+			for itr_elm in 0 : 1 : len_calc - 1
+				val_prod_tmp *= given_array[itr_rw + itr_elm, itr_cl]
+			end
 
-		val_prod_tmp = Base.one(Core.UInt64)
+			val_prod_max = Base.max(val_prod_max, val_prod_tmp)
 
-		for itr_elm in 0 : 1 : len_calc - 1
-			val_prod_tmp *= given_array[itr_rw + itr_elm, itr_cl + itr_elm]
 		end
 
-		val_prod_max = Base.max(val_prod_max, val_prod_tmp)
+		if itr_cl <= num_lines - len_calc && itr_rw <= num_lines - len_calc
 
-	end
-	end
+			val_prod_tmp = Base.one(Core.UInt64)
 
-	for itr_rw in 1        : 1 : num_lines - len_calc
-	for itr_cl in len_calc : 1 : num_lines
+			for itr_elm in 0 : 1 : len_calc - 1
+				val_prod_tmp *= given_array[itr_rw + itr_elm, itr_cl + itr_elm]
+			end
 
-		val_prod_tmp = Base.one(Core.UInt64)
+			val_prod_max = Base.max(val_prod_max, val_prod_tmp)
 
-		for itr_elm in 0 : 1 : len_calc - 1
-			val_prod_tmp *= given_array[itr_rw + itr_elm, itr_cl - itr_elm]
 		end
 
-		val_prod_max = Base.max(val_prod_max, val_prod_tmp)
+		if len_calc <= itr_cl && itr_rw <= num_lines - len_calc
+
+			val_prod_tmp = Base.one(Core.UInt64)
+
+			for itr_elm in 0 : 1 : len_calc - 1
+				val_prod_tmp *= given_array[itr_rw + itr_elm, itr_cl - itr_elm]
+			end
+
+			val_prod_max = Base.max(val_prod_max, val_prod_tmp)
+
+		end
 
 	end
 	end
